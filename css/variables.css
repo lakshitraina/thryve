@@ -1,0 +1,80 @@
+/* ==========================================================================
+   THRYVE & CODE HEIST DESIGN SYSTEM - CRIMSON RED & DARK CINEMATIC TOKENS
+   Inspired directly by the Code Heist Hackathon (Operation 18.09) Poster
+   ========================================================================== */
+
+:root {
+  /* Brand Primary: Crimson & Blood Red */
+  --color-primary: #DC2626;
+  --color-primary-hover: #B91C1C;
+  --color-primary-dark: #991B1B;
+  --color-primary-light: rgba(220, 38, 38, 0.12);
+  --color-primary-border: rgba(220, 38, 38, 0.35);
+  --color-primary-glow: rgba(220, 38, 38, 0.45);
+  --color-neon-red: #FF3B3B;
+  --color-accent-emerald: #00B67A;
+
+  /* Neutrals & Surfaces (Dark Cinematic Base) */
+  --bg-main: #06080D;
+  --bg-surface: #0B0F18;
+  --bg-card: #0F1422;
+  --bg-card-subtle: #141B2D;
+  --bg-card-hover: #172036;
+  --bg-badge-red: rgba(220, 38, 38, 0.15);
+  --bg-badge-dark: #0A0F1D;
+
+  /* Deep Midnight Surfaces */
+  --bg-midnight-deep: #030407;
+  --bg-midnight-surface: #060911;
+  --bg-midnight-card: #0A0E1A;
+  --bg-midnight-border: #1E2538;
+
+  /* Text Colors */
+  --text-heading: #FFFFFF;
+  --text-body: #94A3B8;
+  --text-muted: #64748B;
+  --text-light: #475569;
+  --text-white: #FFFFFF;
+  --text-primary: #EF4444;
+  --text-dark-subtle: #CBD5E1;
+
+  /* Borders & Dividers */
+  --border-light: rgba(255, 255, 255, 0.08);
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-red: rgba(220, 38, 38, 0.3);
+  --border-red-strong: #DC2626;
+  --border-focus: #EF4444;
+  --border-dark: #1E2538;
+
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif-display: 'Playfair Display', Georgia, serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
+  /* Shadows & Glows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.7);
+  --shadow-xl: 0 25px 50px -10px rgba(0, 0, 0, 0.85);
+  --shadow-primary: 0 12px 30px -4px rgba(220, 38, 38, 0.55);
+  --shadow-red-glow: 0 0 35px rgba(220, 38, 38, 0.35);
+  --shadow-mac-window: 0 30px 70px -15px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.08);
+
+  /* Radius */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Layout Container */
+  --max-width: 1240px;
+  --header-height: 80px;
+}

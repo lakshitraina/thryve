@@ -1,0 +1,401 @@
+/* ==========================================================================
+   CODE HEIST FLAGSHIP SPOTLIGHT & OPERATION DASHBOARD - 100% DARK CRIMSON
+   ========================================================================== */
+
+.spotlight-section {
+  padding: 40px 0 80px 0;
+  position: relative;
+  background: var(--bg-main);
+}
+
+.spotlight-card {
+  background: linear-gradient(135deg, #0A0F1D 0%, #111827 100%);
+  border: 2px solid rgba(220, 38, 38, 0.4);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.7), 0 0 35px rgba(220, 38, 38, 0.2);
+  color: #FFFFFF;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  position: relative;
+}
+
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #DC2626 0%, #EF4444 60%, #FF3B3B 100%);
+}
+
+.spotlight-poster-side {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #040711;
+  padding: 32px;
+}
+
+.spotlight-poster-img {
+  width: 100%;
+  max-height: 560px;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(220, 38, 38, 0.25);
+  transition: transform var(--transition-smooth);
+}
+
+.spotlight-poster-img:hover {
+  transform: scale(1.02);
+}
+
+.spotlight-info-side {
+  padding: 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.spotlight-header-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(220, 38, 38, 0.15);
+  color: #F87171;
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  padding: 5px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.spotlight-title {
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+}
+
+.spotlight-tagline {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #EF4444;
+  letter-spacing: 0.06em;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.spotlight-desc {
+  font-size: 0.9375rem;
+  color: #94A3B8;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* Countdown Timer */
+.countdown-box {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+
+.countdown-label {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #EF4444;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  text-align: center;
+}
+
+.countdown-unit {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: var(--radius-md);
+  padding: 10px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.countdown-val {
+  font-family: var(--font-mono);
+  font-size: 1.625rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.countdown-sub {
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #64748B;
+  letter-spacing: 0.05em;
+}
+
+/* Progression Ladder */
+.heist-ladder {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+  padding: 12px 18px;
+  background: rgba(220, 38, 38, 0.08);
+  border-radius: var(--radius-md);
+  border: 1px dashed rgba(220, 38, 38, 0.3);
+}
+
+.heist-step {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: #FCA5A5;
+}
+
+.heist-arrow {
+  color: #64748B;
+  font-size: 0.8125rem;
+}
+
+.spotlight-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-heist-register {
+  background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%);
+  color: #FFFFFF;
+  padding: 14px 32px;
+  border-radius: var(--radius-pill);
+  font-size: 1rem;
+  font-weight: 800;
+  box-shadow: 0 10px 25px -4px rgba(220, 38, 38, 0.5);
+  transition: all var(--transition-smooth);
+}
+
+.btn-heist-register:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -4px rgba(220, 38, 38, 0.7);
+  background: linear-gradient(135deg, #B91C1C 0%, #DC2626 100%);
+}
+
+/* --------------------------------------------------------------------------
+   PROBLEM STATEMENT TRACKS GRID - DARK THEMED
+   -------------------------------------------------------------------------- */
+.tracks-section {
+  padding: 80px 0;
+  background: #0B0F18;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.tracks-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.track-card {
+  background: #0F1422;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  color: #FFFFFF;
+}
+
+.track-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #DC2626 0%, #EF4444 100%);
+  opacity: 0;
+  transition: opacity var(--transition-smooth);
+}
+
+.track-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 25px rgba(220, 38, 38, 0.2);
+  border-color: rgba(220, 38, 38, 0.4);
+  background: #141B2D;
+}
+
+.track-card:hover::before {
+  opacity: 1;
+}
+
+.track-icon-box {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: rgba(220, 38, 38, 0.12);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.625rem;
+  margin-bottom: 20px;
+}
+
+.track-title {
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.track-desc {
+  font-size: 0.9375rem;
+  color: #94A3B8;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.track-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.track-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.06);
+  color: #CBD5E1;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* --------------------------------------------------------------------------
+   SCHEDULE TIMELINE - 100% DARK THEMED
+   -------------------------------------------------------------------------- */
+.schedule-section {
+  padding: 80px 0;
+  background: #06080D;
+}
+
+.schedule-timeline {
+  max-width: 840px;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 36px;
+}
+
+.schedule-timeline::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 11px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -36px;
+  top: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #0A0E18;
+  border: 3px solid #DC2626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 12px rgba(220, 38, 38, 0.6);
+}
+
+.timeline-content-box {
+  background: #0F1422;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  transition: all var(--transition-smooth);
+  color: #FFFFFF;
+}
+
+.timeline-content-box:hover {
+  background: #141B2D;
+  border-color: rgba(220, 38, 38, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(220, 38, 38, 0.15);
+  transform: translateX(4px);
+}
+
+.timeline-time {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: #EF4444;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.timeline-title {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+}
+
+.timeline-desc {
+  font-size: 0.875rem;
+  color: #94A3B8;
+  line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+  .spotlight-card {
+    grid-template-columns: 1fr;
+  }
+  .spotlight-poster-side {
+    padding: 20px;
+  }
+  .spotlight-info-side {
+    padding: 28px;
+  }
+  .tracks-grid {
+    grid-template-columns: 1fr;
+  }
+}

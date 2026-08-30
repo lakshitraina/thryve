@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CODE HEIST HACKATHON '26 — Presented by THRYVE | LPU Punjab</title>
+  <meta name="description" content="CODE HEIST HACKATHON (Operation 18.09) presented by THRYVE at Lovely Professional University, Punjab. 24 Hours, ₹20K+ Prizes, ₹199 Entry Fee." />
+  <meta name="theme-color" content="#DC2626" />
+
+  <!-- Google Fonts: Plus Jakarta Sans + Playfair Display + JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Playfair+Display:ital,wght@1,600;1,700;1,800;1,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/spotlight.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="stylesheet" href="css/pass-modal.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <!-- Favicon with official THRYVE emblem -->
+  <link rel="icon" type="image/svg+xml" href="assets/thryve-emblem.svg" />
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION (Ref 1 & 2 Aesthetic)
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <svg class="brand-logo-icon" viewBox="0 0 800 320" fill="currentColor">
+          <g>
+            <path d="M400,0 L490,95 L445,138 L418,110 L418,220 L382,220 L382,110 L355,138 L310,95 Z" />
+            <path d="M400,285 L335,220 L362,192 L400,230 L438,192 L465,220 Z" />
+            <path d="M135,28 L330,140 L310,185 L180,110 L265,250 L200,285 L100,120 Z" />
+            <path d="M665,28 L700,120 L600,285 L535,250 L620,110 L490,185 L470,140 Z" />
+          </g>
+        </svg>
+        <span class="brand-logo-text">THRYVE<span class="brand-logo-dot">.</span></span>
+        <span class="brand-badge">LPU</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#codeheist" class="nav-link" style="color: #EF4444; font-weight: 800;">Operation 18.09 🔥</a>
+        <a href="#tracks" class="nav-link">Tracks</a>
+        <a href="#schedule" class="nav-link">Timeline</a>
+        <a href="#events" class="nav-link">Pass Hub</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-primary btn-sm" onclick="openPassModal('code-heist')" style="background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%);">
+          Get Pass (₹199)
+        </button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO SECTION (Ref 1 & 2 Exact Match tailored for Code Heist)
+       ========================================================================== -->
+  <section class="hero-section" id="hero">
+    <div class="hero-bg-glow"></div>
+    <div class="hero-watermark-emblem" style="position: absolute; top: 8%; left: 50%; transform: translateX(-50%); width: 560px; opacity: 0.035; pointer-events: none; z-index: 0;">
+      <svg viewBox="0 0 800 320" fill="currentColor" style="width: 100%;">
+        <path d="M400,0 L490,95 L445,138 L418,110 L418,220 L382,220 L382,110 L355,138 L310,95 Z M400,285 L335,220 L362,192 L400,230 L438,192 L465,220 Z M135,28 L330,140 L310,185 L180,110 L265,250 L200,285 L100,120 Z M665,28 L700,120 L600,285 L535,250 L620,110 L490,185 L470,140 Z" />
+      </svg>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        
+        <!-- Pulsing Live Badge (Ref 1 & 2) -->
+        <div class="hero-pill-wrapper">
+          <div class="badge-pill-live" style="border-color: rgba(220, 38, 38, 0.3); background: #FEF2F2; color: #DC2626;">
+            <span class="pulse-dot" style="background-color: #EF4444;"></span>
+            <span>OPERATION 18.09 — REGISTRATIONS OPEN</span>
+          </div>
+        </div>
+
+        <!-- Big Dual-Tone Headline (Ref 1 & 2) -->
+        <h1 class="hero-headline">
+          Code Heist.
+          <span class="hero-headline-sub" style="color: #EF4444;">Hackathon.</span>
+        </h1>
+
+        <!-- Subheading -->
+        <p class="hero-subtitle">
+          THRYVE presents the premier 24-hour hackathon at Lovely Professional University, Punjab. 
+          <br /><strong>"THE PLAN IS SET. THE REST IS UP TO YOU."</strong>
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-lg" onclick="openPassModal('code-heist')" style="background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%); box-shadow: 0 10px 25px rgba(220, 38, 38, 0.45);">
+            🎟️ Register for Code Heist (₹199) →
+          </button>
+          <a href="#codeheist" class="btn btn-secondary btn-lg">
+            Explore Heist Blueprint ↓
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       LIVE EVENT TICKER MARQUEE (Ref 1 Bottom Strip)
+       ========================================================================== -->
+  <div class="live-ticker-bar">
+    <div class="ticker-badge-live" style="background: #DC2626;">
+      <span class="pulse-white"></span>
+      <span>LIVE</span>
+    </div>
+    <div class="ticker-track-wrapper">
+      <div class="ticker-track" id="tickerTrack">
+        <!-- Injected dynamically by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       CODE HEIST SPOTLIGHT BANNER & LIVE COUNTDOWN (FLAGSHIP SHOWCASE)
+       ========================================================================== -->
+  <section class="spotlight-section" id="codeheist">
+    <div class="container">
+      
+      <div class="spotlight-card">
+        
+        <!-- Left: Uploaded Official Poster Artwork -->
+        <div class="spotlight-poster-side">
+          <img src="assets/code-heist-poster.jpg" alt="THRYVE Presents Code Heist Hackathon" class="spotlight-poster-img" />
+        </div>
+
+        <!-- Right: Hackathon Info & Live Countdown -->
+        <div class="spotlight-info-side">
+          <div>
+            <div class="spotlight-header-tag">
+              <span>⚡ OPERATION 18.09 • LPU PUNJAB</span>
+            </div>
+            <h2 class="spotlight-title">CODE HEIST HACKATHON</h2>
+            <div class="spotlight-tagline">"THE PLAN IS SET. THE REST IS UP TO YOU."</div>
+            
+            <p class="spotlight-desc">
+              A 24-hour non-stop hackathon by THRYVE. Team up with fellow developers, build your prototype, and win ₹20,000+ in rewards. Official verified certificates for all participants!
+            </p>
+
+            <!-- Live Countdown Timer -->
+            <div class="countdown-box">
+              <div class="countdown-label">
+                <span>⏳ TIME REMAINING UNTIL HEIST STARTS</span>
+              </div>
+              <div class="countdown-grid">
+                <div class="countdown-unit">
+                  <div class="countdown-val" id="cdDays">18</div>
+                  <div class="countdown-sub">Days</div>
+                </div>
+                <div class="countdown-unit">
+                  <div class="countdown-val" id="cdHours">09</div>
+                  <div class="countdown-sub">Hours</div>
+                </div>
+                <div class="countdown-unit">
+                  <div class="countdown-val" id="cdMins">45</div>
+                  <div class="countdown-sub">Mins</div>
+                </div>
+                <div class="countdown-unit">
+                  <div class="countdown-val" id="cdSecs">20</div>
+                  <div class="countdown-sub">Secs</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Progression Roadmap (From Poster) -->
+            <div class="heist-ladder">
+              <span class="heist-step">IDEA</span>
+              <span class="heist-arrow">➔</span>
+              <span class="heist-step">PLAN</span>
+              <span class="heist-arrow">➔</span>
+              <span class="heist-step">CODE</span>
+              <span class="heist-arrow">➔</span>
+              <span class="heist-step">BUILD</span>
+              <span class="heist-arrow">➔</span>
+              <span class="heist-step">TEST</span>
+              <span class="heist-arrow">➔</span>
+              <span class="heist-step" style="color: #00B67A;">WIN</span>
+            </div>
+          </div>
+
+          <div class="spotlight-actions-row">
+            <button class="btn-heist-register" onclick="openPassModal('code-heist')">
+              🎟️ Grab Entry Pass (₹199)
+            </button>
+            <a href="#tracks" class="btn btn-secondary btn-sm" style="background: rgba(255,255,255,0.06); color: #fff; border-color: rgba(255,255,255,0.15);">
+              Explore Problem Tracks ↓
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       MINIMALIST STATS STRIP (Ref 3 Exact Match)
+       ========================================================================== -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">24h</div>
+          <div class="stat-label">TIME WINDOW</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number highlight" style="color: #DC2626;">₹20K+</div>
+          <div class="stat-label">WORTH OF PRIZES</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">₹199</div>
+          <div class="stat-label">ENTRY FEE / PASS</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">CERTIFICATES FOR ALL</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">LPU</div>
+          <div class="stat-label">PUNJAB CAMPUS</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PROBLEM STATEMENT TRACKS SECTION
+       ========================================================================== -->
+  <section class="tracks-section" id="tracks">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" style="background: #FEF2F2; color: #DC2626;">⚡ CODE HEIST THEMES</span>
+        <h2 class="section-title">Problem Statement Tracks</h2>
+        <p class="section-subtitle">
+          Choose your domain, assemble your team, and build transformative prototypes during the 24-hour sprint.
+        </p>
+      </div>
+
+      <div class="tracks-grid" id="tracksGrid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       24-HOUR HEIST SCHEDULE TIMELINE
+       ========================================================================== -->
+  <section class="schedule-section" id="schedule">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" style="background: #FEF2F2; color: #DC2626;">⏱️ OPERATION TIMELINE</span>
+        <h2 class="section-title">24-Hour Heist Schedule</h2>
+        <p class="section-subtitle">
+          From opening briefing to final code freeze, pitch presentations, and award ceremony.
+        </p>
+      </div>
+
+      <div class="schedule-timeline" id="scheduleTimeline">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       MAC-STYLE DASHBOARD & PASS HUB (Ref 4 Exact Match)
+       ========================================================================== -->
+  <section class="dashboard-section" id="events">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-tag">🎟️ OFFICIAL HACKER PORTAL</span>
+        <h2 class="section-title">Reserve Your Hacker Badge</h2>
+        <p class="section-subtitle">
+          Instant digital pass generation with verified entry verification for Code Heist '26.
+        </p>
+      </div>
+
+      <!-- Mac Window Frame Preview Card (Ref 4) -->
+      <div class="mac-window-card">
+        
+        <!-- Mac Window Top Bar -->
+        <div class="mac-window-header">
+          <div class="mac-window-controls">
+            <span class="mac-dot red"></span>
+            <span class="mac-dot yellow"></span>
+            <span class="mac-dot green"></span>
+          </div>
+          <div class="mac-window-address">
+            <span class="lock-icon">🔒</span>
+            <span>CODEHEIST.ORG — LPU OPERATION PASS HUB</span>
+          </div>
+          <div class="mac-window-actions">
+            <span class="live-indicator" style="background: #FEF2F2; color: #DC2626;">
+              <span class="pulse-dot" style="background: #DC2626;"></span> LIVE REGISTRATIONS
+            </span>
+          </div>
+        </div>
+
+        <!-- Mac Window Inside Dashboard -->
+        <div class="mac-window-body">
+          
+          <!-- Mini Metrics Row (Ref 4 Dashboard Metrics) -->
+          <div class="dash-metrics-grid">
+            <div class="dash-metric-card">
+              <div class="dash-metric-label">ENTRY PASS TIER</div>
+              <div class="dash-metric-value" style="color: #DC2626;">₹199 PASS</div>
+              <span class="dash-metric-badge red">↗ ACTIVE BATCH REGISTRATIONS</span>
+            </div>
+            <div class="dash-metric-card">
+              <div class="dash-metric-label">HACKATHON WINDOW</div>
+              <div class="dash-metric-value">24 HOURS</div>
+              <span class="dash-metric-badge green">18 SEPTEMBER 2026</span>
+            </div>
+            <div class="dash-metric-card">
+              <div class="dash-metric-label">TOTAL REWARD POOL</div>
+              <div class="dash-metric-value highlight-green">₹20,000+</div>
+              <div class="dash-metric-progress">
+                <div class="dash-metric-bar" style="width: 100%; background: #DC2626;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls Bar -->
+          <div class="dash-controls-bar">
+            <div class="dash-tabs">
+              <button class="dash-tab-btn active" data-category="all">🔥 Operation 18.09</button>
+            </div>
+
+            <div class="dash-search-box">
+              <span>🔍</span>
+              <input type="text" id="eventSearchInput" placeholder="Search Code Heist details, rules, venue..." />
+            </div>
+          </div>
+
+          <!-- Dynamic Event Cards Grid -->
+          <div class="events-grid" id="eventsGrid">
+            <!-- Rendered dynamically by events.js -->
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FAQ ACCORDION
+       ========================================================================== -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">❓ QUESTIONS & ANSWERS</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">
+          Everything you need to know about Code Heist Hackathon rules, team sizes, and registration.
+        </p>
+      </div>
+
+      <div class="faq-container" id="faqContainer">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       JOIN THE CREW BANNER
+       ========================================================================== -->
+  <section class="join-cta-strip">
+    <div class="hero-bg-glow"></div>
+    <div class="container">
+      <div class="join-cta-content">
+        <span class="section-tag" style="background: rgba(0, 182, 122, 0.2); color: #00B67A;">🔥 NOW RECRUITING AT LPU</span>
+        <h2 class="join-cta-title">Want to Join the THRYVE Organizing Crew?</h2>
+        <p class="join-cta-desc">
+          Work with student leaders in tech development, event operations, PR & marketing, and design for Code Heist and future campus fests.
+        </p>
+        <button class="btn btn-primary btn-lg" onclick="openRecruitModal()">
+          Apply for THRYVE Crew '26 →
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       DEEP MIDNIGHT FOOTER (Ref 5 Exact Match)
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      
+      <!-- Top 4-Column Grid -->
+      <div class="footer-top-grid">
+        
+        <!-- Col 1: Brand & Socials -->
+        <div class="footer-brand-col">
+          <a href="#" class="footer-logo">
+            <svg class="footer-logo-icon" viewBox="0 0 800 320" fill="currentColor">
+              <g>
+                <path d="M400,0 L490,95 L445,138 L418,110 L418,220 L382,220 L382,110 L355,138 L310,95 Z" />
+                <path d="M400,285 L335,220 L362,192 L400,230 L438,192 L465,220 Z" />
+                <path d="M135,28 L330,140 L310,185 L180,110 L265,250 L200,285 L100,120 Z" />
+                <path d="M665,28 L700,120 L600,285 L535,250 L620,110 L490,185 L470,140 Z" />
+              </g>
+            </svg>
+            <span>THRYVE<span class="footer-logo-dot">.</span></span>
+          </a>
+          <p class="footer-tagline">
+            The student organization presenting Code Heist Hackathon at Lovely Professional University, Punjab.
+          </p>
+          <div class="footer-social-row">
+            <a href="#" class="social-btn" title="Twitter/X">𝕏</a>
+            <a href="#" class="social-btn" title="Instagram">📸</a>
+            <a href="#" class="social-btn" title="LinkedIn">in</a>
+            <a href="#" class="social-btn" title="Discord">💬</a>
+          </div>
+        </div>
+
+        <!-- Col 2: Verticals -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Operation</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="#codeheist"><span class="footer-link-icon">⚡</span> Code Heist 18.09</a></li>
+            <li class="footer-link-item"><a href="#tracks"><span class="footer-link-icon">⚡</span> Problem Tracks</a></li>
+            <li class="footer-link-item"><a href="#schedule"><span class="footer-link-icon">⚡</span> 24h Timeline</a></li>
+            <li class="footer-link-item"><a href="#events"><span class="footer-link-icon">⚡</span> Entry Pass (₹199)</a></li>
+            <li class="footer-link-item"><a href="javascript:void(0)" onclick="openRecruitModal()"><span class="footer-link-icon">⚡</span> Join Crew</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Organization -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Organization</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="#hero">About THRYVE</a></li>
+            <li class="footer-link-item"><a href="javascript:void(0)" onclick="openRecruitModal()">Recruitment '26</a></li>
+            <li class="footer-link-item"><a href="#faq">Hackathon Rules</a></li>
+            <li class="footer-link-item"><a href="mailto:thryveofficial@gmail.com">Sponsor & Partner</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: HQ & Parent Identity (Ref 5) -->
+        <div class="footer-hq-col">
+          <h4 class="footer-col-title">THRYVE HQ</h4>
+          <div class="hq-info-item">
+            <span class="hq-info-icon">📍</span>
+            <span>Lovely Professional University (LPU), Punjab, India</span>
+          </div>
+          <div class="hq-info-item">
+            <span class="hq-info-icon">✉️</span>
+            <a href="mailto:thryveofficial@gmail.com" style="color: inherit;">thryveofficial@gmail.com</a>
+          </div>
+          <div class="hq-info-item">
+            <span class="hq-info-icon">✉️</span>
+            <a href="mailto:support@clubthryve.in" style="color: inherit;">support@clubthryve.in</a>
+          </div>
+          <div class="hq-info-item">
+            <span class="hq-info-icon">📞</span>
+            <a href="tel:+91787684881" style="color: inherit;">+91 787684881</a>
+          </div>
+
+          <!-- Parent Identity Box (Ref 5) -->
+          <div class="parent-identity-card">
+            <div class="parent-label">PARENT IDENTITY</div>
+            <div class="parent-title">THE THRYVE FOUNDATION</div>
+            <div class="parent-subtitle">Managed by Student Executive Board, LPU</div>
+            <div class="verified-badge">
+              <span>✓</span>
+              <span>VERIFIED STUDENT BODY</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar (Ref 5) -->
+      <div class="footer-bottom-bar">
+        <div class="footer-locale">
+          <span>🌐 English (IN)</span>
+        </div>
+        <div class="footer-copyright">
+          © 2026 THRYVE. Lovely Professional University, Punjab.
+        </div>
+        <div class="footer-status-pill">
+          <span class="status-dot-pulse"></span>
+          <span>STATUS: <span class="status-text-highlight">ALL SYSTEMS OPERATIONAL</span></span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODAL 1: CODE HEIST TEAM REGISTRATION & DIGITAL HACKER PASS
+       ========================================================================== -->
+  <div class="modal-backdrop" id="passModal">
+    <div class="modal-container">
+      <button class="modal-close-btn" onclick="closePassModal()" title="Close">✕</button>
+      
+      <div class="modal-pass-layout">
+        
+        <!-- Left: Team Form Side -->
+        <div class="modal-form-side">
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+              <span class="section-tag" style="background: rgba(220, 38, 38, 0.15); color: #EF4444; margin-bottom: 0;">OPERATION 18.09</span>
+              <span style="font-size: 0.75rem; color: #94A3B8; font-weight: 700;">₹199 / TEAM PASS</span>
+            </div>
+            
+            <h3 style="font-size: 1.5rem; font-weight: 900; color: #FFFFFF; margin-bottom: 4px;">
+              Code Heist Team Registration
+            </h3>
+            <p style="font-size: 0.8125rem; color: #94A3B8; margin-bottom: 20px;">
+              Assemble your squad (1 to 4 hackers) and generate your official entry badge.
+            </p>
+
+            <form id="passForm" onsubmit="handlePassFormSubmit(event)">
+              
+              <!-- 1. Team Name Input -->
+              <div class="form-group">
+                <label class="form-label" for="teamNameInput">Squad / Team Name *</label>
+                <input type="text" id="teamNameInput" class="form-input" placeholder="e.g. Code Warriors / Byte Busters" value="" required oninput="updatePassPreview()" />
+              </div>
+
+              <!-- 2. Team Size Selector (1 to 4 Members) -->
+              <div class="form-group">
+                <label class="form-label">Number of Team Members (Max 4)</label>
+                <div class="team-size-selector">
+                  <div class="team-size-btn active" data-size="1" onclick="setTeamSize(1)">1 Member</div>
+                  <div class="team-size-btn" data-size="2" onclick="setTeamSize(2)">2 Members</div>
+                  <div class="team-size-btn" data-size="3" onclick="setTeamSize(3)">3 Members</div>
+                  <div class="team-size-btn" data-size="4" onclick="setTeamSize(4)">4 Members</div>
+                </div>
+              </div>
+
+              <!-- 3. Dynamic Members Container (Injected by passGenerator.js) -->
+              <div id="teamMembersContainer">
+                <!-- Rendered dynamically according to selected team size -->
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px; padding: 14px; font-size: 1rem;">
+                Confirm & Issue Entry Pass (₹199) 🎟️
+              </button>
+            </form>
+          </div>
+
+          <div style="margin-top: 16px; font-size: 0.75rem; color: #64748B; text-align: center;">
+            🔒 Cryptographically verified badge for Lovely Professional University, Punjab.
+          </div>
+        </div>
+
+        <!-- Right: Holographic Team Festival Pass Card Preview -->
+        <div class="modal-preview-side">
+          <div class="festival-pass-badge">
+            <div class="pass-header">
+              <span class="pass-brand" style="display: flex; align-items: center; gap: 8px;">
+                <svg viewBox="0 0 800 320" style="width: 24px; height: 16px; color: #EF4444;" fill="currentColor">
+                  <path d="M400,0 L490,95 L445,138 L418,110 L418,220 L382,220 L382,110 L355,138 L310,95 Z M400,285 L335,220 L362,192 L400,230 L438,192 L465,220 Z M135,28 L330,140 L310,185 L180,110 L265,250 L200,285 L100,120 Z M665,28 L700,120 L600,285 L535,250 L620,110 L490,185 L470,140 Z" />
+                </svg>
+                <span>THRYVE<span style="color: #EF4444;">.</span></span>
+              </span>
+              <span class="pass-tier-badge" id="previewPassTier">ENTRY PASS (₹199)</span>
+            </div>
+
+            <div class="pass-body">
+              <div class="pass-event-name">CODE HEIST HACKATHON</div>
+              <div class="pass-team-headline" id="previewTeamName">YOUR SQUAD NAME</div>
+
+              <div class="pass-attendee-details">
+                <div>
+                  <div class="pass-field-label">PARTICIPANT / LEADER</div>
+                  <div class="pass-field-val" id="previewLeaderName">Leader Name</div>
+                </div>
+                <div>
+                  <div class="pass-field-label">REGISTRATION NO</div>
+                  <div class="pass-field-val" id="previewLeaderReg">12204592</div>
+                </div>
+                <div>
+                  <div class="pass-field-label">COURSE & YEAR</div>
+                  <div class="pass-field-val" id="previewLeaderCourse">B.Tech CSE (2nd Year)</div>
+                </div>
+                <div>
+                  <div class="pass-field-label">TEAM SIZE</div>
+                  <div class="pass-field-val" id="previewTeamCount" style="color: #EF4444;">1 Member</div>
+                </div>
+              </div>
+
+              <!-- Roster List -->
+              <div class="pass-roster-list">
+                <div class="pass-roster-label">TEAM ROSTER</div>
+                <div class="pass-roster-names" id="previewRosterNames">Leader (Solo)</div>
+              </div>
+
+              <!-- Pass Serial Bar (No QR, No LPU Verified) -->
+              <div class="pass-serial-bar">
+                <span class="pass-serial-label">OFFICIAL PASS ID</span>
+                <span class="pass-serial-id" id="previewPassSerial">#HEIST-TEAM-26</span>
+              </div>
+            </div>
+
+            <div class="pass-footer-barcode">
+              ||| |||| | ||||| || |||| ||||| ||| |||
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL 2: RECRUITMENT APPLICATION
+       ========================================================================== -->
+  <div class="modal-backdrop" id="recruitModal">
+    <div class="modal-container" style="max-width: 680px;">
+      <button class="modal-close-btn" onclick="closeRecruitModal()" title="Close">✕</button>
+
+      <div class="recruit-modal-layout">
+        <div class="recruit-header">
+          <span class="section-tag">JOIN THE CORE CREW</span>
+          <h3 style="font-size: 1.75rem; font-weight: 800; color: #FFFFFF; margin-top: 8px;">
+            Apply for THRYVE '26 @ LPU
+          </h3>
+          <p style="font-size: 0.9375rem; color: #94A3B8;">
+            Select your department and help organize Code Heist and upcoming campus fests.
+          </p>
+        </div>
+
+        <form id="recruitForm" onsubmit="handleRecruitSubmit(event)">
+          
+          <label class="form-label" style="margin-bottom: 10px;">Select Department</label>
+          <div class="department-radio-grid">
+            <div class="dept-card-radio selected" data-dept="tech" onclick="selectDeptRadio('tech')">
+              <div class="dept-icon">💻</div>
+              <div class="dept-name">Tech & Web</div>
+            </div>
+            <div class="dept-card-radio" data-dept="ops" onclick="selectDeptRadio('ops')">
+              <div class="dept-icon">🎪</div>
+              <div class="dept-name">Event Ops</div>
+            </div>
+            <div class="dept-card-radio" data-dept="design" onclick="selectDeptRadio('design')">
+              <div class="dept-icon">🎨</div>
+              <div class="dept-name">Design & Media</div>
+            </div>
+            <div class="dept-card-radio" data-dept="pr" onclick="selectDeptRadio('pr')">
+              <div class="dept-icon">📢</div>
+              <div class="dept-name">PR & Marketing</div>
+            </div>
+            <div class="dept-card-radio" data-dept="sponsors" onclick="selectDeptRadio('sponsors')">
+              <div class="dept-icon">🤝</div>
+              <div class="dept-name">Sponsorships</div>
+            </div>
+            <div class="dept-card-radio" data-dept="content" onclick="selectDeptRadio('content')">
+              <div class="dept-icon">🎤</div>
+              <div class="dept-name">Anchoring</div>
+            </div>
+          </div>
+
+          <div class="recruit-grid">
+            <div class="form-group">
+              <label class="form-label" for="recruitName">Full Name</label>
+              <input type="text" id="recruitName" class="form-input" placeholder="e.g. Rohan Verma" value="" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="recruitEmail">Student Email</label>
+              <input type="email" id="recruitEmail" class="form-input" placeholder="e.g. rohan@lpu.in" value="" required />
+            </div>
+          </div>
+
+          <div class="recruit-grid">
+            <div class="form-group">
+              <label class="form-label" for="recruitPhone">WhatsApp Phone</label>
+              <input type="tel" id="recruitPhone" class="form-input" placeholder="e.g. +91 98765 43210" value="" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="recruitBranch">Registration No & Branch</label>
+              <input type="text" id="recruitBranch" class="form-input" placeholder="e.g. 12204592 - B.Tech CSE" value="" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="recruitPortfolio">GitHub / Portfolio / Social Link (Optional)</label>
+            <input type="url" id="recruitPortfolio" class="form-input" placeholder="https://github.com/your-username" />
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 16px; background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%);">
+            Submit Application 🚀
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/events.js"></script>
+  <script src="js/passGenerator.js"></script>
+  <script src="js/recruitment.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

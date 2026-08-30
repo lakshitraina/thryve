@@ -1,0 +1,12 @@
+# Logs & Temp
+*.log
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+
+# IDE & system
+.vscode/
+.idea/
+.agents/

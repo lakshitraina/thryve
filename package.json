@@ -1,0 +1,21 @@
+{
+  "name": "thryve-student-organization",
+  "version": "1.0.0",
+  "description": "Official Web Platform for THRYVE — Student Organization for Concerts, Tech, Cultural & Campus Events",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "serve": "npx serve ."
+  },
+  "keywords": [
+    "thryve",
+    "student-organization",
+    "college-fest",
+    "hackathons",
+    "concerts",
+    "cultural-events"
+  ],
+  "author": "THRYVE Student Executive Council",
+  "license": "MIT"
+}

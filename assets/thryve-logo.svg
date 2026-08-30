@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" fill="currentColor">
+  <!-- THRYVE Official Crown / Triple-Arrow Geometric Emblem -->
+  <g class="thryve-emblem">
+    <!-- Center Upward Arrow & Chevron -->
+    <path d="M400,0 L490,95 L445,138 L418,110 L418,220 L382,220 L382,110 L355,138 L310,95 Z" />
+    <path d="M400,285 L335,220 L362,192 L400,230 L438,192 L465,220 Z" />
+
+    <!-- Left Wing Arrow -->
+    <path d="M135,28 L330,140 L310,185 L180,110 L265,250 L200,285 L100,120 Z" />
+    
+    <!-- Right Wing Arrow -->
+    <path d="M665,28 L700,120 L600,285 L535,250 L620,110 L490,185 L470,140 Z" />
+  </g>
+
+  <!-- THRYVE Geometric Logotype -->
+  <g class="thryve-typography" transform="translate(0, 335)">
+    <!-- T -->
+    <path d="M5,0 L115,0 L115,36 L78,36 L78,145 L42,145 L42,36 L5,36 Z" />
+    <!-- H -->
+    <path d="M150,0 L186,0 L186,48 L224,48 L224,0 L260,0 L260,145 L224,145 L224,92 L186,92 L186,145 L150,145 Z" />
+    <!-- R -->
+    <path d="M290,0 L368,0 C398,0 415,18 415,48 C415,70 400,86 376,90 L420,145 L378,145 L340,94 L326,94 L326,145 L290,145 Z M326,34 L326,62 L362,62 C374,62 380,56 380,48 C380,40 374,34 362,34 Z" />
+    <!-- Y -->
+    <path d="M440,0 L478,0 L512,65 L546,0 L584,0 L532,88 L532,145 L492,145 L492,88 Z" />
+    <!-- V -->
+    <path d="M605,0 L642,0 L675,98 L708,0 L745,0 L696,145 L654,145 Z" />
+    <!-- E -->
+    <path d="M765,0 L870,0 L870,36 L801,36 L801,56 L860,56 L860,88 L801,88 L801,109 L870,109 L870,145 L765,145 Z" />
+  </g>
+</svg>

@@ -1,0 +1,626 @@
+/* ==========================================================================
+   THRYVE & CODE HEIST COMPONENTS - DARK CRIMSON EDITION
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. NAVBAR
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(6, 8, 13, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all var(--transition-smooth);
+}
+
+.site-header.scrolled {
+  background: rgba(6, 8, 13, 0.98);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.7);
+  border-bottom-color: rgba(220, 38, 38, 0.25);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Brand Logo */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.brand-logo-icon {
+  width: 32px;
+  height: 20px;
+  color: #EF4444;
+  filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.6));
+  transition: transform var(--transition-smooth);
+}
+
+.brand-logo:hover .brand-logo-icon {
+  transform: translateY(-2px) scale(1.08);
+}
+
+.brand-logo-text {
+  position: relative;
+  letter-spacing: 0.04em;
+}
+
+.brand-logo-dot {
+  color: #EF4444;
+  font-family: var(--font-serif-display);
+  font-style: italic;
+}
+
+.brand-badge {
+  margin-left: 8px;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  background: rgba(220, 38, 38, 0.15);
+  color: #F87171;
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.05em;
+}
+
+/* Nav Menu Links */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-link {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #94A3B8;
+  position: relative;
+  padding: 8px 0;
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #FFFFFF;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #EF4444;
+  box-shadow: 0 0 8px #EF4444;
+  border-radius: 2px;
+  transition: width var(--transition-smooth);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: #141B2D;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  padding: 6px;
+}
+
+.mobile-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 2px;
+  transition: all var(--transition-smooth);
+}
+
+/* --------------------------------------------------------------------------
+   2. HERO SECTION - DARK AMBIENT RED
+   -------------------------------------------------------------------------- */
+.hero-section {
+  position: relative;
+  padding: 72px 0 44px 0;
+  background: radial-gradient(circle at 50% 0%, rgba(220, 38, 38, 0.18) 0%, rgba(6, 8, 13, 0) 70%);
+  overflow: hidden;
+}
+
+.hero-bg-glow {
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 420px;
+  background: radial-gradient(ellipse, rgba(220, 38, 38, 0.3) 0%, rgba(239, 68, 68, 0.1) 45%, transparent 75%);
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.hero-pill-wrapper {
+  margin-bottom: 24px;
+}
+
+.hero-headline {
+  font-family: var(--font-sans);
+  font-weight: 900;
+  font-size: clamp(2.75rem, 6.8vw, 5.25rem);
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: #FFFFFF;
+  margin-bottom: 24px;
+}
+
+.hero-headline-sub {
+  display: block;
+  font-family: var(--font-serif-display);
+  font-style: italic;
+  font-weight: 700;
+  color: #EF4444;
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 25px rgba(239, 68, 68, 0.5);
+}
+
+.hero-subtitle {
+  font-size: clamp(1.0625rem, 2vw, 1.25rem);
+  color: #94A3B8;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto 36px auto;
+  font-weight: 400;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+}
+
+/* --------------------------------------------------------------------------
+   3. LIVE TICKER STRIP
+   -------------------------------------------------------------------------- */
+.live-ticker-bar {
+  background: #0A0E17;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  height: 52px;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+}
+
+.ticker-badge-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #DC2626;
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  padding: 0 20px;
+  height: 100%;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  z-index: 2;
+  box-shadow: 4px 0 16px rgba(220, 38, 38, 0.45);
+}
+
+.ticker-badge-live .pulse-white {
+  width: 6px;
+  height: 6px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  animation: pulse-ring-white 1.6s infinite;
+}
+
+@keyframes pulse-ring-white {
+  0% { transform: scale(0.6); opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.ticker-track-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.ticker-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 36px;
+  animation: tickerSlide 35s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes tickerSlide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: #FFFFFF;
+}
+
+.ticker-tag {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  border-radius: var(--radius-xs);
+  background: rgba(255, 255, 255, 0.08);
+  color: #CBD5E1;
+}
+
+.ticker-tag.upcoming {
+  background: rgba(220, 38, 38, 0.15);
+  color: #F87171;
+  border: 1px solid rgba(220, 38, 38, 0.3);
+}
+
+.ticker-tag.soldout {
+  background: rgba(239, 68, 68, 0.2);
+  color: #EF4444;
+}
+
+.ticker-tag.now {
+  background: rgba(220, 38, 38, 0.25);
+  color: #FCA5A5;
+}
+
+.ticker-title {
+  font-weight: 700;
+}
+
+.ticker-detail {
+  font-weight: 500;
+  color: #94A3B8;
+}
+
+.ticker-divider {
+  color: #334155;
+  font-size: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. MINIMALIST STATS SECTION (Ref 3 Dark Crimson Style)
+   -------------------------------------------------------------------------- */
+.stats-section {
+  padding: 64px 0;
+  background: #06080D;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  text-align: center;
+  align-items: center;
+}
+
+.stat-card {
+  padding: 12px 16px;
+  transition: transform var(--transition-smooth);
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+}
+
+.stat-number {
+  font-family: var(--font-sans);
+  font-weight: 900;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  letter-spacing: -0.04em;
+  color: #FFFFFF;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.stat-number.highlight {
+  color: #EF4444;
+  text-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #64748B;
+}
+
+/* --------------------------------------------------------------------------
+   5. VERTICALS & EXPERIENCES SECTION
+   -------------------------------------------------------------------------- */
+.verticals-section {
+  padding: 96px 0;
+  background: var(--bg-surface);
+  position: relative;
+}
+
+.verticals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.vertical-card {
+  background: #0F1422;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.vertical-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #DC2626 0%, #EF4444 100%);
+  opacity: 0;
+  transition: opacity var(--transition-smooth);
+}
+
+.vertical-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+  border-color: rgba(220, 38, 38, 0.4);
+  background: #141B2D;
+}
+
+.vertical-card:hover::before {
+  opacity: 1;
+}
+
+.vertical-icon-box {
+  width: 58px;
+  height: 58px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  margin-bottom: 24px;
+  background: rgba(220, 38, 38, 0.12);
+  color: #EF4444;
+  border: 1px solid rgba(220, 38, 38, 0.25);
+}
+
+.vertical-title {
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.vertical-desc {
+  font-size: 0.9375rem;
+  color: var(--text-body);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.vertical-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.vertical-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.06);
+  color: #CBD5E1;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.vertical-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #EF4444;
+  transition: gap var(--transition-smooth);
+}
+
+.vertical-card:hover .vertical-link {
+  gap: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   6. FAQ ACCORDION SECTION
+   -------------------------------------------------------------------------- */
+.faq-section {
+  padding: 96px 0;
+  background: #06080D;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #0F1422;
+  transition: all var(--transition-smooth);
+}
+
+.faq-item.active {
+  border-color: rgba(220, 38, 38, 0.5);
+  box-shadow: 0 8px 25px -4px rgba(220, 38, 38, 0.2);
+  background: #141B2D;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  font-weight: 700;
+  font-size: 1.0625rem;
+  color: #FFFFFF;
+  gap: 16px;
+}
+
+.faq-question:hover {
+  color: #F87171;
+}
+
+.faq-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #CBD5E1;
+  transition: transform var(--transition-smooth), background-color var(--transition-smooth);
+  flex-shrink: 0;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+  background-color: rgba(220, 38, 38, 0.2);
+  color: #EF4444;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease-out, padding 0.35s ease-out;
+  padding: 0 24px;
+  color: var(--text-body);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+
+.faq-item.active .faq-answer {
+  padding: 0 24px 20px 24px;
+  max-height: 250px;
+}
+
+/* --------------------------------------------------------------------------
+   7. JOIN THE CREW CTA STRIP
+   -------------------------------------------------------------------------- */
+.join-cta-strip {
+  padding: 80px 0;
+  background: radial-gradient(circle at 50% 50%, #141B2D 0%, #06080D 100%);
+  color: #FFFFFF;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.join-cta-strip .hero-bg-glow {
+  top: -50px;
+  background: radial-gradient(ellipse, rgba(220, 38, 38, 0.35) 0%, transparent 75%);
+}
+
+.join-cta-content {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.join-cta-title {
+  font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+  color: #FFFFFF;
+}
+
+.join-cta-desc {
+  font-size: 1.125rem;
+  color: #94A3B8;
+  margin-bottom: 32px;
+}
