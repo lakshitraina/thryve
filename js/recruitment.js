@@ -27,18 +27,46 @@ function selectDeptRadio(deptId) {
   });
 }
 
-function handleRecruitSubmit(e) {
+async function handleRecruitSubmit(e) {
   e.preventDefault();
 
-  const nameInput = document.getElementById('recruitName');
-  const applicantName = nameInput && nameInput.value ? nameInput.value : 'Applicant';
+  const nameEl = document.getElementById('recruitName');
+  const emailEl = document.getElementById('recruitEmail');
+  const phoneEl = document.getElementById('recruitPhone');
+  const branchEl = document.getElementById('recruitBranch');
+  const portfolioEl = document.getElementById('recruitPortfolio');
 
-  triggerCelebrationConfetti();
+  const name = nameEl ? nameEl.value.trim() : 'Applicant';
+  const email = emailEl ? emailEl.value.trim() : '';
+  const phone = phoneEl ? phoneEl.value.trim() : '';
+  const branch = branchEl ? branchEl.value.trim() : '';
+  const portfolio = portfolioEl ? portfolioEl.value.trim() : '';
+
+  const payload = {
+    name,
+    email,
+    phone,
+    branch,
+    department: selectedDepartment,
+    portfolio
+  };
+
+  try {
+    const apiEndpoint = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+      ? 'https://thryve-9nka.onrender.com/api/recruitment'
+      : '/api/recruitment';
+
+    fetch(apiEndpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).catch(err => console.log('Backend sync note:', err));
+  } catch (err) {
+    console.log('Submission note:', err);
+  }
+
+  showToast(`🚀 Application submitted for ${name} (${selectedDepartment.toUpperCase()} Crew)! Check your email for next steps.`);
+  
   closeRecruitModal();
-  
-  showToast(`🚀 Application submitted for ${applicantName}! Check your email for interview slot details.`);
-  
-  // Reset form
-  const form = document.getElementById('recruitForm');
-  if (form) form.reset();
+  e.target.reset();
 }

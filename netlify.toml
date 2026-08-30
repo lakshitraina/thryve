@@ -1,15 +1,16 @@
 # ==============================================================================
 # NETLIFY DEPLOYMENT CONFIGURATION — THRYVE FRONTEND
+# Proxies to Live Render Backend: https://thryve-9nka.onrender.com
 # ==============================================================================
 
 [build]
   publish = "."
   command = "echo 'THRYVE Static Web Build Ready'"
 
-# Proxy API calls directly to Render backend
+# Proxy API calls directly to live Render backend
 [[redirects]]
   from = "/api/*"
-  to = "https://thryve-backend.onrender.com/api/:splat"
+  to = "https://thryve-9nka.onrender.com/api/:splat"
   status = 200
   force = true
 

@@ -161,15 +161,56 @@ function updatePassPreview() {
   if (previewSerial) previewSerial.innerText = serialNumber;
 }
 
-function handlePassFormSubmit(e) {
+async function handlePassFormSubmit(e) {
   e.preventDefault();
   
+  const teamNameInput = document.getElementById('teamNameInput');
+  const teamName = teamNameInput && teamNameInput.value ? teamNameInput.value.trim() : 'Team';
+  
+  // Gather all member objects
+  const members = [];
+  for (let i = 1; i <= teamMemberCount; i++) {
+    const nameEl = document.getElementById(`mem_${i}_name`);
+    const regEl = document.getElementById(`mem_${i}_reg`);
+    const emailEl = document.getElementById(`mem_${i}_email`);
+    const phoneEl = document.getElementById(`mem_${i}_phone`);
+    const courseEl = document.getElementById(`mem_${i}_course`);
+    const yearEl = document.getElementById(`mem_${i}_year`);
+
+    members.push({
+      role: i === 1 ? 'Leader' : `Member ${i}`,
+      name: nameEl ? nameEl.value.trim() : '',
+      registrationNo: regEl ? regEl.value.trim() : '',
+      email: emailEl ? emailEl.value.trim() : '',
+      phone: phoneEl ? phoneEl.value.trim() : '',
+      course: courseEl ? courseEl.value.trim() : '',
+      year: yearEl ? yearEl.value : ''
+    });
+  }
+
   // Trigger Confetti Celebration
   triggerCelebrationConfetti();
 
-  const teamNameInput = document.getElementById('teamNameInput');
-  const teamName = teamNameInput && teamNameInput.value ? teamNameInput.value : 'Team';
-  
+  const payload = {
+    teamName,
+    teamSize: teamMemberCount,
+    members
+  };
+
+  try {
+    const apiEndpoint = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+      ? 'https://thryve-9nka.onrender.com/api/register'
+      : '/api/register';
+
+    fetch(apiEndpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).catch(err => console.log('Backend sync note:', err));
+  } catch (err) {
+    console.log('Submission note:', err);
+  }
+
   showToast(`🎉 Registration confirmed for ${teamName} (${teamMemberCount} Members)! Entry pass issued.`);
 }
 
