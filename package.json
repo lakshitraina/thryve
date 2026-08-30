@@ -1,21 +1,27 @@
 {
-  "name": "thryve-student-organization",
+  "name": "thryve-official",
   "version": "1.0.0",
-  "description": "Official Web Platform for THRYVE — Student Organization for Concerts, Tech, Cultural & Campus Events",
+  "description": "Official Web Platform and Code Heist Hackathon Portal for THRYVE Student Organization",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js",
-    "serve": "npx serve ."
+    "dev": "node server.js"
   },
   "keywords": [
     "thryve",
+    "hackathon",
+    "code-heist",
     "student-organization",
-    "college-fest",
-    "hackathons",
-    "concerts",
-    "cultural-events"
+    "lpu",
+    "events"
   ],
-  "author": "THRYVE Student Executive Council",
-  "license": "MIT"
+  "author": "THRYVE Org",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
