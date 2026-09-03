@@ -1,6 +1,6 @@
 /**
  * CODE HEIST TEAM REGISTRATION & DIGITAL PASS GENERATOR
- * Clean placeholder hints, Indian student names, 1-4 Members selection, and official Pass ID
+ * Official Event Planning Data • ₹199 / person • 1-4 Members selection • Official Pass ID
  */
 
 let teamMemberCount = 1; // Default to 1 member
@@ -148,6 +148,9 @@ function updatePassPreview() {
   const previewCount = document.getElementById('previewTeamCount');
   const previewRoster = document.getElementById('previewRosterNames');
   const previewSerial = document.getElementById('previewPassSerial');
+  const previewTier = document.getElementById('previewPassTier');
+
+  const totalFee = 199 * teamMemberCount;
 
   if (previewTeam) previewTeam.innerText = teamNameVal;
   if (previewLeader) previewLeader.innerText = leaderName;
@@ -155,6 +158,7 @@ function updatePassPreview() {
   if (previewCourse) previewCourse.innerText = `${leaderCourse} ${leaderYear !== 'Year' ? '(' + leaderYear + ')' : ''}`;
   if (previewCount) previewCount.innerText = `${teamMemberCount} Member${teamMemberCount > 1 ? 's' : ''}`;
   if (previewRoster) previewRoster.innerText = memberNames.join(', ');
+  if (previewTier) previewTier.innerText = `ENTRY PASS (₹${totalFee})`;
 
   const hash = Math.abs(hashString(teamNameVal + leaderReg + teamMemberCount)).toString(36).toUpperCase().padEnd(5, '9').slice(0, 5);
   const serialNumber = `#HEIST-${hash}-26`;
@@ -191,9 +195,11 @@ async function handlePassFormSubmit(e) {
   // Trigger Confetti Celebration
   triggerCelebrationConfetti();
 
+  const totalFee = 199 * teamMemberCount;
   const payload = {
     teamName,
     teamSize: teamMemberCount,
+    totalFee: `₹${totalFee}`,
     members
   };
 
@@ -211,7 +217,7 @@ async function handlePassFormSubmit(e) {
     console.log('Submission note:', err);
   }
 
-  showToast(`🎉 Registration confirmed for ${teamName} (${teamMemberCount} Members)! Entry pass issued.`);
+  showToast(`🎉 Registration confirmed for ${teamName} (${teamMemberCount} Members • ₹${totalFee})! Digital badge issued.`);
 }
 
 function hashString(str) {

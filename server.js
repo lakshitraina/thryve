@@ -57,8 +57,10 @@ app.get('/api/stats', (req, res) => {
       totalTeams: registrations.length,
       totalHackers: registrations.reduce((acc, t) => acc + (parseInt(t.teamSize) || 1), 0),
       prizePool: '₹20,000+',
-      eventDate: '2026-09-18T09:00:00+05:30',
-      entryFee: '₹199 / Team'
+      eventDate: '2026-09-18T17:00:00+05:30',
+      entryFee: '₹199 / Person',
+      registrationPartner: 'Macbease',
+      refundPolicy: 'No refund will be provided after registration.'
     });
   } catch (err) {
     res.status(500).json({ error: 'Failed to read stats' });
