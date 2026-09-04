@@ -16,7 +16,7 @@ const THRYVE_DATA = {
     endTime: '5:00 PM (24 Hours)',
     targetIso: '2026-09-18T17:00:00+05:30',
     registrationFee: '₹199 / person',
-    registrationLink: 'https://macbease.com',
+    registrationLink: 'https://app.macbease.com/events/code-heist-hackathon',
     registrationPartner: 'Macbease',
     refundPolicy: 'No refund will be provided after registration.',
     prizePool: '₹20,000+ worth of prizes',
