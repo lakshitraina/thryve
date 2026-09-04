@@ -149,6 +149,11 @@ app.post('/api/recruitment', (req, res) => {
 
 // Serve frontend static files if running standalone
 app.use(express.static(path.join(__dirname, '.')));
+
+app.get('/registration', (req, res) => {
+  res.sendFile(path.join(__dirname, 'registration.html'));
+});
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });

@@ -37,6 +37,18 @@ while ($listener.IsListening) {
 
         $filePath = Join-Path $Path ($urlPath.TrimStart('/').Replace('/', '\'))
 
+        if (Test-Path $filePath -PathType Container) {
+            $candidateIndex = Join-Path $filePath "index.html"
+            if (Test-Path $candidateIndex -PathType Leaf) {
+                $filePath = $candidateIndex
+            }
+        } elseif (-not (Test-Path $filePath -PathType Leaf)) {
+            $candidateHtml = $filePath + ".html"
+            if (Test-Path $candidateHtml -PathType Leaf) {
+                $filePath = $candidateHtml
+            }
+        }
+
         if (Test-Path $filePath -PathType Leaf) {
             $ext = [System.IO.Path]::GetExtension($filePath).ToLower()
             $mime = $mimeTypes[$ext]

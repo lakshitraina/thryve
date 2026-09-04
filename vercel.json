@@ -7,6 +7,10 @@
       "handle": "filesystem"
     },
     {
+      "src": "/registration",
+      "dest": "/registration.html"
+    },
+    {
       "src": "/(.*)",
       "dest": "/index.html"
     }
