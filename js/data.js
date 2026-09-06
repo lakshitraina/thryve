@@ -16,7 +16,7 @@ const THRYVE_DATA = {
     endTime: '5:00 PM (24 Hours)',
     targetIso: '2026-09-18T17:00:00+05:30',
     registrationFee: '₹199 / person',
-    registrationLink: 'https://app.macbease.com/events/code-heist-hackathon',
+    registrationLink: 'https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9',
     registrationPartner: 'Macbease',
     refundPolicy: 'No refund will be provided after registration.',
     prizePool: '₹20,000+ worth of prizes',
@@ -33,12 +33,13 @@ const THRYVE_DATA = {
   ],
 
   ticker: [
-    { type: 'now', tag: 'OPERATION 18.09', title: 'CODE HEIST HACKATHON', detail: '18 Sep 5:00 PM – 19 Sep 5:00 PM (24 Hours Non-Stop)' },
+    { type: 'now', tag: 'OPERATION 18.09', title: 'CODE HEIST HACKATHON', detail: '18 Sep 5:00 PM – 19 Sep 5:00 PM (24 Hours Non-Stop @ LPU)' },
+    { type: 'upcoming', tag: 'POWERED BY', title: 'OSEN', detail: 'Official Powered By Sponsor & Tech Infrastructure' },
+    { type: 'upcoming', tag: 'CO-POWERED BY', title: 'SectorX', detail: 'Embrace The Unique • Official Goodies & Keyboards' },
     { type: 'upcoming', tag: 'PRIZE POOL', title: '₹20,000+ Worth of Prizes', detail: 'Cash Awards, SectorX Keyboards, Bottles & Certs' },
-    { type: 'upcoming', tag: 'OFFICIAL SPONSOR', title: 'SectorX', detail: 'Official Goodies Partner (Specialized Bottles, Keyboards for Winners)' },
     { type: 'soldout', tag: 'REGISTRATION', title: 'Pass ₹199 / Person via Macbease', detail: 'Strict No-Refund Policy After Registration' },
     { type: 'upcoming', tag: 'GUEST MENTOR', title: 'Praful Yadav', detail: 'Sr. Software Engineer at AlgoTutor (Ex-Siemens, Ex-Coding Blocks)' },
-    { type: 'upcoming', tag: 'GUEST MENTOR', title: 'Aman Singh', detail: 'Software Engineer L2 at 6thStreet.com | IIT Jodhpur (M.Tech AI)' },
+    { type: 'upcoming', tag: 'GUEST MENTOR', title: 'Amit Singh', detail: 'Software Engineer L2 at 6thStreet.com | IIT Jodhpur (M.Tech AI)' },
     { type: 'upcoming', tag: 'EVALUATION', title: '3 Official Rounds', detail: '100-Mark Standardized Judge Score Sheet' }
   ],
 
@@ -126,7 +127,7 @@ const THRYVE_DATA = {
     {
       time: '19 Sep, 09:00 AM – 12:00 PM',
       title: 'Development & Mentorship Session',
-      desc: 'Hands-on 1-on-1 mentorship rounds with industry leaders Praful Yadav and Aman Singh to refine architectures, pitch decks, and APIs.',
+      desc: 'Hands-on 1-on-1 mentorship rounds with industry leaders Praful Yadav and Amit Singh to refine architectures, pitch decks, and APIs.',
       phase: 'mentorship',
       badge: 'Mentorship Sprint'
     },
@@ -245,13 +246,14 @@ const THRYVE_DATA = {
         'Ex-Full-stack Mentor at Coding Blocks',
         'Ex-Outreach Intern at ISRO (Indian Space Research Organisation)'
       ],
-      linkedin: 'https://www.linkedin.com/in/praful-yadav/',
+      linkedin: 'https://www.linkedin.com/in/praful-yadav-b46100215/',
       avatarText: 'PY',
+      image: 'assets/praful-yadav.jpg',
       skills: ['Software Infrastructure', 'Full-Stack Engineering', 'Cloud & Distributed Systems', 'Mentorship']
     },
     {
-      id: 'aman-singh',
-      name: 'Aman Singh',
+      id: 'amit-singh',
+      name: 'Amit Singh',
       role: 'Software Engineer (L2) at 6thStreet.com',
       company: '6thStreet.com (Apparel Group, Dubai)',
       headline: 'M.Tech in AI (IIT Jodhpur) • Ex-Product Engineer at Pepcoding',
@@ -262,23 +264,36 @@ const THRYVE_DATA = {
         'Master of Technology (Artificial Intelligence) from IIT Jodhpur',
         'Ex-DSA Instructor with 4+ years of industry experience'
       ],
-      linkedin: 'https://www.linkedin.com/in/amit-singh/',
+      linkedin: 'https://www.linkedin.com/in/amit-singh-8562a0162/',
       avatarText: 'AS',
+      image: 'assets/amit-singh.jpg',
       skills: ['Artificial Intelligence', 'React.js & Node.js', 'E-Commerce CMS', 'DSA & Algorithms']
     }
   ],
 
   sponsors: [
     {
+      id: 'osen',
+      name: 'OSEN',
+      tagline: 'POWERED BY',
+      status: 'Powered By Partner',
+      statusType: 'confirmed',
+      logo: 'assets/osen-logo.png',
+      icon: '💎',
+      title: 'Official Powered By Partner',
+      desc: 'OSEN powers the infrastructure, developer ecosystem, and technological support for Code Heist Hackathon at Lovely Professional University.',
+      perks: ['Official Powered By Sponsor', 'Developer Ecosystem Support', 'Partner Tech Ecosystem']
+    },
+    {
       id: 'sectorx',
       name: 'SectorX',
-      tagline: 'EMBRACE THE UNIQUE',
-      status: 'Confirmed Sponsor',
+      tagline: 'CO-POWERED BY • EMBRACE THE UNIQUE',
+      status: 'Co-Powered By',
       statusType: 'confirmed',
       logo: 'assets/sectorx-logo.png',
       icon: '⚡',
       title: 'Official Goodies & Gear Partner',
-      desc: 'SectorX is the official goodies partner for Code Heist Hackathon, providing high-performance mechanical keyboards, specialized bottles, and exclusive tech kits for winning teams.',
+      desc: 'SectorX is the official co-powered by and goodies partner for Code Heist Hackathon, providing high-performance mechanical keyboards, specialized bottles, and exclusive tech kits for winning teams.',
       perks: ['Official Mechanical Keyboards', 'Specialized SectorX Bottles', 'Winner Goody Kits & Swag']
     },
     {
@@ -376,7 +391,7 @@ const THRYVE_DATA = {
     },
     {
       q: 'Who are the guest mentors and judges?',
-      a: 'The panel features renowned tech leaders: Praful Yadav (Senior Software Engineer at AlgoTutor, Ex-Siemens, Ex-Coding Blocks) and Aman Singh (Software Engineer L2 at 6thStreet.com, IIT Jodhpur M.Tech AI, Ex-Pepcoding).'
+      a: 'The panel features renowned tech leaders: Praful Yadav (Senior Software Engineer at AlgoTutor, Ex-Siemens, Ex-Coding Blocks) and Amit Singh (Software Engineer L2 at 6thStreet.com, IIT Jodhpur M.Tech AI, Ex-Pepcoding).'
     },
     {
       q: 'How can I contact the THRYVE Help Desk for queries or partnerships?',

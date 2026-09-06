@@ -7,10 +7,10 @@
   <meta name="description" content="CODE HEIST 24-hour student hackathon (Operation 18.09) presented by THRYVE at Lovely Professional University, Punjab. 18 Sep 5:00 PM – 19 Sep 5:00 PM. ₹20,000+ Prizes, SectorX Official Goodies, 100-Mark Scorecard, ₹199 Entry Fee." />
   <meta name="theme-color" content="#DC2626" />
 
-  <!-- Google Fonts: Plus Jakarta Sans + Playfair Display + JetBrains Mono -->
+  <!-- Google Fonts: Sora + Manrope + JetBrains Mono (cbgo.in Typography Stack) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Playfair+Display:ital,wght@1,600;1,700;1,800;1,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800;900&display=swap" rel="stylesheet" />
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/variables.css" />
@@ -32,7 +32,7 @@
        ========================================================================== -->
   <header class="site-header">
     <div class="nav-container">
-      <a href="#" class="brand-logo">
+      <a href="#" class="brand-logo" aria-label="THRYVE Home">
         <svg class="brand-logo-icon" viewBox="0 0 800 320" fill="currentColor">
           <g>
             <path d="M400,0 L490,95 L445,138 L418,110 L418,220 L382,220 L382,110 L355,138 L310,95 Z" />
@@ -47,20 +47,19 @@
 
       <nav class="nav-menu" id="navMenu">
         <a href="#hero" class="nav-link active">Home</a>
-        <a href="registration.html" class="nav-link" style="color: #EF4444; font-weight: 800;">Register Now 🔥</a>
-        <a href="#codeheist" class="nav-link">Operation 18.09</a>
+        <a href="#codeheist" class="nav-link">About</a>
         <a href="#tracks" class="nav-link">Tracks</a>
         <a href="#schedule" class="nav-link">Timeline</a>
         <a href="#rounds" class="nav-link">Scorecard</a>
         <a href="#mentors" class="nav-link">Mentors</a>
         <a href="#sponsors" class="nav-link">Sponsors</a>
         <a href="#rules" class="nav-link">Rules</a>
-        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="#faq" class="nav-link">FAQs</a>
       </nav>
 
       <div class="nav-actions">
-        <a href="registration.html" class="btn btn-primary btn-sm" style="background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%);">
-          Get Pass (₹199)
+        <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+          Register now →
         </a>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
           <span></span>
@@ -72,46 +71,62 @@
   </header>
 
   <!-- ==========================================================================
-       HERO SECTION
+       HERO SECTION - CLEAN, SPACIOUS & STRIKING
        ========================================================================== -->
   <section class="hero-section" id="hero">
-    <div class="hero-bg-glow"></div>
-    <div class="hero-watermark-emblem" style="position: absolute; top: 8%; left: 50%; transform: translateX(-50%); width: 560px; opacity: 0.035; pointer-events: none; z-index: 0;">
-      <svg viewBox="0 0 800 320" fill="currentColor" style="width: 100%;">
-        <path d="M400,0 L490,95 L445,138 L418,110 L418,220 L382,220 L382,110 L355,138 L310,95 Z M400,285 L335,220 L362,192 L400,230 L438,192 L465,220 Z M135,28 L330,140 L310,185 L180,110 L265,250 L200,285 L100,120 Z M665,28 L700,120 L600,285 L535,250 L620,110 L490,185 L470,140 Z" />
-      </svg>
-    </div>
+    <div class="dot-grid" style="opacity: 0.15; mask-image: linear-gradient(to bottom, white, transparent); -webkit-mask-image: linear-gradient(to bottom, white, transparent);"></div>
+
     <div class="container">
       <div class="hero-content">
         
-        <!-- Pulsing Live Badge -->
-        <div class="hero-pill-wrapper">
-          <div class="badge-pill-live" style="border-color: rgba(220, 38, 38, 0.3); background: #FEF2F2; color: #DC2626;">
-            <span class="pulse-dot" style="background-color: #EF4444;"></span>
-            <span>OPERATION 18.09 — 24-HOUR STUDENT HACKATHON</span>
+        <div class="hero-pill-wrapper rise">
+          <div class="badge-pill-live">
+            <span class="pulse-dot"></span>
+            <span>OPERATION 18.09 • POWERED BY OSEN • CO-POWERED BY SECTOR X</span>
           </div>
         </div>
 
-        <!-- Big Dual-Tone Headline -->
-        <h1 class="hero-headline">
-          Code Heist.
-          <span class="hero-headline-sub" style="color: #EF4444;">Hackathon.</span>
+        <h1 class="hero-headline rise">
+          CODE <span class="hero-headline-sub">HEIST<span style="color: #DC2626;">.</span></span>
         </h1>
 
-        <!-- Subheading with precise dates & timings -->
-        <p class="hero-subtitle">
-          THRYVE presents the premier 24-hour student hackathon on <strong>18–19 September 2026 (5:00 PM – 5:00 PM)</strong> at Lovely Professional University, Punjab.
-          <br /><strong style="color: #FFFFFF; letter-spacing: 0.04em;">"THE PLAN IS SET. THE REST IS UP TO YOU."</strong>
-        </p>
+        <div class="hero-subtitle rise">
+          <span class="hero-tagline-quote">"THE PLAN IS SET. THE REST IS UP TO YOU."</span>
+          <p style="margin-top: 14px;">
+            <strong>Lovely Professional University's</strong> premier 24-hour hackathon on <strong>18–19 September 2026 (5:00 PM – 5:00 PM)</strong>. Beginner-friendly with 1-on-1 mentorship from industry leaders, ₹20,000+ reward pool, and SectorX mechanical keyboards.
+          </p>
+        </div>
 
-        <!-- CTA Buttons -->
-        <div class="hero-actions">
-          <button class="btn btn-primary btn-lg" onclick="openPassModal('code-heist')" style="background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%); box-shadow: 0 10px 25px rgba(220, 38, 38, 0.45);">
-            🎟️ Register for Code Heist (₹199 / Person) →
-          </button>
-          <a href="#codeheist" class="btn btn-secondary btn-lg">
-            Explore Heist Blueprint ↓
+        <!-- Action CTAs -->
+        <div class="hero-actions rise">
+          <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn-pill-main">
+            <span>Register now</span>
+            <span>→</span>
           </a>
+          <a href="#codeheist" class="btn-pill-outline">
+            <span>Explore Blueprint</span>
+            <span>↓</span>
+          </a>
+        </div>
+
+        <!-- 4 Clean Info Badges -->
+        <div class="hero-badges-strip rise">
+          <div class="hero-badge-pill">
+            <span class="pill-icon">📅</span>
+            <span>18–19 Sep 2026</span>
+          </div>
+          <div class="hero-badge-pill">
+            <span class="pill-icon">⏱️</span>
+            <span>24 Hours (5 PM – 5 PM)</span>
+          </div>
+          <div class="hero-badge-pill">
+            <span class="pill-icon">🏆</span>
+            <span class="pill-highlight">₹20,000+ Prizes</span>
+          </div>
+          <div class="hero-badge-pill">
+            <span class="pill-icon">📍</span>
+            <span>LPU Campus, Punjab</span>
+          </div>
         </div>
 
       </div>
@@ -150,13 +165,13 @@
         <div class="spotlight-info-side">
           <div>
             <div class="spotlight-header-tag">
-              <span>⚡ OPERATION 18.09 • 18-19 SEP 2026 (5 PM – 5 PM)</span>
+              <span>⚡ OPERATION 18.09 • POWERED BY OSEN • CO-POWERED BY SECTOR X</span>
             </div>
             <h2 class="spotlight-title">CODE HEIST HACKATHON</h2>
             <div class="spotlight-tagline">"THE PLAN IS SET. THE REST IS UP TO YOU."</div>
             
             <p class="spotlight-desc">
-              CODE HEIST is a 24-hour student hackathon organized by THRYVE, designed to provide students with a platform to collaborate, innovate, and develop technology-driven solutions to real-world problems. Participants will work in teams to ideate, build, and present their projects within the given time frame.
+              CODE HEIST is a premier 24-hour student hackathon organized by Student Organisation THRYVE under the aegis of Division of Youth Affairs Student Welfare Wing, LPU. 18–19 September 2026 (5:00 PM onwards). ₹20,000+ prize pool, SectorX mechanical keyboards and gear, 100-mark scorecard, and verified certificates for all!
             </p>
 
             <!-- Live Countdown Timer to 5:00 PM on 18 Sep 2026 -->
@@ -201,9 +216,9 @@
           </div>
 
           <div class="spotlight-actions-row">
-            <button class="btn-heist-register" onclick="openPassModal('code-heist')">
-              🎟️ Grab Entry Pass (₹199 / Person)
-            </button>
+            <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn-heist-register" style="display: inline-flex; align-items: center; justify-content: center; text-decoration: none;">
+              🎟️ Register Now →
+            </a>
             <a href="#schedule" class="btn btn-secondary btn-sm" style="background: rgba(255,255,255,0.06); color: #fff; border-color: rgba(255,255,255,0.15);">
               24h Timeline & Rounds ↓
             </a>
@@ -375,9 +390,9 @@
             Winners will receive SectorX official mechanical keyboards and specialized water bottles, cash awards, vouchers, partner perks, and verified certificates for all participants, winners, and organizers!
           </p>
         </div>
-        <button class="btn btn-primary btn-lg" onclick="openPassModal('code-heist')" style="background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%); flex-shrink: 0;">
-          Register Team (₹199 / Person) →
-        </button>
+        <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg" style="background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%); flex-shrink: 0; text-decoration: none;">
+          Register Now →
+        </a>
       </div>
     </div>
   </section>
@@ -401,87 +416,7 @@
     </div>
   </section>
 
-  <!-- ==========================================================================
-       MAC-STYLE DASHBOARD & PASS HUB
-       ========================================================================== -->
-  <section class="dashboard-section" id="events">
-    <div class="container">
-      
-      <div class="section-header">
-        <span class="section-tag">🎟️ OFFICIAL HACKER PORTAL</span>
-        <h2 class="section-title">Reserve Your Hacker Badge</h2>
-        <p class="section-subtitle">
-          Instant digital pass generation with verified entry verification for Code Heist '26. Official registration via Macbease.
-        </p>
-      </div>
 
-      <!-- Mac Window Frame Preview Card -->
-      <div class="mac-window-card">
-        
-        <!-- Mac Window Top Bar -->
-        <div class="mac-window-header">
-          <div class="mac-window-controls">
-            <span class="mac-dot red"></span>
-            <span class="mac-dot yellow"></span>
-            <span class="mac-dot green"></span>
-          </div>
-          <div class="mac-window-address">
-            <span class="lock-icon">🔒</span>
-            <span>CODEHEIST.ORG — MACBEASE OFFICIAL PASS PORTAL</span>
-          </div>
-          <div class="mac-window-actions">
-            <span class="live-indicator" style="background: #FEF2F2; color: #DC2626;">
-              <span class="pulse-dot" style="background: #DC2626;"></span> LIVE REGISTRATIONS
-            </span>
-          </div>
-        </div>
-
-        <!-- Mac Window Inside Dashboard -->
-        <div class="mac-window-body">
-          
-          <!-- Mini Metrics Row -->
-          <div class="dash-metrics-grid">
-            <div class="dash-metric-card">
-              <div class="dash-metric-label">ENTRY PASS TIER</div>
-              <div class="dash-metric-value" style="color: #DC2626;">₹199 / PERSON</div>
-              <span class="dash-metric-badge red">↗ MACBEASE REGISTRATION</span>
-            </div>
-            <div class="dash-metric-card">
-              <div class="dash-metric-label">HACKATHON WINDOW</div>
-              <div class="dash-metric-value">24 HOURS</div>
-              <span class="dash-metric-badge green">18–19 SEP (5PM–5PM)</span>
-            </div>
-            <div class="dash-metric-card">
-              <div class="dash-metric-label">TOTAL REWARD POOL</div>
-              <div class="dash-metric-value highlight-green">₹20,000+</div>
-              <div class="dash-metric-progress">
-                <div class="dash-metric-bar" style="width: 100%; background: #DC2626;"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Controls Bar -->
-          <div class="dash-controls-bar">
-            <div class="dash-tabs">
-              <button class="dash-tab-btn active" data-category="all">🔥 Operation 18.09</button>
-            </div>
-
-            <div class="dash-search-box">
-              <span>🔍</span>
-              <input type="text" id="eventSearchInput" placeholder="Search Code Heist details, rules, venue..." />
-            </div>
-          </div>
-
-          <!-- Dynamic Event Cards Grid -->
-          <div class="events-grid" id="eventsGrid">
-            <!-- Rendered dynamically by events.js -->
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
 
   <!-- ==========================================================================
        FAQ ACCORDION
@@ -506,27 +441,45 @@
        JOIN THE CREW BANNER
        ========================================================================== -->
   <section class="join-cta-strip">
-    <div class="hero-bg-glow"></div>
     <div class="container">
       <div class="join-cta-content">
-        <span class="section-tag" style="background: rgba(0, 182, 122, 0.2); color: #00B67A;">🔥 NOW RECRUITING AT LPU</span>
+        <span class="section-tag" style="background: #ECFDF5; color: #059669; border: 1px solid #A7F3D0; padding: 5px 16px; border-radius: var(--radius-pill);">🔥 NOW RECRUITING AT LPU</span>
         <h2 class="join-cta-title">Want to Join the THRYVE Organizing Crew?</h2>
         <p class="join-cta-desc">
           Work with student leaders in tech development, event operations, PR & marketing, and design for Code Heist and future campus fests.
         </p>
-        <button class="btn btn-primary btn-lg" onclick="openRecruitModal()">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScspsA_0Hl6Sl7JT4dQQ8cbb8n5ouLc5WkThIBjAOyYEPhVQQ/viewform?usp=sharing&ouid=107406360283370904709" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg" style="display: inline-flex; align-items: center; justify-content: center; text-decoration: none;">
           Apply for THRYVE Crew '26 →
-        </button>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- ==========================================================================
-       DEEP MIDNIGHT FOOTER
+       FOOTER - CODE HEIST OFFICIAL POSTER THEME
        ========================================================================== -->
   <footer class="site-footer">
     <div class="container">
       
+      <!-- 3-Pillar Feature Strip (Directly from Poster) -->
+      <div class="footer-pillars-strip">
+        <div class="footer-pillar-item">
+          <span class="footer-pillar-icon">💡</span>
+          <span class="footer-pillar-title">IDEAS</span>
+          <span style="font-size: 0.8125rem; color: #64748B; font-weight: 600;">Groundbreaking Innovation</span>
+        </div>
+        <div class="footer-pillar-item">
+          <span class="footer-pillar-icon">👥</span>
+          <span class="footer-pillar-title">PEOPLE</span>
+          <span style="font-size: 0.8125rem; color: #64748B; font-weight: 600;">Student Builders & Mentors</span>
+        </div>
+        <div class="footer-pillar-item">
+          <span class="footer-pillar-icon">&lt;/&gt;</span>
+          <span class="footer-pillar-title">POSSIBILITIES</span>
+          <span style="font-size: 0.8125rem; color: #64748B; font-weight: 600;">24 Hours of Pure Execution</span>
+        </div>
+      </div>
+
       <!-- Top 4-Column Grid -->
       <div class="footer-top-grid">
         
@@ -574,7 +527,7 @@
             <li class="footer-link-item"><a href="#hero">About THRYVE</a></li>
             <li class="footer-link-item"><a href="#rules">Rules & Integrity</a></li>
             <li class="footer-link-item"><a href="#faq">Refund Policy</a></li>
-            <li class="footer-link-item"><a href="javascript:void(0)" onclick="openRecruitModal()">Recruitment '26</a></li>
+            <li class="footer-link-item"><a href="https://docs.google.com/forms/d/e/1FAIpQLScspsA_0Hl6Sl7JT4dQQ8cbb8n5ouLc5WkThIBjAOyYEPhVQQ/viewform?usp=sharing&ouid=107406360283370904709" target="_blank" rel="noopener noreferrer">Recruitment '26</a></li>
             <li class="footer-link-item"><a href="mailto:thryveofficial@gmail.com">Sponsorship Tie-ups</a></li>
           </ul>
         </div>
@@ -603,7 +556,7 @@
           <div class="parent-identity-card">
             <div class="parent-label">PARENT IDENTITY</div>
             <div class="parent-title">THE THRYVE FOUNDATION</div>
-            <div class="parent-subtitle">Managed by Student Executive Council, LPU</div>
+            <div class="parent-subtitle">Organised by Student Organisation THRYVE under the aegis of Division of Youth Affairs Student Welfare Wing, LPU</div>
             <div class="verified-badge">
               <span>✓</span>
               <span>VERIFIED STUDENT BODY</span>
@@ -611,6 +564,13 @@
           </div>
         </div>
 
+      </div>
+
+      <!-- Poster Accreditation Bar -->
+      <div style="padding: 16px 0; border-top: 1px solid #E2E8F0; text-align: center; font-size: 0.75rem; font-weight: 800; color: #64748B; letter-spacing: 0.08em; text-transform: uppercase;">
+        <span>INNOVATE • COLLABORATE • CREATE • IMPACT</span>
+        <span style="margin: 0 12px; color: #DC2626;">|</span>
+        <span>ORGANISED BY STUDENT ORGANISATION THRYVE UNDER THE AEGIS OF DIVISION OF YOUTH AFFAIRS STUDENT WELFARE WING, LPU</span>
       </div>
 
       <!-- Bottom Bar -->

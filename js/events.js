@@ -75,9 +75,9 @@ function renderEvents() {
               <span class="pricing-label">Access Pass</span>
               <span class="pricing-amount ${evt.isFree ? 'free' : ''}">${evt.price}</span>
             </div>
-            <button class="btn-book-pass" onclick="openPassModal('${evt.id}')">
-              Book Pass 🎫
-            </button>
+            <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn-book-pass" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">
+              Register Now 🎟️
+            </a>
           </div>
         </div>
       </div>

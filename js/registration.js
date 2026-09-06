@@ -4,7 +4,7 @@
  */
 
 // Target Registration URL provided by user
-const REGISTRATION_REDIRECT_URL = 'https://app.macbease.com/events/code-heist-hackathon';
+const REGISTRATION_REDIRECT_URL = 'https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9';
 
 // Event ISO target date
 const EVENT_TARGET_ISO = '2026-09-18T17:00:00+05:30';

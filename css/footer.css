@@ -1,16 +1,63 @@
 /* ==========================================================================
-   DEEP MIDNIGHT FOOTER - DARK CRIMSON EDITION
+   FOOTER - CODE HEIST OFFICIAL POSTER THEME
+   Crisp White / Light Minimalist Footer with Bold Red Dividers & Accents
    ========================================================================== */
 
 .site-footer {
-  background-color: var(--bg-midnight-deep);
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  color: #0A0A0A;
   padding: 80px 0 32px 0;
-  border-top: 1px solid rgba(220, 38, 38, 0.2);
+  border-top: 3px solid #DC2626;
   position: relative;
   overflow: hidden;
 }
 
+/* 3-Pillar Poster Feature Strip inside Footer */
+.footer-pillars-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 32px;
+  background: #FAFAFC;
+  border: 1.5px solid #E2E8F0;
+  border-radius: var(--radius-xl);
+  margin-bottom: 64px;
+  text-align: center;
+}
+
+.footer-pillar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.footer-pillar-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -12px;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background-color: #CBD5E1;
+}
+
+.footer-pillar-icon {
+  font-size: 1.75rem;
+  color: #DC2626;
+}
+
+.footer-pillar-title {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #0A0A0A;
+}
+
+/* 4-Column Top Grid */
 .footer-top-grid {
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
@@ -29,7 +76,7 @@
   font-weight: 900;
   font-size: 1.75rem;
   letter-spacing: 0.04em;
-  color: #FFFFFF;
+  color: #0A0A0A;
   margin-bottom: 16px;
   display: inline-flex;
   align-items: center;
@@ -39,19 +86,19 @@
 .footer-logo-icon {
   width: 36px;
   height: 22px;
-  color: #EF4444;
-  filter: drop-shadow(0 0 10px rgba(220, 38, 38, 0.6));
+  color: #DC2626;
+  filter: drop-shadow(0 2px 6px rgba(220, 38, 38, 0.35));
 }
 
 .footer-logo-dot {
-  color: #EF4444;
+  color: #DC2626;
   font-family: var(--font-serif-display);
   font-style: italic;
 }
 
 .footer-tagline {
   font-size: 0.9375rem;
-  color: #94A3B8;
+  color: #475569;
   line-height: 1.6;
   margin-bottom: 28px;
   max-width: 320px;
@@ -67,31 +114,32 @@
   width: 42px;
   height: 42px;
   border-radius: var(--radius-md);
-  background: #0F1422;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #F1F5F9;
+  border: 1px solid #CBD5E1;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #CBD5E1;
+  color: #0A0A0A;
   font-size: 1.125rem;
+  font-weight: 800;
   transition: all var(--transition-smooth);
 }
 
 .social-btn:hover {
   background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%);
   color: #FFFFFF;
-  border-color: #EF4444;
+  border-color: #DC2626;
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px -4px rgba(220, 38, 38, 0.6);
+  box-shadow: 0 8px 20px -4px rgba(220, 38, 38, 0.4);
 }
 
 /* Footer Navigation Columns */
 .footer-col-title {
   font-size: 0.75rem;
-  font-weight: 800;
+  font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #FFFFFF;
+  color: #0A0A0A;
   margin-bottom: 24px;
 }
 
@@ -103,7 +151,8 @@
 
 .footer-link-item a {
   font-size: 0.875rem;
-  color: #94A3B8;
+  font-weight: 600;
+  color: #475569;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -111,13 +160,13 @@
 }
 
 .footer-link-item a:hover {
-  color: #FFFFFF;
+  color: #DC2626;
   transform: translateX(4px);
 }
 
 .footer-link-icon {
   font-size: 0.75rem;
-  color: #EF4444;
+  color: #DC2626;
 }
 
 /* Footer HQ Column & Parent Identity */
@@ -132,18 +181,19 @@
   align-items: flex-start;
   gap: 10px;
   font-size: 0.875rem;
-  color: #94A3B8;
+  font-weight: 600;
+  color: #334155;
 }
 
 .hq-info-icon {
-  color: #EF4444;
+  color: #DC2626;
   margin-top: 2px;
 }
 
 /* Parent Identity Box */
 .parent-identity-card {
-  background: #0A0E18;
-  border: 1px solid rgba(220, 38, 38, 0.25);
+  background: #FAFAFC;
+  border: 1.5px solid #E2E8F0;
   border-radius: var(--radius-lg);
   padding: 16px 20px;
   margin-top: 10px;
@@ -160,15 +210,15 @@
 
 .parent-title {
   font-size: 0.9375rem;
-  font-weight: 800;
-  color: #FFFFFF;
+  font-weight: 900;
+  color: #0A0A0A;
   letter-spacing: 0.02em;
   margin-bottom: 2px;
 }
 
 .parent-subtitle {
   font-size: 0.75rem;
-  color: #94A3B8;
+  color: #475569;
 }
 
 .verified-badge {
@@ -176,23 +226,24 @@
   align-items: center;
   gap: 6px;
   font-size: 0.6875rem;
-  font-weight: 800;
-  color: #EF4444;
-  background: rgba(220, 38, 38, 0.12);
-  border: 1px solid rgba(220, 38, 38, 0.3);
+  font-weight: 900;
+  color: #DC2626;
+  background: #FEF2F2;
+  border: 1px solid #FCA5A5;
   padding: 4px 10px;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-xs);
   margin-top: 14px;
 }
 
 /* Bottom Bar */
 .footer-bottom-bar {
   padding-top: 32px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid #E2E8F0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 0.8125rem;
+  font-weight: 600;
   color: #64748B;
   flex-wrap: wrap;
   gap: 16px;
@@ -202,11 +253,11 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #94A3B8;
+  color: #475569;
 }
 
 .footer-copyright {
-  color: #94A3B8;
+  color: #475569;
 }
 
 /* Status Indicator */
@@ -214,25 +265,43 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(220, 38, 38, 0.1);
-  border: 1px solid rgba(220, 38, 38, 0.25);
+  background: #FEF2F2;
+  border: 1px solid #FCA5A5;
   padding: 6px 14px;
   border-radius: var(--radius-pill);
   font-family: var(--font-mono);
   font-size: 0.6875rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.06em;
-  color: #F87171;
+  color: #DC2626;
 }
 
 .footer-status-pill .status-text-highlight {
-  color: #EF4444;
+  color: #DC2626;
 }
 
 .status-dot-pulse {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: #EF4444;
-  box-shadow: 0 0 8px #EF4444;
+  background-color: #DC2626;
+  box-shadow: 0 0 8px #DC2626;
+}
+
+@media (max-width: 1024px) {
+  .footer-top-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-pillars-strip {
+    grid-template-columns: 1fr;
+  }
+  .footer-pillar-item::after {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+  }
 }

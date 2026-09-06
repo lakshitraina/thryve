@@ -6,12 +6,7 @@
 let teamMemberCount = 1; // Default to 1 member
 
 function openPassModal(eventId) {
-  const modal = document.getElementById('passModal');
-  if (modal) {
-    modal.classList.add('open');
-    renderMemberFields();
-    updatePassPreview();
-  }
+  window.open('https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9', '_blank', 'noopener,noreferrer');
 }
 
 function closePassModal() {

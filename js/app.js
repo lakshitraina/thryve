@@ -142,12 +142,12 @@ function initSchedule() {
     return `
       <div class="timeline-item">
         <div class="${markerClass}"></div>
-        <div class="timeline-content-box" style="${isSafeZone ? 'border-color: rgba(0, 182, 122, 0.4); background: #0c181f;' : ''}">
+        <div class="timeline-content-box" style="${isSafeZone ? 'border-color: #86EFAC; background: #F0FDF4;' : ''}">
           <div class="timeline-header-row">
             <span class="timeline-time">${s.time}</span>
             <span class="${badgeClass}">${s.badge}</span>
           </div>
-          <h4 class="timeline-title" style="${isAwards ? 'color: #FBBF24;' : ''}">${s.title}</h4>
+          <h4 class="timeline-title" style="${isAwards ? 'color: #DC2626;' : ''}">${s.title}</h4>
           <p class="timeline-desc">${s.desc}</p>
         </div>
       </div>
@@ -212,7 +212,7 @@ function initMentors() {
     <div class="mentor-card">
       <div>
         <div class="mentor-header">
-          <div class="mentor-avatar">${m.avatarText}</div>
+          <div class="mentor-avatar">${m.image ? `<img src="${m.image}" alt="${m.name}" class="mentor-avatar-img" />` : m.avatarText}</div>
           <div class="mentor-meta">
             <h3 class="mentor-name">${m.name}</h3>
             <div class="mentor-role">${m.role}</div>
@@ -249,7 +249,7 @@ function initSponsors() {
   if (!container || !THRYVE_DATA.sponsors) return;
 
   container.innerHTML = THRYVE_DATA.sponsors.map(s => `
-    <div class="sponsor-card ${s.id === 'sectorx' ? 'sectorx-card' : ''}">
+    <div class="sponsor-card ${s.id}-card">
       <div>
         <div class="sponsor-card-top">
           ${s.logo 
