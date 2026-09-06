@@ -47,6 +47,7 @@
 
       <nav class="nav-menu" id="navMenu">
         <a href="#hero" class="nav-link active">Home</a>
+        <a href="#tracks" class="nav-link">About</a>
         <a href="#tracks" class="nav-link">Tracks</a>
         <a href="#schedule" class="nav-link">Timeline</a>
         <a href="#rounds" class="nav-link">Scorecard</a>
@@ -57,7 +58,7 @@
       </nav>
 
       <div class="nav-actions">
-        <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+        <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
           Register now →
         </a>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
@@ -70,39 +71,55 @@
   </header>
 
   <!-- ==========================================================================
-       HERO SECTION - FULL POSTER IMMERSIVE HERO
+       HERO SECTION - IMMERSIVE FULL POSTER HERO
        ========================================================================== -->
   <section class="hero-section" id="hero">
     <div class="hero-poster-ambient-glow"></div>
-    <div class="dot-grid" style="opacity: 0.12; mask-image: linear-gradient(to bottom, white, transparent); -webkit-mask-image: linear-gradient(to bottom, white, transparent);"></div>
 
-    <div class="container">
-      <div class="hero-poster-wrapper">
-        
-        <!-- Full Official Poster Image Frame -->
-        <div class="hero-full-poster-card rise">
-          <img src="assets/code-heist-poster.jpg" alt="CODE HEIST HACKATHON '26 Presented by THRYVE • Lovely Professional University, Punjab" class="hero-full-poster-img" />
+    <div class="hero-poster-wrapper">
+      <!-- Full Official Poster Image -->
+      <div class="hero-poster-container">
+        <img src="assets/code-heist-poster.jpg" alt="CODE HEIST HACKATHON '26 Presented by THRYVE • Lovely Professional University, Punjab" class="hero-poster-img" />
+      </div>
+
+      <!-- Action Buttons & 3 Stats Cards -->
+      <div class="hero-bottom-content">
+        <div class="hero-buttons-row">
+          <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="hero-btn-primary">
+            Register now →
+          </a>
+          <a href="#tracks" class="hero-btn-secondary">
+            Explore Blueprint ↓
+          </a>
         </div>
 
-        <!-- Floating Action & Registration Bar -->
-        <div class="hero-floating-cta-bar rise">
-          <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn-hero-primary">
-            <span>🎟️ Register Now on Macbease</span>
-            <span>→</span>
-          </a>
-          
-          <div class="hero-countdown-pill">
-            <span>⏳ HEIST STARTS IN:</span>
-            <span class="highlight" id="heroCountdownTimer">15d 07h 51m 15s</span>
+        <div class="hero-stats-row">
+          <div class="hero-stat-card">
+            <div class="hero-stat-icon-wrap">🏆</div>
+            <div class="hero-stat-info">
+              <span class="hero-stat-value">₹20K+</span>
+              <span class="hero-stat-label">WORTH OF PRIZES</span>
+            </div>
           </div>
 
-          <a href="#tracks" class="btn-hero-secondary">
-            <span>Explore Tracks & Timeline</span>
-            <span>↓</span>
-          </a>
-        </div>
+          <div class="hero-stat-card">
+            <div class="hero-stat-icon-wrap">🎟️</div>
+            <div class="hero-stat-info">
+              <span class="hero-stat-value">₹199</span>
+              <span class="hero-stat-label">ENTRY FEE</span>
+            </div>
+          </div>
 
+          <div class="hero-stat-card">
+            <div class="hero-stat-icon-wrap">📍</div>
+            <div class="hero-stat-info">
+              <span class="hero-stat-value">LPU CAMPUS</span>
+              <span class="hero-stat-label">PUNJAB</span>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
   </section>
 
@@ -120,36 +137,6 @@
       </div>
     </div>
   </div>
-
-  <!-- ==========================================================================
-       MINIMALIST STATS STRIP
-       ========================================================================== -->
-  <section class="stats-section">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-number">24h</div>
-          <div class="stat-label">TIME WINDOW (5PM–5PM)</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number highlight" style="color: #DC2626;">₹20K+</div>
-          <div class="stat-label">WORTH OF PRIZES</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">₹199</div>
-          <div class="stat-label">ENTRY FEE / PERSON</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">100</div>
-          <div class="stat-label">MARKS SCORECARD</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">CERTS FOR ALL</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ==========================================================================
        PROBLEM STATEMENT TRACKS SECTION
