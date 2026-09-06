@@ -47,7 +47,7 @@
 
       <nav class="nav-menu" id="navMenu">
         <a href="#hero" class="nav-link active">Home</a>
-        <a href="#tracks" class="nav-link">About</a>
+        <a href="#codeheist" class="nav-link">About</a>
         <a href="#tracks" class="nav-link">Tracks</a>
         <a href="#schedule" class="nav-link">Timeline</a>
         <a href="#rounds" class="nav-link">Scorecard</a>
@@ -58,7 +58,7 @@
       </nav>
 
       <div class="nav-actions">
-        <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+        <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
           Register now →
         </a>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
@@ -71,55 +71,65 @@
   </header>
 
   <!-- ==========================================================================
-       HERO SECTION - IMMERSIVE FULL POSTER HERO
+       HERO SECTION - CLEAN, SPACIOUS & STRIKING
        ========================================================================== -->
   <section class="hero-section" id="hero">
-    <div class="hero-poster-ambient-glow"></div>
+    <div class="dot-grid" style="opacity: 0.15; mask-image: linear-gradient(to bottom, white, transparent); -webkit-mask-image: linear-gradient(to bottom, white, transparent);"></div>
 
-    <div class="hero-poster-wrapper">
-      <!-- Full Official Poster Image -->
-      <div class="hero-poster-container">
-        <img src="assets/code-heist-poster.jpg" alt="CODE HEIST HACKATHON '26 Presented by THRYVE • Lovely Professional University, Punjab" class="hero-poster-img" />
-      </div>
+    <div class="container">
+      <div class="hero-content">
+        
+        <div class="hero-pill-wrapper rise">
+          <div class="badge-pill-live">
+            <span class="pulse-dot"></span>
+            <span>OPERATION 18.09 • POWERED BY OSEN • CO-POWERED BY SECTOR X</span>
+          </div>
+        </div>
 
-      <!-- Action Buttons & 3 Stats Cards -->
-      <div class="hero-bottom-content">
-        <div class="hero-buttons-row">
-          <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="hero-btn-primary">
-            Register now →
+        <h1 class="hero-headline rise">
+          CODE <span class="hero-headline-sub">HEIST<span style="color: #DC2626;">.</span></span>
+        </h1>
+
+        <div class="hero-subtitle rise">
+          <span class="hero-tagline-quote">"THE PLAN IS SET. THE REST IS UP TO YOU."</span>
+          <p style="margin-top: 14px;">
+            <strong>Lovely Professional University's</strong> premier 24-hour hackathon on <strong>18–19 September 2026 (5:00 PM – 5:00 PM)</strong>. Beginner-friendly with 1-on-1 mentorship from industry leaders, ₹20,000+ reward pool, and SectorX mechanical keyboards.
+          </p>
+        </div>
+
+        <!-- Action CTAs -->
+        <div class="hero-actions rise">
+          <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn-pill-main">
+            <span>Register now</span>
+            <span>→</span>
           </a>
-          <a href="#tracks" class="hero-btn-secondary">
-            Explore Blueprint ↓
+          <a href="#codeheist" class="btn-pill-outline">
+            <span>Explore Blueprint</span>
+            <span>↓</span>
           </a>
         </div>
 
-        <div class="hero-stats-row">
-          <div class="hero-stat-card">
-            <div class="hero-stat-icon-wrap">🏆</div>
-            <div class="hero-stat-info">
-              <span class="hero-stat-value">₹20K+</span>
-              <span class="hero-stat-label">WORTH OF PRIZES</span>
-            </div>
+        <!-- 4 Clean Info Badges -->
+        <div class="hero-badges-strip rise">
+          <div class="hero-badge-pill">
+            <span class="pill-icon">📅</span>
+            <span>18–19 Sep 2026</span>
           </div>
-
-          <div class="hero-stat-card">
-            <div class="hero-stat-icon-wrap">🎟️</div>
-            <div class="hero-stat-info">
-              <span class="hero-stat-value">₹199</span>
-              <span class="hero-stat-label">ENTRY FEE</span>
-            </div>
+          <div class="hero-badge-pill">
+            <span class="pill-icon">⏱️</span>
+            <span>24 Hours (5 PM – 5 PM)</span>
           </div>
-
-          <div class="hero-stat-card">
-            <div class="hero-stat-icon-wrap">📍</div>
-            <div class="hero-stat-info">
-              <span class="hero-stat-value">LPU CAMPUS</span>
-              <span class="hero-stat-label">PUNJAB</span>
-            </div>
+          <div class="hero-badge-pill">
+            <span class="pill-icon">🏆</span>
+            <span class="pill-highlight">₹20,000+ Prizes</span>
+          </div>
+          <div class="hero-badge-pill">
+            <span class="pill-icon">📍</span>
+            <span>LPU Campus, Punjab</span>
           </div>
         </div>
-      </div>
 
+      </div>
     </div>
   </section>
 
@@ -137,6 +147,119 @@
       </div>
     </div>
   </div>
+
+  <!-- ==========================================================================
+       CODE HEIST SPOTLIGHT BANNER & LIVE COUNTDOWN (5:00 PM 18 SEP)
+       ========================================================================== -->
+  <section class="spotlight-section" id="codeheist">
+    <div class="container">
+      
+      <div class="spotlight-card">
+        
+        <!-- Left: Uploaded Official Poster Artwork -->
+        <div class="spotlight-poster-side">
+          <img src="assets/code-heist-poster.jpg" alt="THRYVE Presents Code Heist Hackathon" class="spotlight-poster-img" />
+        </div>
+
+        <!-- Right: Hackathon Info & Live Countdown -->
+        <div class="spotlight-info-side">
+          <div>
+            <div class="spotlight-header-tag">
+              <span>⚡ OPERATION 18.09 • POWERED BY OSEN • CO-POWERED BY SECTOR X</span>
+            </div>
+            <h2 class="spotlight-title">CODE HEIST HACKATHON</h2>
+            <div class="spotlight-tagline">"THE PLAN IS SET. THE REST IS UP TO YOU."</div>
+            
+            <p class="spotlight-desc">
+              CODE HEIST is a premier 24-hour student hackathon organized by Student Organisation THRYVE under the aegis of Division of Youth Affairs Student Welfare Wing, LPU. 18–19 September 2026 (5:00 PM onwards). ₹20,000+ prize pool, SectorX mechanical keyboards and gear, 100-mark scorecard, and verified certificates for all!
+            </p>
+
+            <!-- Live Countdown Timer to 5:00 PM on 18 Sep 2026 -->
+            <div class="countdown-box">
+              <div class="countdown-label">
+                <span>⏳ TIME REMAINING UNTIL HEIST STARTS (5:00 PM • 18 SEP)</span>
+              </div>
+              <div class="countdown-grid">
+                <div class="countdown-unit">
+                  <div class="countdown-val" id="cdDays">15</div>
+                  <div class="countdown-sub">Days</div>
+                </div>
+                <div class="countdown-unit">
+                  <div class="countdown-val" id="cdHours">07</div>
+                  <div class="countdown-sub">Hours</div>
+                </div>
+                <div class="countdown-unit">
+                  <div class="countdown-val" id="cdMins">51</div>
+                  <div class="countdown-sub">Mins</div>
+                </div>
+                <div class="countdown-unit">
+                  <div class="countdown-val" id="cdSecs">15</div>
+                  <div class="countdown-sub">Secs</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Progression Roadmap (From Event Planning Document) -->
+            <div class="heist-ladder">
+              <span class="heist-step">IDEA</span>
+              <span class="heist-arrow">➔</span>
+              <span class="heist-step">PLAN</span>
+              <span class="heist-arrow">➔</span>
+              <span class="heist-step">CODE</span>
+              <span class="heist-arrow">➔</span>
+              <span class="heist-step">BUILD</span>
+              <span class="heist-arrow">➔</span>
+              <span class="heist-step">TEST</span>
+              <span class="heist-arrow">➔</span>
+              <span class="heist-step" style="color: #00B67A;">WIN</span>
+            </div>
+          </div>
+
+          <div class="spotlight-actions-row">
+            <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn-heist-register" style="display: inline-flex; align-items: center; justify-content: center; text-decoration: none;">
+              🎟️ Register Now →
+            </a>
+            <a href="#schedule" class="btn btn-secondary btn-sm" style="background: rgba(255,255,255,0.06); color: #fff; border-color: rgba(255,255,255,0.15);">
+              24h Timeline & Rounds ↓
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       MINIMALIST STATS STRIP
+       ========================================================================== -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">24h</div>
+          <div class="stat-label">TIME WINDOW (5PM–5PM)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number highlight" style="color: #DC2626;">₹20K+</div>
+          <div class="stat-label">WORTH OF PRIZES</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">₹199</div>
+          <div class="stat-label">ENTRY FEE / PERSON</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100</div>
+          <div class="stat-label">MARKS SCORECARD</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">CERTS FOR ALL</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ==========================================================================
        PROBLEM STATEMENT TRACKS SECTION
