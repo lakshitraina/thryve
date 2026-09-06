@@ -70,94 +70,39 @@
   </header>
 
   <!-- ==========================================================================
-       HERO SECTION - GRAND POSTER HERO SHOWCASE
+       HERO SECTION - FULL POSTER IMMERSIVE HERO
        ========================================================================== -->
   <section class="hero-section" id="hero">
-    <div class="dot-grid" style="opacity: 0.15; mask-image: linear-gradient(to bottom, white, transparent); -webkit-mask-image: linear-gradient(to bottom, white, transparent);"></div>
+    <div class="hero-poster-ambient-glow"></div>
+    <div class="dot-grid" style="opacity: 0.12; mask-image: linear-gradient(to bottom, white, transparent); -webkit-mask-image: linear-gradient(to bottom, white, transparent);"></div>
 
     <div class="container">
-      
-      <div class="hero-poster-card rise">
+      <div class="hero-poster-wrapper">
         
-        <!-- Left: Uploaded Official Poster Artwork -->
-        <div class="hero-poster-side">
-          <div class="hero-poster-frame">
-            <img src="assets/code-heist-poster.jpg" alt="THRYVE Presents Code Heist Hackathon" class="hero-poster-img" />
-          </div>
+        <!-- Full Official Poster Image Frame -->
+        <div class="hero-full-poster-card rise">
+          <img src="assets/code-heist-poster.jpg" alt="CODE HEIST HACKATHON '26 Presented by THRYVE • Lovely Professional University, Punjab" class="hero-full-poster-img" />
         </div>
 
-        <!-- Right: Hackathon Info & Live Countdown -->
-        <div class="hero-info-side">
-          <div>
-            <div class="hero-header-tag">
-              <span class="pulse-dot"></span>
-              <span>OPERATION 18.09 • POWERED BY OSEN • CO-POWERED BY SECTOR X</span>
-            </div>
-            
-            <h1 class="hero-main-title">
-              CODE <span class="hero-title-red">HEIST<span style="color: #DC2626;">.</span></span>
-            </h1>
-            
-            <div class="hero-tagline-quote">"THE PLAN IS SET. THE REST IS UP TO YOU."</div>
-            
-            <p class="hero-desc-text">
-              CODE HEIST is a premier 24-hour student hackathon organized by Student Organisation THRYVE under the aegis of Division of Youth Affairs Student Welfare Wing, LPU. <strong>18–19 September 2026 (5:00 PM onwards)</strong>. ₹20,000+ prize pool, SectorX mechanical keyboards and gear, 100-mark scorecard, and verified certificates for all!
-            </p>
-
-            <!-- Live Countdown Timer to 5:00 PM on 18 Sep 2026 -->
-            <div class="countdown-box">
-              <div class="countdown-label">
-                <span>⏳ TIME REMAINING UNTIL HEIST STARTS (5:00 PM • 18 SEP)</span>
-              </div>
-              <div class="countdown-grid">
-                <div class="countdown-unit">
-                  <div class="countdown-val" id="cdDays">15</div>
-                  <div class="countdown-sub">Days</div>
-                </div>
-                <div class="countdown-unit">
-                  <div class="countdown-val" id="cdHours">07</div>
-                  <div class="countdown-sub">Hours</div>
-                </div>
-                <div class="countdown-unit">
-                  <div class="countdown-val" id="cdMins">51</div>
-                  <div class="countdown-sub">Mins</div>
-                </div>
-                <div class="countdown-unit">
-                  <div class="countdown-val" id="cdSecs">15</div>
-                  <div class="countdown-sub">Secs</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Progression Roadmap (From Event Planning Document) -->
-            <div class="heist-ladder">
-              <span class="heist-step">IDEA</span>
-              <span class="heist-arrow">➔</span>
-              <span class="heist-step">PLAN</span>
-              <span class="heist-arrow">➔</span>
-              <span class="heist-step">CODE</span>
-              <span class="heist-arrow">➔</span>
-              <span class="heist-step">BUILD</span>
-              <span class="heist-arrow">➔</span>
-              <span class="heist-step">TEST</span>
-              <span class="heist-arrow">➔</span>
-              <span class="heist-step" style="color: #059669; font-weight: 900;">WIN</span>
-            </div>
+        <!-- Floating Action & Registration Bar -->
+        <div class="hero-floating-cta-bar rise">
+          <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn-hero-primary">
+            <span>🎟️ Register Now on Macbease</span>
+            <span>→</span>
+          </a>
+          
+          <div class="hero-countdown-pill">
+            <span>⏳ HEIST STARTS IN:</span>
+            <span class="highlight" id="heroCountdownTimer">15d 07h 51m 15s</span>
           </div>
 
-          <div class="hero-actions-row">
-            <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn-heist-register" style="display: inline-flex; align-items: center; justify-content: center; text-decoration: none;">
-              🎟️ Register Now →
-            </a>
-            <a href="#tracks" class="btn-heist-outline">
-              Explore Tracks ↓
-            </a>
-          </div>
-
+          <a href="#tracks" class="btn-hero-secondary">
+            <span>Explore Tracks & Timeline</span>
+            <span>↓</span>
+          </a>
         </div>
 
       </div>
-
     </div>
   </section>
 

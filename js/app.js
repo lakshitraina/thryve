@@ -81,6 +81,15 @@ function initCountdown() {
     if (hoursEl) hoursEl.innerText = String(hours).padStart(2, '0');
     if (minsEl) minsEl.innerText = String(mins).padStart(2, '0');
     if (secsEl) secsEl.innerText = String(secs).padStart(2, '0');
+
+    const heroTimerEl = document.getElementById('heroCountdownTimer');
+    if (heroTimerEl) {
+      if (diff <= 0) {
+        heroTimerEl.innerText = '00d 00h 00m 00s';
+      } else {
+        heroTimerEl.innerText = `${String(days).padStart(2, '0')}d ${String(hours).padStart(2, '0')}h ${String(mins).padStart(2, '0')}m ${String(secs).padStart(2, '0')}s`;
+      }
+    }
   }
 
   update();
