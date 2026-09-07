@@ -1,0 +1,17 @@
+{
+  "totalViews": 0,
+  "uniqueVisitors": 0,
+  "registerClicks": 0,
+  "ctaBreakdown": {
+    "navbar": 0,
+    "hero_cta": 0,
+    "spotlight_card": 0,
+    "events_list": 0,
+    "registration_page": 0,
+    "bottom_banner": 0,
+    "other": 0
+  },
+  "visitorIds": [],
+  "recentEvents": [],
+  "lastUpdated": "2026-09-07T17:30:00.000Z"
+}

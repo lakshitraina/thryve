@@ -11,6 +11,10 @@
       "dest": "/registration.html"
     },
     {
+      "src": "/data",
+      "dest": "/data.html"
+    },
+    {
       "src": "/(.*)",
       "dest": "/index.html"
     }

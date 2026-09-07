@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THRYVE EXECUTIVE COMMAND // Realtime Intelligence & Analytics</title>
+  <meta name="description" content="Official administrative intelligence dashboard for THRYVE & Code Heist Hackathon 2026. Password protected executive portal." />
+  <meta name="theme-color" content="#DC2626" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Google Fonts: Sora + Manrope + JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/variables.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/data.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/thryve-emblem.svg" />
+</head>
+<body class="cyber-data-body">
+
+  <!-- Background Cyber Matrix & Glowing Orbs -->
+  <div class="cyber-bg-grid"></div>
+  <div class="cyber-glow-orb-1"></div>
+  <div class="cyber-glow-orb-2"></div>
+
+  <!-- ==========================================================================
+       1. SECURITY ACCESS GATE / PASSCODE MODAL (PASSWORD PROTECTED)
+       ========================================================================== -->
+  <section class="cyber-lock-screen" id="lockScreen">
+    <div class="cyber-lock-box">
+      
+      <!-- Security Badge -->
+      <div class="cyber-security-badge">
+        <span>🔒</span>
+        <span>EXECUTIVE CLEARANCE REQUIRED</span>
+      </div>
+
+      <!-- Lock Emblem Icon -->
+      <div class="cyber-lock-icon-wrap">
+        <span>🛡️</span>
+      </div>
+
+      <!-- Title & Subtitle -->
+      <h1 class="cyber-lock-title">THRYVE INTELLIGENCE</h1>
+      <p class="cyber-lock-subtitle">
+        Enter the administrative passcode to access the real-time visitor and registration metrics command center.
+      </p>
+
+      <!-- Passcode Input Form -->
+      <form id="passForm" autocomplete="off">
+        <div class="cyber-form-group">
+          <label class="cyber-label" for="passInput">Administrative Passcode</label>
+          <div class="cyber-input-wrapper">
+            <input 
+              type="password" 
+              id="passInput" 
+              class="cyber-input" 
+              placeholder="Enter passcode..." 
+              required 
+              autofocus 
+            />
+            <button type="button" id="toggleEyeBtn" class="cyber-toggle-eye" title="Toggle Visibility" aria-label="Show or hide password">
+              👁️
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="cyber-btn-unlock" id="btnUnlock">
+          <span>Decrypt & Unlock Command</span>
+          <span>→</span>
+        </button>
+
+        <div class="cyber-error-msg" id="lockError">
+          ⛔ ACCESS DENIED: Invalid Security Passcode
+        </div>
+      </form>
+
+      <!-- Footer Info -->
+      <div class="cyber-lock-footer">
+        <span>THRYVE Official Event Infrastructure • </span>
+        <a href="/index.html">Return to Home</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================================================
+       2. REAL-TIME EXECUTIVE DASHBOARD (UNLOCKED STATE)
+       ========================================================================== -->
+  <div class="cyber-dashboard hidden" id="dashboardScreen">
+
+    <!-- Top Command Navigation Header -->
+    <header class="cyber-header">
+      <div class="cyber-header-container">
+        <div class="cyber-brand-group">
+          <a href="/index.html" class="cyber-brand-logo" title="Back to THRYVE Portal">
+            <svg class="cyber-logo-icon" viewBox="0 0 800 320" fill="currentColor">
+              <g>
+                <path d="M400,0 L490,95 L445,138 L418,110 L418,220 L382,220 L382,110 L355,138 L310,95 Z" />
+                <path d="M400,285 L335,220 L362,192 L400,230 L438,192 L465,220 Z" />
+                <path d="M135,28 L330,140 L310,185 L180,110 L265,250 L200,285 L100,120 Z" />
+                <path d="M665,28 L700,120 L600,285 L535,250 L620,110 L490,185 L470,140 Z" />
+              </g>
+            </svg>
+            <span class="cyber-logo-text">THRYVE<span style="color: #DC2626;">.</span> DATA</span>
+          </a>
+          <div class="cyber-badge-live">
+            <span class="cyber-pulse-dot"></span>
+            <span>LIVE INTELLIGENCE SYNC</span>
+          </div>
+        </div>
+
+        <div class="cyber-nav-actions">
+          <button type="button" class="cyber-btn-ghost" id="btnSyncNow" title="Force refresh stats">
+            🔄 Sync Now
+          </button>
+          <a href="/index.html" class="cyber-btn-ghost" title="View Public Portal" target="_blank">
+            🌐 View Site ↗
+          </a>
+          <button type="button" class="cyber-btn-lock" id="btnLockTerminal" title="Lock the dashboard">
+            🔒 Lock Terminal
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Dashboard Container -->
+    <main class="cyber-main">
+
+      <!-- Top Title & Sync Banner -->
+      <div class="cyber-banner-hero">
+        <div>
+          <h1 class="cyber-heading-title">
+            EXECUTIVE <span class="accent-red">COMMAND // ANALYTICS</span>
+          </h1>
+          <p class="cyber-heading-sub">
+            Realtime traffic metrics, registration intent tracking & conversion analytics for <strong>CODE HEIST '26</strong>.
+          </p>
+        </div>
+
+        <div class="cyber-sync-status">
+          <label class="cyber-auto-toggle" title="Toggle automatic 5-second sync">
+            <input type="checkbox" id="autoRefreshCheckbox" checked />
+            <span>Auto-Sync (5s)</span>
+          </label>
+          <span id="lastUpdatedEl">Synchronizing...</span>
+        </div>
+      </div>
+
+      <!-- Primary Key Performance Indicators (KPIs) -->
+      <div class="cyber-metrics-grid">
+        
+        <!-- Metric 1: Total Site Views -->
+        <div class="cyber-card-kpi highlight-card">
+          <div class="cyber-kpi-top">
+            <span class="cyber-kpi-label">👁️ Total Site Views</span>
+            <div class="cyber-kpi-icon">🌐</div>
+          </div>
+          <div class="cyber-kpi-value" id="statTotalViews">0</div>
+          <div class="cyber-kpi-meta">
+            <span>Unique Visitors: <strong id="statUniqueVisitors" style="color: #FFFFFF;">0</strong></span>
+            <span class="cyber-kpi-pill positive">Total Impressions</span>
+          </div>
+          <div class="cyber-progress-track">
+            <div class="cyber-progress-fill" style="width: 100%;"></div>
+          </div>
+        </div>
+
+        <!-- Metric 2: Register Button Clicks -->
+        <div class="cyber-card-kpi highlight-card">
+          <div class="cyber-kpi-top">
+            <span class="cyber-kpi-label">🎟️ Register Button Clicks</span>
+            <div class="cyber-kpi-icon">⚡</div>
+          </div>
+          <div class="cyber-kpi-value accent-red" id="statRegisterClicks">0</div>
+          <div class="cyber-kpi-meta">
+            <span>Macbease Invocations</span>
+            <span class="cyber-kpi-pill positive">Active Intent</span>
+          </div>
+          <div class="cyber-progress-track">
+            <div class="cyber-progress-fill" style="width: 100%; background: linear-gradient(90deg, #EF4444, #F87171);"></div>
+          </div>
+        </div>
+
+        <!-- Metric 3: Conversion Rate -->
+        <div class="cyber-card-kpi">
+          <div class="cyber-kpi-top">
+            <span class="cyber-kpi-label">📊 Conversion Rate (CTR)</span>
+            <div class="cyber-kpi-icon">📈</div>
+          </div>
+          <div class="cyber-kpi-value accent-green" id="statConversionRate">0.0%</div>
+          <div class="cyber-kpi-meta">
+            <span>Clicks per 100 Visitors</span>
+            <span class="cyber-kpi-pill positive">Intent Ratio</span>
+          </div>
+          <div class="cyber-progress-track">
+            <div class="cyber-progress-fill" id="statConversionFill" style="width: 0%; background: linear-gradient(90deg, #10B981, #34D399);"></div>
+          </div>
+        </div>
+
+        <!-- Metric 4: Direct Backend Submissions -->
+        <div class="cyber-card-kpi">
+          <div class="cyber-kpi-top">
+            <span class="cyber-kpi-label">📋 Confirmed Registrations</span>
+            <div class="cyber-kpi-icon">🏆</div>
+          </div>
+          <div class="cyber-kpi-value" id="statConfirmedTeams">0</div>
+          <div class="cyber-kpi-meta">
+            <span>Crew Apps: <strong id="statRecruitApps" style="color: #FFFFFF;">0</strong></span>
+            <span class="cyber-kpi-pill">Verified Data</span>
+          </div>
+          <div class="cyber-progress-track">
+            <div class="cyber-progress-fill" style="width: 100%; background: linear-gradient(90deg, #3B82F6, #60A5FA);"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 2-Column Analytics Panel: Breakdown & Live Feed -->
+      <div class="cyber-grid-2col">
+        
+        <!-- CTA Click Breakdown Panel -->
+        <div class="cyber-panel">
+          <div class="cyber-panel-header">
+            <h3 class="cyber-panel-title">
+              <span>🎯</span>
+              <span>Register CTA Source Breakdown</span>
+            </h3>
+            <span class="cyber-panel-sub">Attribution Analysis</span>
+          </div>
+
+          <div class="cyber-breakdown-list" id="breakdownContainer">
+            <div style="color: var(--cyber-text-dim); text-align: center; padding: 20px;">
+              Loading breakdown metrics...
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Realtime Event Stream -->
+        <div class="cyber-panel">
+          <div class="cyber-panel-header">
+            <h3 class="cyber-panel-title">
+              <span>📡</span>
+              <span>Live Event Stream</span>
+            </h3>
+            <span class="cyber-panel-sub">Recent 30 Actions</span>
+          </div>
+
+          <div class="cyber-event-feed" id="eventFeedContainer">
+            <div style="color: var(--cyber-text-dim); text-align: center; padding: 20px;">
+              Listening for live user actions...
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Administrative Toolbar -->
+      <div class="cyber-toolbar">
+        <div class="cyber-toolbar-info">
+          <span>⚡ Security Protocol: <strong>AES Encrypted Session</strong></span>
+          <span>•</span>
+          <span>Clock: <strong id="serverTimeEl">--:--:--</strong></span>
+        </div>
+
+        <div class="cyber-toolbar-buttons">
+          <button type="button" class="cyber-btn-action" id="btnSimulateClick" title="Send a test click ping">
+            <span>⚡ Test Click Ping</span>
+          </button>
+          <button type="button" class="cyber-btn-action" id="btnExportCsv" title="Export as CSV spreadsheet">
+            <span>📥 Export CSV</span>
+          </button>
+          <button type="button" class="cyber-btn-action" id="btnExportJson" title="Export full JSON backup">
+            <span>📦 Export JSON</span>
+          </button>
+          <button type="button" class="cyber-btn-action cyber-btn-danger" id="btnResetData" title="Reset all counters to 0">
+            <span>⚠️ Reset Counters</span>
+          </button>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="cyber-toast" id="cyberToast"></div>
+
+  <!-- Scripts -->
+  <script src="/js/data-portal.js"></script>
+</body>
+</html>

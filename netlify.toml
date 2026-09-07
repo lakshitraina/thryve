@@ -20,6 +20,12 @@
   to = "/registration.html"
   status = 200
 
+# Analytics Data dashboard route
+[[redirects]]
+  from = "/data"
+  to = "/data.html"
+  status = 200
+
 # Fallback for client routes
 [[redirects]]
   from = "/*"
