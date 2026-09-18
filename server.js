@@ -450,6 +450,8 @@ const server = http.createServer((req, res) => {
     pathname = '/registration.html';
   } else if (pathname === '/data' || pathname === '/data/') {
     pathname = '/data.html';
+  } else if (pathname === '/statements' || pathname === '/statements/') {
+    pathname = '/statements.html';
   }
 
   const safePath = path.normalize(path.join(__dirname, pathname));
@@ -490,6 +492,7 @@ server.listen(PORT, '0.0.0.0', () => {
   console.log(`  🔗 Local URL:   http://localhost:${PORT}`);
   console.log(`  🔗 Network:     http://127.0.0.1:${PORT}`);
   console.log(`  🎟️ Register:    http://localhost:${PORT}/registration`);
+  console.log(`  📑 Statements:  http://localhost:${PORT}/statements`);
   console.log(`  📊 Analytics:   http://localhost:${PORT}/data (Passcode Protected)`);
   console.log(`======================================================\n`);
 });

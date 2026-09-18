@@ -20,6 +20,12 @@
   to = "/registration.html"
   status = 200
 
+# Problem Statements page route
+[[redirects]]
+  from = "/statements"
+  to = "/statements.html"
+  status = 200
+
 # Analytics Data dashboard route
 [[redirects]]
   from = "/data"

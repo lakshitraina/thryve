@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CODE HEIST 2026 — Official Problem Statements | THRYVE</title>
+  <meta name="description" content="Official Problem Statements for CODE HEIST 2026 24-hour hackathon presented by THRYVE. 10 advanced challenges across AI, FinTech, Cybersecurity, HealthTech, Smart Campus & Sustainability." />
+  <meta name="theme-color" content="#e50914" />
+
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="CODE HEIST 2026 — Official Problem Statements" />
+  <meta property="og:description" content="10 Challenges built to separate 'it works' from 'it works brilliantly'. Selected SIH 2024 & CODE HEIST Originals." />
+  <meta property="og:image" content="/assets/code-heist-poster.jpg" />
+
+  <!-- Fonts: Inter, Sora, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&family=Sora:wght@600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Favicon with official THRYVE emblem -->
+  <link rel="icon" type="image/svg+xml" href="/assets/thryve-emblem.svg" />
+
+<style>
+:root {
+  --r: #e50914;
+  --r2: #ff2733;
+  --r-glow: rgba(229, 9, 20, 0.35);
+  --b: #070707;
+  --b2: #111111;
+  --b3: #171717;
+  --w: #f5f5f2;
+  --g: #a6a6a6;
+  --line: #292929;
+  --line-hover: #4a4a4a;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --font-display: 'Sora', 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--b);
+  color: var(--w);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Subtle Film Noise Texture */
+body:before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.028;
+  z-index: 99;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ==========================================================================
+   TOP GLOBAL NAVIGATION BAR
+   ========================================================================== */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(7, 7, 7, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+  padding: 0 7vw;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: border-color 0.2s;
+}
+
+.brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--w);
+}
+
+.brand-emblem {
+  width: 28px;
+  height: 28px;
+  color: var(--r);
+  display: flex;
+  align-items: center;
+}
+
+.brand-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 17px;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.brand-title span.dot {
+  color: var(--r);
+}
+
+.brand-subtag {
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  background: rgba(229, 9, 20, 0.12);
+  color: var(--r2);
+  border: 1px solid rgba(229, 9, 20, 0.3);
+  padding: 2px 7px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-item {
+  color: var(--g);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.nav-item:hover {
+  color: var(--w);
+}
+
+.nav-item.active {
+  color: var(--r);
+}
+
+.btn-nav-register {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--r);
+  color: #fff;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(229, 9, 20, 0.3);
+}
+
+.btn-nav-register:hover {
+  background: var(--r2);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(229, 9, 20, 0.45);
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero {
+  min-height: 84vh;
+  padding: 70px 7vw 50px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at 78% 38%, rgba(229, 9, 20, 0.24), transparent 32%),
+              radial-gradient(circle at 20% 80%, rgba(229, 9, 20, 0.08), transparent 40%),
+              linear-gradient(135deg, #050505, #0d0d0d 60%, #060606);
+  border-bottom: 1px solid var(--line);
+}
+
+.hero:before {
+  content: "CODE HEIST";
+  position: absolute;
+  right: -4vw;
+  top: 16%;
+  font-size: 18vw;
+  font-weight: 950;
+  line-height: 0.8;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.045);
+  transform: rotate(-8deg);
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+}
+
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--r);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.kicker i {
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--r);
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(54px, 10vw, 140px);
+  line-height: 0.88;
+  letter-spacing: -6px;
+  text-transform: uppercase;
+  font-weight: 950;
+}
+
+h1 span {
+  color: var(--r);
+}
+
+.hero-copy {
+  font-size: clamp(16px, 1.8vw, 22px);
+  color: #d5d5d5;
+  max-width: 780px;
+  margin-top: 30px;
+  font-weight: 400;
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 32px;
+}
+
+.badge {
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  font-weight: 900;
+  border: 1px solid #3a3a3a;
+  background: #101010;
+  color: #d0d0d0;
+  padding: 8px 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.badge:hover {
+  border-color: #777;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.badge.red {
+  background: var(--r);
+  border-color: var(--r);
+  color: #fff;
+}
+
+.badge.active {
+  background: var(--w);
+  border-color: var(--w);
+  color: var(--b);
+}
+
+/* ==========================================================================
+   FILTER & CONTROLS TOOLBAR
+   ========================================================================== */
+.controls-bar {
+  padding: 24px 7vw;
+  background: #0a0a0a;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  position: sticky;
+  top: 64px;
+  z-index: 90;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.search-box {
+  position: relative;
+  flex: 1;
+  min-width: 260px;
+  max-width: 440px;
+}
+
+.search-box input {
+  width: 100%;
+  background: #141414;
+  border: 1px solid #333;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  padding: 10px 14px 10px 38px;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.search-box input:focus {
+  border-color: var(--r);
+  background: #181818;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.filter-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.filter-btn {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: #151515;
+  color: #999;
+  border: 1px solid #292929;
+  padding: 6px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filter-btn:hover {
+  border-color: #555;
+  color: #eee;
+}
+
+.filter-btn.active {
+  background: var(--r);
+  border-color: var(--r);
+  color: #fff;
+}
+
+.stats-counter {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #888;
+}
+
+.stats-counter span {
+  color: var(--r2);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   MAIN CONTENT & PROBLEM STATEMENTS
+   ========================================================================== */
+main {
+  padding: 0 7vw 90px;
+}
+
+.section {
+  padding-top: 80px;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 25px;
+  margin-bottom: 30px;
+}
+
+.num {
+  font-size: 12px;
+  color: var(--r);
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4vw, 54px);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  margin-top: 8px;
+  font-weight: 900;
+}
+
+.section-theme {
+  color: #777;
+  text-align: right;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.card {
+  position: relative;
+  background: linear-gradient(145deg, #151515, #0d0d0d);
+  border: 1px solid var(--line);
+  padding: 32px 30px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s, box-shadow 0.25s;
+}
+
+.card:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--r);
+}
+
+.card:hover {
+  border-color: #555;
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.label {
+  color: var(--r);
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.type {
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  background: #eee;
+  color: #111;
+  padding: 4px 8px;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+.card h3 {
+  font-family: var(--font-display);
+  font-size: clamp(21px, 2.2vw, 30px);
+  line-height: 1.15;
+  letter-spacing: -0.8px;
+  margin-bottom: 14px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.card p {
+  color: #c2c2c2;
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+.id {
+  color: #777;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.id-badge {
+  color: #bbb;
+  background: #1b1b1b;
+  border: 1px solid #2e2e2e;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.why, .challenge, .hard, .bonus {
+  margin-top: 22px;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+
+.mini {
+  font-size: 10px;
+  color: var(--r);
+  font-weight: 950;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 9px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  font-size: 13.5px;
+  color: #d4d4d4;
+  margin: 7px 0;
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.5;
+}
+
+li:before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  background: var(--r);
+  position: absolute;
+  left: 0;
+  top: 9px;
+  border-radius: 1px;
+}
+
+.flow {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: #eee;
+  background: #070707;
+  border: 1px solid #242424;
+  padding: 12px 14px;
+  margin-top: 17px;
+  overflow-x: auto;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+}
+
+.bonus {
+  border-top: 0;
+  border-left: 2px solid var(--r);
+  padding: 10px 0 0 14px;
+  color: #eee;
+  font-size: 12.5px;
+  background: rgba(229, 9, 20, 0.04);
+  padding-bottom: 8px;
+  margin-top: 18px;
+}
+
+.bonus b {
+  color: var(--r2);
+  letter-spacing: 0.8px;
+}
+
+.original {
+  border-color: #303030;
+}
+
+.original:after {
+  content: "CODE HEIST ORIGINAL";
+  position: absolute;
+  right: -45px;
+  top: 18px;
+  background: var(--r);
+  color: #fff;
+  font-size: 8px;
+  font-weight: 950;
+  letter-spacing: 1.2px;
+  padding: 5px 50px;
+  transform: rotate(35deg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.sih:after {
+  content: "SIH 2024";
+  position: absolute;
+  right: -34px;
+  top: 18px;
+  background: #eee;
+  color: #111;
+  font-size: 8px;
+  font-weight: 950;
+  letter-spacing: 1.2px;
+  padding: 5px 43px;
+  transform: rotate(35deg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Card Action Strip */
+.card-actions {
+  margin-top: 22px;
+  padding-top: 14px;
+  border-top: 1px dashed #242424;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-copy-problem {
+  background: transparent;
+  border: 1px solid #333;
+  color: #aaa;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  padding: 6px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-copy-problem:hover {
+  background: #1c1c1c;
+  border-color: #666;
+  color: #fff;
+}
+
+.btn-card-register {
+  font-size: 11px;
+  color: var(--r2);
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.15s, transform 0.15s;
+}
+
+.btn-card-register:hover {
+  color: #fff;
+  transform: translateX(2px);
+}
+
+/* ==========================================================================
+   NOTICE SECTION
+   ========================================================================== */
+.notice {
+  margin-top: 60px;
+  padding: 30px 36px;
+  background: var(--r);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(229, 9, 20, 0.25);
+}
+
+.notice:before {
+  content: "HEIST RULE";
+  position: absolute;
+  right: -20px;
+  bottom: -15px;
+  font-size: 70px;
+  font-weight: 950;
+  opacity: 0.12;
+  pointer-events: none;
+  letter-spacing: -2px;
+}
+
+.notice strong {
+  font-family: var(--font-display);
+  font-size: 24px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  min-width: 220px;
+}
+
+.notice p {
+  max-width: 680px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.notice-action {
+  flex-shrink: 0;
+}
+
+.btn-notice {
+  background: #fff;
+  color: #111;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  text-decoration: none;
+  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn-notice:hover {
+  background: #000;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+footer {
+  padding: 35px 7vw 45px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-size: 11px;
+  background: #050505;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-link {
+  color: #777;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-link:hover {
+  color: var(--r);
+}
+
+/* Toast Notification */
+.toast-msg {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #181818;
+  border: 1px solid var(--r);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: var(--font-mono);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toast-msg.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Empty search state */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  border: 1px dashed #333;
+  background: #0e0e0e;
+}
+
+.empty-state h4 {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.empty-state p {
+  color: #777;
+  font-size: 13px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 900px) {
+  .site-nav {
+    padding: 0 5vw;
+  }
+  .nav-links {
+    display: none;
+  }
+  .hero {
+    padding: 55px 6vw 40px;
+    min-height: auto;
+  }
+  .hero:before {
+    display: none;
+  }
+  h1 {
+    letter-spacing: -3px;
+  }
+  .controls-bar {
+    padding: 16px 6vw;
+  }
+  main {
+    padding: 0 6vw 70px;
+  }
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .section-head {
+    display: block;
+  }
+  .section-theme {
+    text-align: left;
+    margin-top: 10px;
+  }
+  .notice {
+    display: block;
+  }
+  .notice p {
+    margin-top: 14px;
+    margin-bottom: 20px;
+  }
+  footer {
+    padding-left: 6vw;
+    padding-right: 6vw;
+    display: block;
+  }
+  footer span {
+    display: block;
+    margin-top: 8px;
+  }
+  .footer-links {
+    margin-top: 12px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP NAVIGATION -->
+<nav class="site-nav">
+  <a href="/index.html" class="brand-wrap" title="THRYVE & CODE HEIST Home">
+    <div class="brand-emblem">
+      <svg viewBox="0 0 800 320" fill="currentColor" style="width: 100%; height: 100%;">
+        <g>
+          <path d="M400,0 L490,95 L445,138 L418,110 L418,220 L382,220 L382,110 L355,138 L310,95 Z" />
+          <path d="M400,285 L335,220 L362,192 L400,230 L438,192 L465,220 Z" />
+          <path d="M135,28 L330,140 L310,185 L180,110 L265,250 L200,285 L100,120 Z" />
+          <path d="M665,28 L700,120 L600,285 L535,250 L620,110 L490,185 L470,140 Z" />
+        </g>
+      </svg>
+    </div>
+    <span class="brand-title">THRYVE<span class="dot">.</span></span>
+    <span class="brand-subtag">CODE HEIST '26</span>
+  </a>
+
+  <div class="nav-links">
+    <a href="/index.html" class="nav-item">← Main Event</a>
+    <a href="#sih-section" class="nav-item">SIH 2024 (4)</a>
+    <a href="#originals-section" class="nav-item">Originals (6)</a>
+    <a href="/registration" class="nav-item">Squad Registration</a>
+  </div>
+
+  <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn-nav-register js-register-trigger">
+    <span>Register Squad</span>
+    <span>→</span>
+  </a>
+</nav>
+
+<!-- HERO HEADER -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker"><i></i> CODE HEIST • 2026</div>
+    <h1>Problem<br><span>Statements</span></h1>
+    <p class="hero-copy">Ten challenges built to separate “it works” from “it works brilliantly.” Four selected from SIH 2024 and six original CODE HEIST challenges.</p>
+    <div class="hero-badges">
+      <div class="badge red" data-filter="all">10 Challenges</div>
+      <div class="badge" data-filter="ai">AI</div>
+      <div class="badge" data-filter="campus">Campus</div>
+      <div class="badge" data-filter="fintech">FinTech</div>
+      <div class="badge" data-filter="sustainability">Sustainability</div>
+      <div class="badge" data-filter="healthtech">HealthTech</div>
+      <div class="badge" data-filter="open innovation">Open Innovation</div>
+    </div>
+  </div>
+</header>
+
+<!-- SEARCH & CONTROLS BAR -->
+<div class="controls-bar">
+  <div class="search-box">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="problemSearch" placeholder="Search challenges, keywords, algorithms..." autocomplete="off" />
+  </div>
+
+  <div class="filter-tags">
+    <button class="filter-btn active" data-filter="all">All (10)</button>
+    <button class="filter-btn" data-filter="sih">SIH 2024 (4)</button>
+    <button class="filter-btn" data-filter="original">Originals (6)</button>
+    <button class="filter-btn" data-filter="ai">AI / ML</button>
+    <button class="filter-btn" data-filter="cybersecurity">Cyber</button>
+    <button class="filter-btn" data-filter="fintech">FinTech</button>
+  </div>
+
+  <div class="stats-counter" id="activeCountDisplay">
+    Showing <span id="visibleCount">10</span> of 10 challenges
+  </div>
+</div>
+
+<main>
+
+<!-- SECTION 01: SIH 2024 -->
+<section class="section" id="sih-section">
+  <div class="section-head">
+    <div>
+      <div class="num">01 — SIH 2024</div>
+      <div class="section-title">Advanced Challenges</div>
+    </div>
+    <div class="section-theme">Selected SIH Problems</div>
+  </div>
+
+  <div class="cards" id="sihCardsGrid">
+
+    <article class="card sih" data-category="sih ai computer-vision geospatial" data-keywords="sih1736 frame interpolation video generation wms geospatial visualization computer vision temporal consistency satellite">
+      <div class="card-body">
+        <div class="top">
+          <div class="label">AI / Computer Vision</div>
+          <div class="type">Software</div>
+        </div>
+        <h3>AI Based Frame Interpolation, Video Generation and Display System for WMS Services</h3>
+        <div class="id">
+          <span class="id-badge">SIH1736</span> • SIH 2024
+        </div>
+        <p style="margin-top:15px">Develop a system that automatically generates videos using frame interpolation techniques for WMS services, improving the temporal experience of geospatial visualisation.</p>
+        <div class="why">
+          <div class="mini">Why it's hard</div>
+          <ul>
+            <li>Computer vision and video processing</li>
+            <li>Generative AI / frame interpolation</li>
+            <li>Temporal consistency between frames</li>
+            <li>Geospatial/WMS data integration</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card-actions">
+        <button class="btn-copy-problem" data-id="SIH1736" data-title="AI Based Frame Interpolation, Video Generation and Display System for WMS Services">
+          📋 Copy Brief
+        </button>
+        <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn-card-register js-register-trigger">
+          Pick Track →
+        </a>
+      </div>
+    </article>
+
+    <article class="card sih" data-category="sih ai geospatial" data-keywords="sih1740 map-matching vehicular movement highway service road gps trajectory geometry ml ai">
+      <div class="card-body">
+        <div class="top">
+          <div class="label">AI / Geospatial</div>
+          <div class="type">Software</div>
+        </div>
+        <h3>Development of Map-Matching Algorithm Using AI-ML Techniques to Distinguish Vehicular Movement on Highway and Service Road</h3>
+        <div class="id">
+          <span class="id-badge">SIH1740</span> • SIH 2024
+        </div>
+        <p style="margin-top:15px">Develop an AI/ML-based map-matching system capable of distinguishing vehicle movement on a highway from movement on an adjacent service road despite imperfect location data.</p>
+        <div class="why">
+          <div class="mini">Why it's hard</div>
+          <ul>
+            <li>GPS noise and uncertainty</li>
+            <li>Trajectory analysis</li>
+            <li>Geospatial geometry</li>
+            <li>AI/ML-based map matching</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card-actions">
+        <button class="btn-copy-problem" data-id="SIH1740" data-title="Development of Map-Matching Algorithm Using AI-ML Techniques to Distinguish Vehicular Movement on Highway and Service Road">
+          📋 Copy Brief
+        </button>
+        <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn-card-register js-register-trigger">
+          Pick Track →
+        </a>
+      </div>
+    </article>
+
+    <article class="card sih" data-category="sih cybersecurity forensics" data-keywords="sih1744 cyber triage tool digital forensics incident response evidence classification indicator compromise correlation investigation">
+      <div class="card-body">
+        <div class="top">
+          <div class="label">Cybersecurity / Forensics</div>
+          <div class="type">Software</div>
+        </div>
+        <h3>Creating a Cyber Triage Tool to Streamline Digital Forensic Investigation</h3>
+        <div class="id">
+          <span class="id-badge">SIH1744</span> • SIH 2024
+        </div>
+        <p style="margin-top:15px">Build an innovative digital-forensics and incident-response tool that helps investigators rapidly collect, organize and analyze digital evidence.</p>
+        <div class="flow">EVIDENCE → ACQUIRE → CLASSIFY → EXTRACT → CORRELATE → INVESTIGATE</div>
+        <div class="why">
+          <div class="mini">Why it's hard</div>
+          <ul>
+            <li>Digital evidence collection</li>
+            <li>Evidence classification and extraction</li>
+            <li>Indicator-of-compromise discovery</li>
+            <li>Timeline and correlation analysis</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card-actions">
+        <button class="btn-copy-problem" data-id="SIH1744" data-title="Creating a Cyber Triage Tool to Streamline Digital Forensic Investigation">
+          📋 Copy Brief
+        </button>
+        <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn-card-register js-register-trigger">
+          Pick Track →
+        </a>
+      </div>
+    </article>
+
+    <article class="card sih" data-category="sih space computer-vision ai" data-keywords="sih1732 psr lunar craters chandrayaan-2 ohrc low-light image enhancement deep learning computer vision satellite imagery astronomy">
+      <div class="card-body">
+        <div class="top">
+          <div class="label">Space / Computer Vision</div>
+          <div class="type">Software</div>
+        </div>
+        <h3>Enhancement of Permanently Shadowed Regions (PSR) of Lunar Craters Captured by OHRC of Chandrayaan-2</h3>
+        <div class="id">
+          <span class="id-badge">SIH1732</span> • SIH 2024
+        </div>
+        <p style="margin-top:15px">Enhance extremely low-light imagery of permanently shadowed lunar regions captured by Chandrayaan-2's Orbiter High Resolution Camera.</p>
+        <div class="why">
+          <div class="mini">Why it's hard</div>
+          <ul>
+            <li>Low-light image enhancement</li>
+            <li>Deep learning / computer vision</li>
+            <li>Satellite imagery</li>
+            <li>Astronomical image processing</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card-actions">
+        <button class="btn-copy-problem" data-id="SIH1732" data-title="Enhancement of Permanently Shadowed Regions (PSR) of Lunar Craters Captured by OHRC of Chandrayaan-2">
+          📋 Copy Brief
+        </button>
+        <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn-card-register js-register-trigger">
+          Pick Track →
+        </a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- SECTION 02: CODE HEIST ORIGINAL -->
+<section class="section" id="originals-section">
+  <div class="section-head">
+    <div>
+      <div class="num">02 — CODE HEIST ORIGINAL</div>
+      <div class="section-title">The Six Challenges</div>
+    </div>
+    <div class="section-theme">Original Problem Statements</div>
+  </div>
+
+  <div class="cards" id="originalCardsGrid">
+
+    <article class="card original" data-category="original ai everyday" data-keywords="memory agent personal searchable memory whatsapp emails pdfs screenshots notes calendars llm rag autonomous agent">
+      <div class="card-body">
+        <div class="top">
+          <div class="label">AI for Everyday Life</div>
+          <div class="type">★★★★☆</div>
+        </div>
+        <h3>The Memory Agent</h3>
+        <div class="id">
+          <span class="id-badge">HEIST-01</span> • CODE HEIST ORIGINAL
+        </div>
+        <p style="margin-top:12px">People use WhatsApp, emails, PDFs, screenshots, notes and calendars to store information, but important information gets lost across different platforms. Build an AI assistant that creates a personal searchable memory from user-provided data.</p>
+        <div class="challenge">
+          <div class="mini">Challenge</div>
+          <ul>
+            <li>Retrieve information across different data types.</li>
+            <li>Understand context and relationships between people, events and documents.</li>
+            <li>Handle conflicting information.</li>
+            <li>Provide source references.</li>
+            <li>Avoid confidently inventing information.</li>
+          </ul>
+        </div>
+        <div class="bonus">
+          <b>BONUS:</b> Build an autonomous agent that can take actions based on retrieved information.
+        </div>
+      </div>
+      <div class="card-actions">
+        <button class="btn-copy-problem" data-id="HEIST-01" data-title="The Memory Agent (AI for Everyday Life)">
+          📋 Copy Brief
+        </button>
+        <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn-card-register js-register-trigger">
+          Pick Track →
+        </a>
+      </div>
+    </article>
+
+    <article class="card original" data-category="original campus smart-campus iot" data-keywords="campus digital twin university classrooms labs hostels parking crowd analytics iot simulation real-time map">
+      <div class="card-body">
+        <div class="top">
+          <div class="label">Smart Campus Innovation</div>
+          <div class="type">★★★★★</div>
+        </div>
+        <h3>Campus Digital Twin</h3>
+        <div class="id">
+          <span class="id-badge">HEIST-02</span> • CODE HEIST ORIGINAL
+        </div>
+        <p style="margin-top:12px">Build a digital twin of a university campus representing buildings, classrooms, labs, hostels, parking, events and facilities in one interactive system.</p>
+        <div class="flow">IoT / DATA → BACKEND → ANALYTICS → CAMPUS MAP → REAL-TIME DECISIONS</div>
+        <div class="challenge">
+          <div class="mini">Challenge</div>
+          <ul>
+            <li>Show classroom and lab availability.</li>
+            <li>Find available parking and facilities.</li>
+            <li>Visualize crowd levels and activity.</li>
+            <li>Show events and reported campus issues.</li>
+            <li>Combine multiple simulated or real data sources.</li>
+          </ul>
+        </div>
+        <div class="bonus">
+          <b>BONUS:</b> Predict crowd movement and facility demand.
+        </div>
+      </div>
+      <div class="card-actions">
+        <button class="btn-copy-problem" data-id="HEIST-02" data-title="Campus Digital Twin (Smart Campus Innovation)">
+          📋 Copy Brief
+        </button>
+        <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn-card-register js-register-trigger">
+          Pick Track →
+        </a>
+      </div>
+    </article>
+
+    <article class="card original" data-category="original fintech ai" data-keywords="can you trust this payment fintech fraud detection real-time payment risk suspicious transaction graph analysis upi recipient history">
+      <div class="card-body">
+        <div class="top">
+          <div class="label">FinTech for Everyone</div>
+          <div class="type">★★★★☆</div>
+        </div>
+        <h3>Can You Trust This Payment?</h3>
+        <div class="id">
+          <span class="id-badge">HEIST-03</span> • CODE HEIST ORIGINAL
+        </div>
+        <p style="margin-top:12px">Build a real-time payment risk assistant that evaluates transaction context and explains why a payment may be unusual or suspicious.</p>
+        <div class="flow">TRANSACTION + CONTEXT → RISK MODEL → EXPLANATION → USER ACTION</div>
+        <div class="challenge">
+          <div class="mini">Challenge</div>
+          <ul>
+            <li>Analyze amount, recipient history and payment frequency.</li>
+            <li>Consider device and location changes.</li>
+            <li>Analyze QR/payment requests and accompanying messages.</li>
+            <li>Learn normal user behavior rather than using fixed thresholds.</li>
+          </ul>
+        </div>
+        <div class="bonus">
+          <b>BONUS:</b> Detect coordinated fraud patterns across multiple accounts using graph analysis.
+        </div>
+      </div>
+      <div class="card-actions">
+        <button class="btn-copy-problem" data-id="HEIST-03" data-title="Can You Trust This Payment? (FinTech for Everyone)">
+          📋 Copy Brief
+        </button>
+        <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn-card-register js-register-trigger">
+          Pick Track →
+        </a>
+      </div>
+    </article>
+
+    <article class="card original" data-category="original sustainability energy ai" data-keywords="where did the electricity go sustainable future energy intelligence consumption anomaly wastage peak demand smart meter schedule optimization">
+      <div class="card-body">
+        <div class="top">
+          <div class="label">Sustainable Future</div>
+          <div class="type">★★★★☆</div>
+        </div>
+        <h3>Where Did the Electricity Go?</h3>
+        <div class="id">
+          <span class="id-badge">HEIST-04</span> • CODE HEIST ORIGINAL
+        </div>
+        <p style="margin-top:12px">Build an AI-powered energy intelligence platform that identifies unusual consumption, energy wastage, peak demand and abnormal usage across buildings, rooms or devices.</p>
+        <div class="flow">HISTORICAL DATA + CONTEXT → FORECAST → ANOMALY → CAUSE → ACTION</div>
+        <div class="challenge">
+          <div class="mini">Challenge</div>
+          <ul>
+            <li>Predict expected electricity consumption.</li>
+            <li>Detect unexpected usage patterns.</li>
+            <li>Identify peak-demand periods.</li>
+            <li>Use weather, occupancy, holidays and schedules as context.</li>
+            <li>Explain possible causes of anomalies.</li>
+          </ul>
+        </div>
+        <div class="bonus">
+          <b>BONUS:</b> Automatically recommend an optimized energy schedule.
+        </div>
+      </div>
+      <div class="card-actions">
+        <button class="btn-copy-problem" data-id="HEIST-04" data-title="Where Did the Electricity Go? (Sustainable Future)">
+          📋 Copy Brief
+        </button>
+        <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn-card-register js-register-trigger">
+          Pick Track →
+        </a>
+      </div>
+    </article>
+
+    <article class="card original" data-category="original healthtech healthcare ai" data-keywords="patient zero the missing context medical records prescriptions lab reports longitudinal timeline history document extraction provenance">
+      <div class="card-body">
+        <div class="top">
+          <div class="label">Healthcare & Smart Tech</div>
+          <div class="type">★★★★★</div>
+        </div>
+        <h3>Patient Zero: The Missing Context</h3>
+        <div class="id">
+          <span class="id-badge">HEIST-05</span> • CODE HEIST ORIGINAL
+        </div>
+        <p style="margin-top:12px">Medical information can be scattered across prescriptions, laboratory reports, scans and hospital visits. Build a system that converts multiple medical documents into a longitudinal patient timeline.</p>
+        <div class="flow">DOCUMENTS → EXTRACTION → TIMELINE → RELATIONSHIPS → SOURCED INSIGHTS</div>
+        <div class="challenge">
+          <div class="mini">Challenge</div>
+          <ul>
+            <li>Identify changes across reports over time.</li>
+            <li>Track repeated tests and medication history.</li>
+            <li>Connect relevant information across documents.</li>
+            <li>Identify missing or inconsistent information.</li>
+            <li>Preserve uncertainty and source provenance.</li>
+          </ul>
+        </div>
+        <div class="bonus">
+          <b>IMPORTANT:</b> This is an informational record-organization tool, not an autonomous diagnostic system.
+        </div>
+      </div>
+      <div class="card-actions">
+        <button class="btn-copy-problem" data-id="HEIST-05" data-title="Patient Zero: The Missing Context (Healthcare & Smart Tech)">
+          📋 Copy Brief
+        </button>
+        <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn-card-register js-register-trigger">
+          Pick Track →
+        </a>
+      </div>
+    </article>
+
+    <article class="card original" data-category="original open-innovation web agents ai" data-keywords="the internet control room autonomous agent workflows tools apis decompose execution state recovery open innovation web app">
+      <div class="card-body">
+        <div class="top">
+          <div class="label">Web & App Open Innovation</div>
+          <div class="type">★★★★★</div>
+        </div>
+        <h3>The Internet Control Room</h3>
+        <div class="id">
+          <span class="id-badge">HEIST-06</span> • CODE HEIST ORIGINAL
+        </div>
+        <p style="margin-top:12px">Build a platform where a user gives a high-level objective and the system decomposes it into multiple tasks and executes them using available APIs and services.</p>
+        <div class="flow">GOAL → PLAN → TOOLS → EXECUTE → VERIFY → RECOVER</div>
+        <div class="challenge">
+          <div class="mini">Challenge</div>
+          <ul>
+            <li>Choose the right tools for each task.</li>
+            <li>Decompose objectives into executable workflows.</li>
+            <li>Maintain state across multiple steps.</li>
+            <li>Handle API failures and conflicting results.</li>
+            <li>Support authentication, human approval and recovery.</li>
+          </ul>
+        </div>
+        <div class="bonus">
+          <b>BONUS:</b> Allow developers to plug their own tools and APIs into the agentic system.
+        </div>
+      </div>
+      <div class="card-actions">
+        <button class="btn-copy-problem" data-id="HEIST-06" data-title="The Internet Control Room (Web & App Open Innovation)">
+          📋 Copy Brief
+        </button>
+        <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn-card-register js-register-trigger">
+          Pick Track →
+        </a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- NOTICE STRIP -->
+<div class="notice">
+  <div>
+    <strong>10 PROBLEMS.<br>NO EASY MODE.</strong>
+  </div>
+  <p>Some challenges can produce a working MVP quickly. The real difficulty is pushing beyond the obvious solution — improving accuracy, reliability, scalability, explainability and real-world usefulness.</p>
+  <div class="notice-action">
+    <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="btn-notice js-register-trigger">
+      Register Team Now →
+    </a>
+  </div>
+</div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <span>CODE HEIST • 2026</span>
+    <span style="margin-left: 12px; color: #444;">Presented by THRYVE • LPU Punjab</span>
+  </div>
+  <div class="footer-links">
+    <a href="/index.html" class="footer-link">Home</a>
+    <a href="/registration" class="footer-link">Register</a>
+    <a href="#hero" class="footer-link">Back to Top ↑</a>
+  </div>
+  <div>
+    <span>Think different. Build harder.</span>
+  </div>
+</footer>
+
+<!-- Toast Feedback Popup -->
+<div class="toast-msg" id="toastMsg">
+  <span>✓</span>
+  <span id="toastText">Problem statement copied to clipboard!</span>
+</div>
+
+<!-- Scripts -->
+<script src="/js/analytics.js"></script>
+<script>
+(function() {
+  'use strict';
+
+  // 1. Search & Filter Engine
+  const searchInput = document.getElementById('problemSearch');
+  const filterBtns = document.querySelectorAll('.filter-btn, .badge');
+  const cards = document.querySelectorAll('.card');
+  const visibleCountSpan = document.getElementById('visibleCount');
+  const sihSection = document.getElementById('sih-section');
+  const originalSection = document.getElementById('originals-section');
+  const toast = document.getElementById('toastMsg');
+  const toastText = document.getElementById('toastText');
+
+  let currentFilter = 'all';
+  let searchQuery = '';
+
+  function applyFilter() {
+    let visibleTotal = 0;
+    let sihVisible = 0;
+    let origVisible = 0;
+
+    cards.forEach(card => {
+      const category = (card.getAttribute('data-category') || '').toLowerCase();
+      const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
+      const textContent = card.innerText.toLowerCase();
+
+      let matchesCategory = false;
+      if (currentFilter === 'all') {
+        matchesCategory = true;
+      } else if (currentFilter === 'sih') {
+        matchesCategory = category.includes('sih');
+      } else if (currentFilter === 'original') {
+        matchesCategory = category.includes('original');
+      } else {
+        matchesCategory = category.includes(currentFilter) || keywords.includes(currentFilter);
+      }
+
+      let matchesSearch = true;
+      if (searchQuery.trim() !== '') {
+        const q = searchQuery.toLowerCase().trim();
+        matchesSearch = textContent.includes(q) || keywords.includes(q);
+      }
+
+      if (matchesCategory && matchesSearch) {
+        card.style.display = 'flex';
+        visibleTotal++;
+        if (card.classList.contains('sih')) sihVisible++;
+        if (card.classList.contains('original')) origVisible++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (visibleCountSpan) visibleCountSpan.textContent = visibleTotal;
+
+    // Toggle Section Headers visibility if empty
+    if (sihSection) {
+      sihSection.style.display = sihVisible > 0 ? 'block' : 'none';
+    }
+    if (originalSection) {
+      originalSection.style.display = origVisible > 0 ? 'block' : 'none';
+    }
+  }
+
+  // Filter Buttons Click
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetFilter = btn.getAttribute('data-filter');
+      if (!targetFilter) return;
+
+      currentFilter = targetFilter.toLowerCase();
+
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.toggle('active', b.getAttribute('data-filter') === currentFilter);
+      });
+
+      document.querySelectorAll('.hero-badges .badge').forEach(b => {
+        b.classList.toggle('active', b.getAttribute('data-filter') === currentFilter);
+      });
+
+      applyFilter();
+    });
+  });
+
+  // Search Input Listener
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      applyFilter();
+    });
+  }
+
+  // 2. Copy Problem Brief
+  function showToast(message) {
+    if (!toast) return;
+    toastText.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2800);
+  }
+
+  document.querySelectorAll('.btn-copy-problem').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const card = btn.closest('.card');
+      const id = btn.getAttribute('data-id') || '';
+      const title = card.querySelector('h3') ? card.querySelector('h3').innerText : '';
+      const desc = card.querySelector('p') ? card.querySelector('p').innerText : '';
+      
+      const copyContent = `[CODE HEIST 2026 CHALLENGE BRIEF]\nID: ${id}\nTitle: ${title}\n\nDescription:\n${desc}\n\nURL: ${window.location.origin}/statements`;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(copyContent).then(() => {
+          showToast(`✓ Copied "${id}: ${title.slice(0, 30)}..." to clipboard!`);
+        }).catch(() => {
+          showToast(`Copied challenge ID: ${id}`);
+        });
+      } else {
+        showToast(`Challenge ID: ${id}`);
+      }
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>

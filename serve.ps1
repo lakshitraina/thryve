@@ -254,6 +254,8 @@ while ($listener.IsListening) {
             $filePath = Join-Path $Path "data.html"
         } elseif ($urlPath -eq "/registration" -or $urlPath -eq "/registration/") {
             $filePath = Join-Path $Path "registration.html"
+        } elseif ($urlPath -eq "/statements" -or $urlPath -eq "/statements/") {
+            $filePath = Join-Path $Path "statements.html"
         } else {
             $filePath = Join-Path $Path ($urlPath.TrimStart('/').Replace('/', '\'))
 
