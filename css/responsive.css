@@ -1,180 +1,778 @@
 /* ==========================================================================
-   RESPONSIVE DESIGN BREAKPOINTS
+   THRYVE & SAFARNAMA '26 — MASTER RESPONSIVE STYLESHEET
+   Mobile-First Optimization across Smartphones (320px-480px), Tablets (768px-1024px) & Desktops
    ========================================================================== */
 
-@media (max-width: 1024px) {
-  .verticals-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .events-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .artists-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .footer-top-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 36px;
-  }
+/* --------------------------------------------------------------------------
+   0. GLOBAL MOBILE VIEWPORT SHIELDS
+   -------------------------------------------------------------------------- */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden !important;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
-@media (max-width: 768px) {
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img, svg, video, canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --------------------------------------------------------------------------
+   1. TABLET BREAKPOINTS (max-width: 1024px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
   :root {
-    --header-height: 70px;
+    --header-height: 72px;
   }
 
+  .site-header {
+    padding: 0 16px;
+  }
+
+  .nav-container {
+    padding: 0 4px;
+  }
+
+  /* Show mobile hamburger toggle */
   .mobile-toggle {
-    display: flex;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-md);
+    background: rgba(21, 128, 61, 0.08);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    cursor: pointer;
+    z-index: 105;
+    transition: all var(--transition-fast);
   }
 
+  .mobile-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #0A0A0A;
+    border-radius: 2px;
+    transition: all var(--transition-smooth);
+  }
+
+  .mobile-toggle.active {
+    background: #15803D;
+    border-color: #15803D;
+  }
+
+  .mobile-toggle.active span {
+    background-color: #FFFFFF;
+  }
+
+  .mobile-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .mobile-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  .mobile-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Mobile Slide-Down Navigation Menu */
   .nav-menu {
-    position: fixed;
+    position: fixed !important;
     top: var(--header-height);
     left: 0;
+    right: 0;
     width: 100%;
-    background: #FFFFFF;
-    border-bottom: 1px solid var(--border-light);
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 24px;
-    gap: 16px;
-    transform: translateY(-100%);
-    opacity: 0;
-    pointer-events: none;
-    transition: all var(--transition-smooth);
-    box-shadow: var(--shadow-xl);
+    background: #0B130E !important;
+    border-bottom: 2px solid #22C55E !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 24px 20px 28px !important;
+    gap: 12px !important;
+    transform: translateY(-120%) !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.85) !important;
+    max-height: calc(100dvh - var(--header-height));
+    overflow-y: auto;
+    z-index: 999;
   }
 
   .nav-menu.mobile-open {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
   }
 
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .stats-grid .stat-card:last-child {
-    grid-column: span 2;
-  }
-
-  .verticals-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .events-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .artists-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .dash-metrics-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .dash-controls-bar {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .dash-tabs {
-    overflow-x: auto;
-    width: 100%;
-    flex-wrap: nowrap;
-    padding-bottom: 8px;
-  }
-
-  .dash-tab-btn {
-    white-space: nowrap;
-  }
-
-  .dash-search-box {
+  .nav-link {
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    color: #F8FAFC !important;
+    padding: 12px 14px !important;
+    border-radius: var(--radius-md) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
   }
 
-  .poll-wrapper {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    padding: 28px;
+  .nav-link:hover,
+  .nav-link.active {
+    color: #4ADE80 !important;
+    background: rgba(34, 197, 94, 0.12) !important;
+    border-color: rgba(34, 197, 94, 0.25) !important;
   }
 
-  .modal-pass-layout {
-    grid-template-columns: 1fr;
+  /* Grid Layouts on Tablet */
+  .destinations-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
   }
 
-  .modal-form-side {
-    border-right: none;
-    border-bottom: 1px solid var(--border-light);
-    padding: 24px;
+  .gallery-grid,
+  .heist-gallery-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
   }
 
-  .modal-preview-side {
-    padding: 24px;
+  .rules-grid,
+  .perks-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 18px !important;
   }
 
-  .recruit-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .department-radio-grid {
-    grid-template-columns: 1fr 1fr;
+  .heist-banner-card {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
   }
 
   .footer-top-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .footer-bottom-bar {
-    flex-direction: column;
-    text-align: center;
-    gap: 14px;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 32px !important;
   }
 }
 
-@media (max-width: 480px) {
+/* --------------------------------------------------------------------------
+   2. MOBILE BREAKPOINTS (max-width: 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 66px;
+  }
+
+  /* Containers & Padding */
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Header Branding */
+  .brand-logo-text {
+    font-size: 1.15rem !important;
+  }
+
+  .nav-actions .btn-sm {
+    padding: 8px 14px !important;
+    font-size: 0.8125rem !important;
+  }
+
+  /* Hero Section */
+  .hero-section,
+  .safarnama-hero {
+    padding: 40px 0 60px !important;
+  }
+
   .hero-headline {
-    font-size: 2.35rem;
+    font-size: clamp(2rem, 7.5vw, 3rem) !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9375rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 24px !important;
   }
 
   .hero-actions {
-    flex-direction: column;
-    width: 100%;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    gap: 12px !important;
   }
 
-  .hero-actions .btn {
-    width: 100%;
+  .hero-actions .btn,
+  .hero-actions .btn-safari-main,
+  .hero-actions .btn-safari-outline {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 14px 20px !important;
+    font-size: 1rem !important;
   }
 
-  .stats-grid {
-    grid-template-columns: 1fr;
+  /* Safarnama Poster Container */
+  .safarnama-poster-card {
+    margin-top: 24px !important;
+    border-radius: var(--radius-xl) !important;
+    border-width: 1.5px !important;
   }
 
-  .stats-grid .stat-card:last-child {
-    grid-column: span 1;
+  /* Countdown Timer Strip */
+  .safarnama-countdown-box {
+    padding: 16px 14px !important;
   }
 
-  .mac-window-header {
-    padding: 10px 14px;
+  .countdown-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 6px !important;
   }
 
-  .mac-window-address {
-    display: none;
+  .countdown-unit {
+    padding: 8px 4px !important;
   }
 
-  .mac-window-body {
-    padding: 18px;
+  .countdown-val {
+    font-size: clamp(1.25rem, 4.5vw, 1.75rem) !important;
   }
 
-  .department-radio-grid {
-    grid-template-columns: 1fr;
+  .countdown-sub {
+    font-size: 0.625rem !important;
+  }
+
+  /* Destinations Showcase */
+  .destinations-section {
+    padding: 60px 0 !important;
+  }
+
+  .destinations-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .destination-card {
+    padding: 24px 20px !important;
+  }
+
+  .destination-header {
+    margin-bottom: 14px !important;
+  }
+
+  .destination-icon-box {
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 1.5rem !important;
+  }
+
+  .destination-title {
+    font-size: 1.35rem !important;
+  }
+
+  /* Minute-to-Minute Timeline */
+  .schedule-section {
+    padding: 60px 0 !important;
+  }
+
+  .schedule-timeline {
+    padding-left: 28px !important;
+  }
+
+  .schedule-timeline::before {
+    left: 9px !important;
+  }
+
+  .timeline-marker {
+    left: -28px !important;
+    width: 20px !important;
+    height: 20px !important;
+    border-width: 2.5px !important;
+  }
+
+  .timeline-content-box {
+    padding: 16px 16px !important;
+  }
+
+  .timeline-header-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+  }
+
+  .timeline-time {
+    font-size: 0.75rem !important;
+  }
+
+  .timeline-title {
+    font-size: 1rem !important;
+  }
+
+  .timeline-desc {
+    font-size: 0.8125rem !important;
+  }
+
+  /* Rules & Regulations */
+  .rules-section {
+    padding: 60px 0 !important;
+  }
+
+  .rules-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .rule-card {
+    padding: 22px 18px !important;
+  }
+
+  .rule-title {
+    font-size: 1.15rem !important;
+  }
+
+  /* Code Heist Hall of Fame & Gallery */
+  .code-heist-section {
+    padding: 60px 0 !important;
+  }
+
+  .heist-banner-card {
+    padding: 24px 18px !important;
+    margin-bottom: 32px !important;
+  }
+
+  .heist-banner-title {
+    font-size: 1.75rem !important;
+  }
+
+  .heist-stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  .heist-stat-box {
+    padding: 14px 12px !important;
+  }
+
+  .heist-stat-num {
+    font-size: 1.25rem !important;
+  }
+
+  .gallery-grid,
+  .heist-gallery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .heist-gallery-card {
+    max-width: 100% !important;
+  }
+
+  .gallery-notice-banner {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 20px 18px !important;
+    gap: 16px !important;
+  }
+
+  .gallery-notice-banner .btn {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  /* Lightbox Modal */
+  .gallery-lightbox-modal {
+    padding: 12px !important;
+  }
+
+  .gallery-lightbox-content {
+    max-width: 96vw !important;
+    border-radius: var(--radius-lg) !important;
+  }
+
+  .gallery-lightbox-details {
+    padding: 16px 18px !important;
+  }
+
+  /* Perks & Benefits */
+  .perks-section {
+    padding: 60px 0 !important;
+  }
+
+  .perks-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .perk-card {
+    padding: 22px 18px !important;
+  }
+
+  /* FAQ Accordion */
+  .faq-section {
+    padding: 60px 0 !important;
+  }
+
+  .faq-item {
+    margin-bottom: 12px !important;
+  }
+
+  .faq-question {
+    padding: 16px 18px !important;
+    font-size: 0.9375rem !important;
+  }
+
+  .faq-answer {
+    font-size: 0.875rem !important;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 60px 0 30px !important;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 14px !important;
+  }
+
+  /* ========================================================================
+     MODAL: SEAT RESERVATION & EXPEDITION BOARDING PASS (#passModal)
+     ======================================================================== */
+  .modal-backdrop {
+    padding: 10px !important;
+  }
+
+  .modal-container {
+    max-width: 100% !important;
+    width: 100% !important;
+    max-height: 94vh !important;
+    margin: auto !important;
+    border-radius: 18px !important;
+  }
+
+  .modal-pass-layout {
+    grid-template-columns: 1fr !important;
+    max-height: 94vh !important;
+    overflow-y: auto !important;
+  }
+
+  .modal-form-side {
+    padding: 22px 16px !important;
+    border-right: none !important;
+    border-bottom: 1px solid #E2E8F0 !important;
+    max-height: none !important;
+    overflow-y: visible !important;
+  }
+
+  .modal-preview-side {
+    padding: 22px 16px !important;
+    position: static !important;
+    max-height: none !important;
+    overflow-y: visible !important;
+    background: #0B130E !important;
+    color: #FFFFFF !important;
+  }
+
+  .team-size-selector {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .team-size-btn {
+    padding: 10px 8px !important;
+    font-size: 0.8125rem !important;
+    text-align: center !important;
+  }
+
+  .form-grid-2 {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .form-input,
+  .form-select {
+    font-size: 16px !important; /* Prevents auto-zoom in iOS Safari */
+    padding: 12px 14px !important;
+  }
+
+  /* Holographic Boarding Pass */
+  .festival-pass-badge {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 16px !important;
+  }
+
+  .pass-body {
+    padding: 18px 14px !important;
+  }
+
+  .pass-attendee-details {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  .pass-field-label {
+    font-size: 0.625rem !important;
+  }
+
+  .pass-field-val {
+    font-size: 0.8125rem !important;
+  }
+
+  .pass-serial-bar {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 4px !important;
+    text-align: center !important;
+  }
+
+  /* ========================================================================
+     MODAL: THRYVE PAY SECURE GATEWAY (#thryvePaymentModal)
+     ======================================================================== */
+  .thryve-pay-modal,
+  .youpi-gateway-modal {
+    padding: 10px !important;
+  }
+
+  .thryve-pay-container,
+  .youpi-container {
+    max-width: 100% !important;
+    width: 100% !important;
+    max-height: 95vh !important;
+    border-radius: 18px !important;
+  }
+
+  .thryve-pay-header {
+    padding: 16px 18px !important;
+  }
+
+  .thryve-pay-brand-logo {
+    font-size: 1rem !important;
+  }
+
+  .thryve-pay-badge {
+    font-size: 0.625rem !important;
+    padding: 2px 8px !important;
+  }
+
+  .thryve-pay-body {
+    padding: 18px 14px !important;
+  }
+
+  .thryve-pay-amount-strip {
+    padding: 14px 16px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .thryve-pay-amount-val {
+    font-size: 1.625rem !important;
+  }
+
+  .thryve-pay-qr-card {
+    padding: 12px 8px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .thryve-pay-qr-image-wrap {
+    max-width: min(220px, 66vw) !important;
+    margin: 0 auto !important;
+  }
+
+  .thryve-pay-upi-bar {
+    padding: 10px 12px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+    text-align: center !important;
+  }
+
+  .thryve-pay-upi-text {
+    font-size: 0.75rem !important;
+  }
+
+  .thryve-pay-copy-btn {
+    width: 100% !important;
+    padding: 7px 12px !important;
+    text-align: center !important;
+  }
+
+  .thryve-pay-intent-btn {
+    padding: 13px 12px !important;
+    font-size: 0.875rem !important;
+    text-align: center !important;
+  }
+
+  .thryve-pay-apps-row {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 6px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .thryve-pay-app-pill {
+    padding: 8px 4px !important;
+    font-size: 0.625rem !important;
+  }
+
+  .thryve-pay-app-pill img {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .thryve-pay-utr-box {
+    padding: 14px 12px !important;
+  }
+
+  .thryve-pay-utr-input-group {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  .thryve-pay-utr-input {
+    width: 100% !important;
+    font-size: 16px !important; /* Prevents auto-zoom in iOS Safari */
+    padding: 12px 14px !important;
+  }
+
+  .thryve-pay-confirm-btn {
+    width: 100% !important;
+    padding: 13px 16px !important;
+    font-size: 0.9375rem !important;
+    text-align: center !important;
+  }
+
+  .thryve-pay-success-view {
+    padding: 24px 12px !important;
+  }
+
+  .thryve-pay-success-title {
+    font-size: 1.35rem !important;
+  }
+
+  .thryve-pay-actions-grid {
+    width: 100% !important;
+  }
+
+  .thryve-pay-actions-grid .btn {
+    width: 100% !important;
+    padding: 14px !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. SMALL SMARTPHONES BREAKPOINTS (max-width: 480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  /* Ultra-compact countdown on small phones */
+  .countdown-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 4px !important;
+  }
+
+  .countdown-unit {
+    padding: 6px 2px !important;
+  }
+
+  .countdown-val {
+    font-size: 1.15rem !important;
+  }
+
+  .countdown-sub {
+    font-size: 0.5625rem !important;
+  }
+
+  /* Standalone Registration Hero */
+  .reg-standalone-page {
+    padding: 24px 12px !important;
+    min-height: 100dvh !important;
+  }
+
+  .reg-content-box {
+    padding: 0 !important;
+  }
+
+  .reg-main-title {
+    font-size: clamp(1.75rem, 8vw, 2.5rem) !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  .reg-tagline {
+    font-size: 0.75rem !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  .reg-subtitle {
+    font-size: 0.8125rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 20px !important;
+  }
+
+  .reg-btn-main {
+    padding: 16px 24px !important;
+    font-size: 1rem !important;
+    width: 100% !important;
+  }
+
+  .reg-btn-wrapper {
+    width: 100% !important;
+  }
+
+  .reg-countdown-card {
+    padding: 14px 10px !important;
+    width: 100% !important;
+  }
+
+  .reg-countdown-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 4px !important;
+  }
+
+  .reg-cd-val {
+    font-size: 1.25rem !important;
+  }
+
+  .reg-cd-sub {
+    font-size: 0.625rem !important;
+  }
+
+  .reg-quick-pills {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 8px !important;
+  }
+
+  .reg-pill {
+    width: 100% !important;
+    justify-content: center !important;
+    font-size: 0.75rem !important;
+    padding: 8px 12px !important;
+  }
+
+  /* THRYVE Pay App Pill grid 2x2 on narrow screens */
+  .thryve-pay-apps-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .thryve-pay-app-pill {
+    padding: 10px 8px !important;
+    font-size: 0.75rem !important;
   }
 }

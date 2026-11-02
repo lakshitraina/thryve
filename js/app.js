@@ -35,15 +35,25 @@ function initNavbar() {
   });
 
   if (toggleBtn && navMenu) {
-    toggleBtn.addEventListener('click', () => {
-      navMenu.classList.toggle('mobile-open');
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = navMenu.classList.toggle('mobile-open');
+      toggleBtn.classList.toggle('active', isOpen);
     });
 
     const links = navMenu.querySelectorAll('a');
     links.forEach(l => {
       l.addEventListener('click', () => {
         navMenu.classList.remove('mobile-open');
+        toggleBtn.classList.remove('active');
       });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (navMenu.classList.contains('mobile-open') && !navMenu.contains(e.target) && !toggleBtn.contains(e.target)) {
+        navMenu.classList.remove('mobile-open');
+        toggleBtn.classList.remove('active');
+      }
     });
   }
 }

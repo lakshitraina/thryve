@@ -915,3 +915,54 @@ body.cyber-data-body {
   transform: translateY(0);
   opacity: 1;
 }
+
+/* --------------------------------------------------------------------------
+   Mobile Responsive Overrides for Data Dashboard
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .cyber-header-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .cyber-nav-actions {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .cyber-banner-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px 18px;
+  }
+
+  .cyber-metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .cyber-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .cyber-toolbar-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cyber-toolbar-buttons button,
+  .cyber-toolbar-buttons a {
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+  }
+
+  .cyber-modal-card {
+    padding: 24px 18px;
+    width: 95vw;
+  }
+}
