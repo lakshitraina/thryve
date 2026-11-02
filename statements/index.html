@@ -1,12 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0; url=/statements.html" />
-  <script>window.location.replace('/statements.html');</script>
-  <title>CODE HEIST 2026 — Problem Statements</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CODE HEIST 2026 — Problem Statements</title>
+<link rel="icon" type="image/svg+xml" href="/assets/thryve-emblem.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--r:#e50914;--r2:#ff2733;--b:#070707;--b2:#111;--b3:#171717;--w:#f5f5f2;--g:#a6a6a6;--line:#292929}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--b);color:var(--w);font-family:Inter,Arial,Helvetica,sans-serif;line-height:1.6}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.025;z-index:50;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero{min-height:88vh;padding:65px 7vw;display:flex;align-items:center;position:relative;overflow:hidden;background:radial-gradient(circle at 78% 38%,rgba(229,9,20,.24),transparent 29%),linear-gradient(135deg,#050505,#0d0d0d 60%,#060606)}
+.hero:before{content:"CODE HEIST";position:absolute;right:-5vw;top:20%;font-size:18vw;font-weight:950;line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.045);transform:rotate(-8deg)}
+.hero-inner{position:relative;z-index:2;max-width:1100px}
+.kicker{display:flex;align-items:center;gap:12px;color:var(--r);font-size:12px;font-weight:900;letter-spacing:3px;text-transform:uppercase;margin-bottom:26px}
+.kicker i{display:block;width:40px;height:2px;background:var(--r)}
+h1{font-size:clamp(65px,12vw,155px);line-height:.8;letter-spacing:-8px;text-transform:uppercase;font-weight:950}
+h1 span{color:var(--r)}
+.hero-copy{font-size:clamp(17px,2vw,24px);color:#d5d5d5;max-width:760px;margin-top:34px}
+.hero-badges{display:flex;flex-wrap:wrap;gap:9px;margin-top:30px}
+.badge{font-size:10px;letter-spacing:1.4px;text-transform:uppercase;font-weight:900;border:1px solid #3a3a3a;background:#101010;padding:8px 12px}
+.badge.red{background:var(--r);border-color:var(--r)}
+main{padding:0 7vw 90px}
+.section{padding-top:80px}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid var(--line);padding-bottom:25px;margin-bottom:25px}
+.num{font-size:12px;color:var(--r);font-weight:900;letter-spacing:2px}
+.section-title{font-size:clamp(30px,4vw,54px);line-height:1;text-transform:uppercase;letter-spacing:-2px;margin-top:8px}
+.section-theme{color:#777;text-align:right;font-size:12px;text-transform:uppercase;letter-spacing:1.5px}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{position:relative;background:linear-gradient(145deg,#151515,#0d0d0d);border:1px solid var(--line);padding:30px;overflow:hidden}
+.card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--r)}
+.card:hover{border-color:#505050;transform:translateY(-3px);transition:.2s}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}
+.label{color:var(--r);font-size:10px;font-weight:950;letter-spacing:1.8px;text-transform:uppercase}
+.type{font-size:9px;font-weight:900;letter-spacing:1px;background:#eee;color:#111;padding:4px 7px;text-transform:uppercase}
+.card h3{font-size:clamp(22px,2.3vw,32px);line-height:1.12;letter-spacing:-1px;margin-bottom:15px}
+.card p{color:#c2c2c2;font-size:14px}
+.id{color:#777;font-family:monospace;font-size:11px;margin-top:10px}
+.why,.challenge,.hard,.bonus{margin-top:22px;border-top:1px solid var(--line);padding-top:18px}
+.mini{font-size:10px;color:var(--r);font-weight:950;letter-spacing:2px;text-transform:uppercase;margin-bottom:9px}
+ul{list-style:none}
+li{font-size:13px;color:#d4d4d4;margin:7px 0;padding-left:15px;position:relative}
+li:before{content:"";width:5px;height:5px;background:var(--r);position:absolute;left:0;top:9px}
+.flow{font:12px "Courier New",monospace;color:#eee;background:#070707;border:1px solid #242424;padding:12px;margin-top:17px;overflow:auto}
+.bonus{border-top:0;border-left:2px solid var(--r);padding:10px 0 0 12px;color:#eee;font-size:12px}
+.original{border-color:#303030}
+.original:after{content:"CODE HEIST ORIGINAL";position:absolute;right:-45px;top:18px;background:var(--r);font-size:8px;font-weight:950;letter-spacing:1.2px;padding:5px 50px;transform:rotate(35deg)}
+.sih:after{content:"SIH 2024";position:absolute;right:-34px;top:18px;background:#eee;color:#111;font-size:8px;font-weight:950;letter-spacing:1.2px;padding:5px 43px;transform:rotate(35deg)}
+.notice{margin-top:55px;padding:27px 30px;background:var(--r);display:flex;justify-content:space-between;gap:30px;align-items:center}
+.notice strong{font-size:22px;line-height:1.1;text-transform:uppercase}
+.notice p{max-width:650px;font-size:13px}
+footer{padding:30px 7vw 45px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:#666;text-transform:uppercase;letter-spacing:1.3px;font-size:10px}
+@media(max-width:800px){.hero{padding:55px 6vw;min-height:82vh}.hero:before{display:none}h1{letter-spacing:-4px}main{padding:0 6vw 70px}.cards{grid-template-columns:1fr}.section-head{display:block}.section-theme{text-align:left;margin-top:10px}.notice{display:block}.notice p{margin-top:14px}footer{padding-left:6vw;padding-right:6vw;display:block}footer span{display:block;margin-top:8px}}
+</style>
 </head>
 <body>
-  <p>Redirecting to <a href="/statements.html">Problem Statements</a>...</p>
+
+<header class="hero">
+<div class="hero-inner">
+<a href="/index.html" style="color: #fff; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; font-weight: 700; margin-bottom: 24px; font-size: 13px; opacity: 0.85; border: 1px solid #333; padding: 6px 14px; border-radius: 9999px; background: rgba(0,0,0,0.5);">← Back to THRYVE Portal (Safarnama & Gallery)</a>
+<div class="kicker"><i></i> CODE HEIST • 2026</div>
+<h1>Problem<br><span>Statements</span></h1>
+<p class="hero-copy">Ten challenges built to separate “it works” from “it works brilliantly.” Four selected from SIH 2024 and six original CODE HEIST challenges.</p>
+<div class="hero-badges">
+<div class="badge red">10 Challenges</div><div class="badge">AI</div><div class="badge">Campus</div><div class="badge">FinTech</div><div class="badge">Sustainability</div><div class="badge">HealthTech</div><div class="badge">Open Innovation</div>
+</div>
+</div>
+</header>
+
+<main>
+
+<!-- SIH -->
+<section class="section">
+<div class="section-head"><div><div class="num">01 — SIH 2024</div><div class="section-title">Advanced Challenges</div></div><div class="section-theme">Selected SIH Problems</div></div>
+<div class="cards">
+
+<article class="card sih">
+<div class="top"><div class="label">AI / Computer Vision</div><div class="type">Software</div></div>
+<h3>AI Based Frame Interpolation, Video Generation and Display System for WMS Services</h3>
+<div class="id">SIH1736 • SIH 2024</div>
+<p style="margin-top:15px">Develop a system that automatically generates videos using frame interpolation techniques for WMS services, improving the temporal experience of geospatial visualisation.</p>
+<div class="why"><div class="mini">Why it's hard</div><ul><li>Computer vision and video processing</li><li>Generative AI / frame interpolation</li><li>Temporal consistency between frames</li><li>Geospatial/WMS data integration</li></ul></div>
+</article>
+
+<article class="card sih">
+<div class="top"><div class="label">AI / Geospatial</div><div class="type">Software</div></div>
+<h3>Development of Map-Matching Algorithm Using AI-ML Techniques to Distinguish Vehicular Movement on Highway and Service Road</h3>
+<div class="id">SIH1740 • SIH 2024</div>
+<p style="margin-top:15px">Develop an AI/ML-based map-matching system capable of distinguishing vehicle movement on a highway from movement on an adjacent service road despite imperfect location data.</p>
+<div class="why"><div class="mini">Why it's hard</div><ul><li>GPS noise and uncertainty</li><li>Trajectory analysis</li><li>Geospatial geometry</li><li>AI/ML-based map matching</li></ul></div>
+</article>
+
+<article class="card sih">
+<div class="top"><div class="label">Cybersecurity / Forensics</div><div class="type">Software</div></div>
+<h3>Creating a Cyber Triage Tool to Streamline Digital Forensic Investigation</h3>
+<div class="id">SIH1744 • SIH 2024</div>
+<p style="margin-top:15px">Build an innovative digital-forensics and incident-response tool that helps investigators rapidly collect, organize and analyze digital evidence.</p>
+<div class="flow">EVIDENCE → ACQUIRE → CLASSIFY → EXTRACT → CORRELATE → INVESTIGATE</div>
+<div class="why"><div class="mini">Why it's hard</div><ul><li>Digital evidence collection</li><li>Evidence classification and extraction</li><li>Indicator-of-compromise discovery</li><li>Timeline and correlation analysis</li></ul></div>
+</article>
+
+<article class="card sih">
+<div class="top"><div class="label">Space / Computer Vision</div><div class="type">Software</div></div>
+<h3>Enhancement of Permanently Shadowed Regions (PSR) of Lunar Craters Captured by OHRC of Chandrayaan-2</h3>
+<div class="id">SIH1732 • SIH 2024</div>
+<p style="margin-top:15px">Enhance extremely low-light imagery of permanently shadowed lunar regions captured by Chandrayaan-2's Orbiter High Resolution Camera.</p>
+<div class="why"><div class="mini">Why it's hard</div><ul><li>Low-light image enhancement</li><li>Deep learning / computer vision</li><li>Satellite imagery</li><li>Astronomical image processing</li></ul></div>
+</article>
+
+</div>
+</section>
+
+<!-- ORIGINAL -->
+<section class="section">
+<div class="section-head"><div><div class="num">02 — CODE HEIST ORIGINAL</div><div class="section-title">The Six Challenges</div></div><div class="section-theme">Original Problem Statements</div></div>
+<div class="cards">
+
+<article class="card original">
+<div class="top"><div class="label">AI for Everyday Life</div><div class="type">★★★★☆</div></div>
+<h3>The Memory Agent</h3>
+<p>People use WhatsApp, emails, PDFs, screenshots, notes and calendars to store information, but important information gets lost across different platforms. Build an AI assistant that creates a personal searchable memory from user-provided data.</p>
+<div class="challenge"><div class="mini">Challenge</div><ul><li>Retrieve information across different data types.</li><li>Understand context and relationships between people, events and documents.</li><li>Handle conflicting information.</li><li>Provide source references.</li><li>Avoid confidently inventing information.</li></ul></div>
+<div class="bonus"><b>BONUS:</b> Build an autonomous agent that can take actions based on retrieved information.</div>
+</article>
+
+<article class="card original">
+<div class="top"><div class="label">Smart Campus Innovation</div><div class="type">★★★★★</div></div>
+<h3>Campus Digital Twin</h3>
+<p>Build a digital twin of a university campus representing buildings, classrooms, labs, hostels, parking, events and facilities in one interactive system.</p>
+<div class="flow">IoT / DATA → BACKEND → ANALYTICS → CAMPUS MAP → REAL-TIME DECISIONS</div>
+<div class="challenge"><div class="mini">Challenge</div><ul><li>Show classroom and lab availability.</li><li>Find available parking and facilities.</li><li>Visualize crowd levels and activity.</li><li>Show events and reported campus issues.</li><li>Combine multiple simulated or real data sources.</li></ul></div>
+<div class="bonus"><b>BONUS:</b> Predict crowd movement and facility demand.</div>
+</article>
+
+<article class="card original">
+<div class="top"><div class="label">FinTech for Everyone</div><div class="type">★★★★☆</div></div>
+<h3>Can You Trust This Payment?</h3>
+<p>Build a real-time payment risk assistant that evaluates transaction context and explains why a payment may be unusual or suspicious.</p>
+<div class="flow">TRANSACTION + CONTEXT → RISK MODEL → EXPLANATION → USER ACTION</div>
+<div class="challenge"><div class="mini">Challenge</div><ul><li>Analyze amount, recipient history and payment frequency.</li><li>Consider device and location changes.</li><li>Analyze QR/payment requests and accompanying messages.</li><li>Learn normal user behavior rather than using fixed thresholds.</li></ul></div>
+<div class="bonus"><b>BONUS:</b> Detect coordinated fraud patterns across multiple accounts using graph analysis.</div>
+</article>
+
+<article class="card original">
+<div class="top"><div class="label">Sustainable Future</div><div class="type">★★★★☆</div></div>
+<h3>Where Did the Electricity Go?</h3>
+<p>Build an AI-powered energy intelligence platform that identifies unusual consumption, energy wastage, peak demand and abnormal usage across buildings, rooms or devices.</p>
+<div class="flow">HISTORICAL DATA + CONTEXT → FORECAST → ANOMALY → CAUSE → ACTION</div>
+<div class="challenge"><div class="mini">Challenge</div><ul><li>Predict expected electricity consumption.</li><li>Detect unexpected usage patterns.</li><li>Identify peak-demand periods.</li><li>Use weather, occupancy, holidays and schedules as context.</li><li>Explain possible causes of anomalies.</li></ul></div>
+<div class="bonus"><b>BONUS:</b> Automatically recommend an optimized energy schedule.</div>
+</article>
+
+<article class="card original">
+<div class="top"><div class="label">Healthcare & Smart Tech</div><div class="type">★★★★★</div></div>
+<h3>Patient Zero: The Missing Context</h3>
+<p>Medical information can be scattered across prescriptions, laboratory reports, scans and hospital visits. Build a system that converts multiple medical documents into a longitudinal patient timeline.</p>
+<div class="flow">DOCUMENTS → EXTRACTION → TIMELINE → RELATIONSHIPS → SOURCED INSIGHTS</div>
+<div class="challenge"><div class="mini">Challenge</div><ul><li>Identify changes across reports over time.</li><li>Track repeated tests and medication history.</li><li>Connect relevant information across documents.</li><li>Identify missing or inconsistent information.</li><li>Preserve uncertainty and source provenance.</li></ul></div>
+<div class="bonus"><b>IMPORTANT:</b> This is an informational record-organization tool, not an autonomous diagnostic system.</div>
+</article>
+
+<article class="card original">
+<div class="top"><div class="label">Web & App Open Innovation</div><div class="type">★★★★★</div></div>
+<h3>The Internet Control Room</h3>
+<p>Build a platform where a user gives a high-level objective and the system decomposes it into multiple tasks and executes them using available APIs and services.</p>
+<div class="flow">GOAL → PLAN → TOOLS → EXECUTE → VERIFY → RECOVER</div>
+<div class="challenge"><div class="mini">Challenge</div><ul><li>Choose the right tools for each task.</li><li>Decompose objectives into executable workflows.</li><li>Maintain state across multiple steps.</li><li>Handle API failures and conflicting results.</li><li>Support authentication, human approval and recovery.</li></ul></div>
+<div class="bonus"><b>BONUS:</b> Allow developers to plug their own tools and APIs into the agentic system.</div>
+</article>
+
+</div>
+</section>
+
+<div class="notice">
+<strong>10 PROBLEMS.<br>NO EASY MODE.</strong>
+<p>Some challenges can produce a working MVP quickly. The real difficulty is pushing beyond the obvious solution — improving accuracy, reliability, scalability, explainability and real-world usefulness.</p>
+</div>
+</main>
+
+<footer><span>CODE HEIST • 2026</span><span>Think different. Build harder.</span></footer>
 </body>
 </html>

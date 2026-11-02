@@ -1,15 +1,19 @@
+/**
+ * THRYVE PLATFORM CONTROLLER
+ * Flagship Event: SAFARNAMA — A Trip Beyond The Classroom
+ * Hall of Fame: CODE HEIST HACKATHON '26 (Photo Gallery & Recap)
+ * Organized by THRYVE • Lovely Professional University, Punjab
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initTicker();
   initCountdown();
-  initTracks();
+  initDestinations();
   initSchedule();
-  initRounds();
-  initScoreSheet();
-  initMentors();
-  initSponsors();
   initRules();
-  initEvents();
+  initPerks();
+  initCodeHeistGallery();
   initFaq();
   initPassListeners();
 });
@@ -35,7 +39,6 @@ function initNavbar() {
       navMenu.classList.toggle('mobile-open');
     });
 
-    // Close on link click
     const links = navMenu.querySelectorAll('a');
     links.forEach(l => {
       l.addEventListener('click', () => {
@@ -46,13 +49,13 @@ function initNavbar() {
 }
 
 /* --------------------------------------------------------------------------
-   CODE HEIST COUNTDOWN TIMER (5:00 PM on 18 Sep 2026)
+   SAFARNAMA COUNTDOWN / STATUS COUNTER
    -------------------------------------------------------------------------- */
 function initCountdown() {
-  const targetIso = (THRYVE_DATA.eventMeta && THRYVE_DATA.eventMeta.targetIso) 
-    ? THRYVE_DATA.eventMeta.targetIso 
-    : '2026-09-18T17:00:00+05:30';
-  
+  const targetIso = (THRYVE_DATA.eventMeta && THRYVE_DATA.eventMeta.targetIso)
+    ? THRYVE_DATA.eventMeta.targetIso
+    : '2026-11-20T04:00:00+05:30';
+
   const targetDate = new Date(targetIso).getTime();
 
   function update() {
@@ -103,24 +106,33 @@ function initTicker() {
     </div>
   `).join('');
 
-  // Duplicate for seamless infinite loop
   track.innerHTML = itemsHtml + itemsHtml;
 }
 
 /* --------------------------------------------------------------------------
-   PROBLEM TRACKS RENDERING
+   DESTINATIONS SHOWCASE RENDERING
    -------------------------------------------------------------------------- */
-function initTracks() {
-  const container = document.getElementById('tracksGrid');
-  if (!container || !THRYVE_DATA.tracks) return;
+function initDestinations() {
+  const container = document.getElementById('destinationsGrid');
+  if (!container || !THRYVE_DATA.destinations) return;
 
-  container.innerHTML = THRYVE_DATA.tracks.map(t => `
-    <div class="track-card">
-      <div class="track-icon-box">${t.icon}</div>
-      <h3 class="track-title">${t.title}</h3>
-      <p class="track-desc">${t.desc}</p>
-      <div class="track-tags">
-        ${t.tags.map(tag => `<span class="track-pill">${tag}</span>`).join('')}
+  container.innerHTML = THRYVE_DATA.destinations.map(d => `
+    <div class="destination-card" id="${d.id}">
+      <div class="destination-header">
+        <div class="destination-icon-box">${d.icon}</div>
+        <span class="destination-badge">${d.badge}</span>
+      </div>
+
+      <h3 class="destination-title">${d.name}</h3>
+      <div class="destination-location">📍 ${d.location}</div>
+      <div class="destination-tagline">🌿 ${d.tagline}</div>
+      <p class="destination-desc">${d.desc}</p>
+
+      <div class="destination-highlights-box">
+        <div class="highlights-label">EXPEDITION HIGHLIGHTS</div>
+        <ul class="destination-bullets">
+          ${d.highlights.map(h => `<li><span class="bullet-dot">✓</span> <span>${h}</span></li>`).join('')}
+        </ul>
       </div>
     </div>
   `).join('');
@@ -133,141 +145,41 @@ function initSchedule() {
   const container = document.getElementById('scheduleTimeline');
   if (!container || !THRYVE_DATA.schedule) return;
 
-  container.innerHTML = THRYVE_DATA.schedule.map(s => {
-    const isSafeZone = s.phase === 'overnight';
-    const isAwards = s.phase === 'awards';
-    const badgeClass = isSafeZone ? 'timeline-badge-pill safe-badge' : 'timeline-badge-pill';
-    const markerClass = isSafeZone ? 'timeline-marker safe' : 'timeline-marker';
+  const phaseIcons = {
+    gathering: '📍',
+    boarding: '🚌',
+    travel: '🛣️',
+    arrival: '🎟️',
+    zoo: '🦁',
+    photo: '📸',
+    meal: '🍱',
+    garden: '🌹',
+    activities: '🎉',
+    evening: '🌅',
+    conclusion: '🌟'
+  };
+
+  container.innerHTML = THRYVE_DATA.schedule.map((s, index) => {
+    const icon = phaseIcons[s.phase] || '⏱️';
+    const isSpecial = s.phase === 'zoo' || s.phase === 'garden' || s.phase === 'conclusion';
+    const specialClass = isSpecial ? 'timeline-special-card' : '';
 
     return `
       <div class="timeline-item">
-        <div class="${markerClass}"></div>
-        <div class="timeline-content-box" style="${isSafeZone ? 'border-color: #86EFAC; background: #F0FDF4;' : ''}">
+        <div class="timeline-marker ${isSpecial ? 'special-marker' : ''}">
+          <span class="timeline-marker-icon">${icon}</span>
+        </div>
+        <div class="timeline-content-box ${specialClass}">
           <div class="timeline-header-row">
             <span class="timeline-time">${s.time}</span>
-            <span class="${badgeClass}">${s.badge}</span>
+            <span class="timeline-badge-pill ${s.phase}">${s.badge}</span>
           </div>
-          <h4 class="timeline-title" style="${isAwards ? 'color: #DC2626;' : ''}">${s.title}</h4>
+          <h4 class="timeline-title">${s.title}</h4>
           <p class="timeline-desc">${s.desc}</p>
         </div>
       </div>
     `;
   }).join('');
-}
-
-/* --------------------------------------------------------------------------
-   EVALUATION ROUNDS RENDERING
-   -------------------------------------------------------------------------- */
-function initRounds() {
-  const container = document.getElementById('roundsGrid');
-  if (!container || !THRYVE_DATA.rounds) return;
-
-  container.innerHTML = THRYVE_DATA.rounds.map(r => `
-    <div class="round-card">
-      <div>
-        <div class="round-top-row">
-          <span class="round-num-pill">STAGE ${r.number}</span>
-          <span class="round-status-pill">${r.status}</span>
-        </div>
-        <h4 class="round-title">${r.title}</h4>
-        <div class="round-timing">⏱️ ${r.timing}</div>
-        <p class="round-desc">${r.desc}</p>
-      </div>
-    </div>
-  `).join('');
-}
-
-/* --------------------------------------------------------------------------
-   100-MARK JUDGE SCORE SHEET RENDERING
-   -------------------------------------------------------------------------- */
-function initScoreSheet() {
-  const container = document.getElementById('scoreGrid');
-  if (!container || !THRYVE_DATA.scoreSheet) return;
-
-  container.innerHTML = THRYVE_DATA.scoreSheet.map(item => {
-    const percent = Math.round((item.marks / 20) * 100);
-    return `
-      <div class="score-card">
-        <div class="score-card-top">
-          <span class="score-card-title">${item.criteria}</span>
-          <span class="score-marks-tag">${item.marks} MARKS</span>
-        </div>
-        <div class="score-bar-bg">
-          <div class="score-bar-fill" style="width: ${percent}%;"></div>
-        </div>
-        <p class="score-card-desc">${item.desc}</p>
-      </div>
-    `;
-  }).join('');
-}
-
-/* --------------------------------------------------------------------------
-   DISTINGUISHED GUESTS & MENTORS RENDERING
-   -------------------------------------------------------------------------- */
-function initMentors() {
-  const container = document.getElementById('mentorsGrid');
-  if (!container || !THRYVE_DATA.mentors) return;
-
-  container.innerHTML = THRYVE_DATA.mentors.map(m => `
-    <div class="mentor-card">
-      <div>
-        <div class="mentor-header">
-          <div class="mentor-avatar">${m.image ? `<img src="${m.image}" alt="${m.name}" class="mentor-avatar-img" />` : m.avatarText}</div>
-          <div class="mentor-meta">
-            <h3 class="mentor-name">${m.name}</h3>
-            <div class="mentor-role">${m.role}</div>
-            <span class="mentor-company-badge">${m.company}</span>
-          </div>
-        </div>
-
-        <div class="mentor-headline">⚡ ${m.headline}</div>
-
-        <div class="mentor-exp-box">
-          <div class="mentor-exp-title">Track Record & Background</div>
-          <ul class="mentor-exp-list">
-            ${m.experience.map(exp => `<li class="mentor-exp-item">${exp}</li>`).join('')}
-          </ul>
-        </div>
-
-        <div class="mentor-skills-row">
-          ${m.skills.map(skill => `<span class="mentor-skill-pill">${skill}</span>`).join('')}
-        </div>
-      </div>
-
-      <div class="mentor-footer-row">
-        <div class="mentor-education">🎓 ${m.education}</div>
-        <a href="${m.linkedin}" target="_blank" rel="noopener noreferrer" class="mentor-linkedin-btn">
-          <span>in</span> Connect on LinkedIn
-        </a>
-      </div>
-    </div>
-  `).join('');
-}
-
-function initSponsors() {
-  const container = document.getElementById('sponsorsGrid');
-  if (!container || !THRYVE_DATA.sponsors) return;
-
-  container.innerHTML = THRYVE_DATA.sponsors.map(s => `
-    <div class="sponsor-card ${s.id}-card">
-      <div>
-        <div class="sponsor-card-top">
-          ${s.logo 
-            ? `<div class="sponsor-brand-box"><img src="${s.logo}" alt="${s.name}" class="sponsor-logo-img" /></div>` 
-            : `<div class="sponsor-icon">${s.icon}</div>`}
-          <span class="sponsor-status-badge ${s.statusType}">${s.status}</span>
-        </div>
-        <h3 class="sponsor-name">${s.name}</h3>
-        ${s.tagline ? `<div class="sponsor-tagline">${s.tagline}</div>` : ''}
-        <div class="sponsor-title">${s.title}</div>
-        <p class="sponsor-desc">${s.desc}</p>
-      </div>
-
-      <div class="sponsor-perks-box">
-        ${s.perks.map(perk => `<div class="sponsor-perk-item">✓ ${perk}</div>`).join('')}
-      </div>
-    </div>
-  `).join('');
 }
 
 /* --------------------------------------------------------------------------
@@ -279,11 +191,148 @@ function initRules() {
 
   container.innerHTML = THRYVE_DATA.rules.map((rule, idx) => `
     <div class="rule-card">
-      <div class="rule-num">RULE #${idx + 1}</div>
+      <div class="rule-top-row">
+        <span class="rule-icon-box">${rule.icon}</span>
+        <span class="rule-num">RULE #${idx + 1}</span>
+      </div>
       <h4 class="rule-title">${rule.title}</h4>
       <p class="rule-desc">${rule.desc}</p>
+      <div class="rule-tag">🛡️ ${rule.tag}</div>
     </div>
   `).join('');
+}
+
+/* --------------------------------------------------------------------------
+   TRIP PERKS RENDERING
+   -------------------------------------------------------------------------- */
+function initPerks() {
+  const container = document.getElementById('perksGrid');
+  if (!container || !THRYVE_DATA.tripPerks) return;
+
+  container.innerHTML = THRYVE_DATA.tripPerks.map(perk => `
+    <div class="perk-card">
+      <div class="perk-icon-wrap">${perk.icon}</div>
+      <h4 class="perk-title">${perk.title}</h4>
+      <p class="perk-desc">${perk.desc}</p>
+    </div>
+  `).join('');
+}
+
+/* --------------------------------------------------------------------------
+   CODE HEIST PHOTO GALLERY & RECAP (SUCCESSFULLY CONDUCTED)
+   -------------------------------------------------------------------------- */
+let activeGalleryCategory = 'all';
+
+function initCodeHeistGallery() {
+  renderGalleryGrid();
+  setupGalleryFilters();
+}
+
+function renderGalleryGrid() {
+  const container = document.getElementById('galleryGrid');
+  if (!container || !THRYVE_DATA.codeHeistGallery) return;
+
+  const filtered = THRYVE_DATA.codeHeistGallery.filter(item => {
+    return activeGalleryCategory === 'all' || item.category === activeGalleryCategory;
+  });
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="gallery-empty-state">
+        <div class="empty-icon">📸</div>
+        <h4>No photos in this category yet</h4>
+        <p>Club media team is curating snapshots. Stay tuned!</p>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = filtered.map(item => {
+    if (item.type === 'image') {
+      return `
+        <div class="gallery-card image-card" onclick="openLightbox('${item.src}', '${item.title.replace(/'/g, "\\'")}', '${item.caption.replace(/'/g, "\\'")}')">
+          <div class="gallery-thumb-wrap">
+            <img src="${item.src}" alt="${item.title}" class="gallery-img" loading="lazy" />
+            <div class="gallery-overlay">
+              <span class="gallery-zoom-btn">🔍 View Fullscreen</span>
+            </div>
+            <span class="gallery-badge">${item.categoryLabel}</span>
+          </div>
+          <div class="gallery-meta">
+            <h4 class="gallery-title">${item.title}</h4>
+            <p class="gallery-caption">${item.caption}</p>
+          </div>
+        </div>
+      `;
+    } else {
+      return `
+        <div class="gallery-card placeholder-card" onclick="openPlaceholderModal('${item.title.replace(/'/g, "\\'")}', '${item.caption.replace(/'/g, "\\'")}')">
+          <div class="gallery-placeholder-wrap">
+            <div class="placeholder-icon-ring">
+              <span class="placeholder-icon">${item.icon}</span>
+            </div>
+            <div class="placeholder-tag">${item.placeholderText}</div>
+            <div class="placeholder-action">📸 Uploading Soon</div>
+            <span class="gallery-badge">${item.categoryLabel}</span>
+          </div>
+          <div class="gallery-meta">
+            <h4 class="gallery-title">${item.title}</h4>
+            <p class="gallery-caption">${item.caption}</p>
+          </div>
+        </div>
+      `;
+    }
+  }).join('');
+}
+
+function setupGalleryFilters() {
+  const filterButtons = document.querySelectorAll('.gallery-filter-btn');
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeGalleryCategory = btn.getAttribute('data-filter');
+      renderGalleryGrid();
+    });
+  });
+}
+
+/* Lightbox Modal Manager */
+function openLightbox(src, title, caption) {
+  let modal = document.getElementById('lightboxModal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'lightboxModal';
+    modal.className = 'lightbox-modal';
+    modal.innerHTML = `
+      <div class="lightbox-backdrop" onclick="closeLightbox()"></div>
+      <div class="lightbox-dialog">
+        <button class="lightbox-close-btn" onclick="closeLightbox()">✕</button>
+        <div class="lightbox-img-wrap">
+          <img id="lightboxImg" src="" alt="" />
+        </div>
+        <div class="lightbox-caption-box">
+          <h3 id="lightboxTitle"></h3>
+          <p id="lightboxDesc"></p>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+  }
+
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightboxTitle').innerText = title;
+  document.getElementById('lightboxDesc').innerText = caption;
+  modal.classList.add('open');
+}
+
+function closeLightbox() {
+  const modal = document.getElementById('lightboxModal');
+  if (modal) modal.classList.remove('open');
+}
+
+function openPlaceholderModal(title, caption) {
+  showToast(`📸 "${title}": Event photos from Code Heist are being compiled by THRYVE media crew! Check back soon or share your photos at thryveofficial@gmail.com.`);
 }
 
 /* --------------------------------------------------------------------------
@@ -321,7 +370,6 @@ function toggleFaq(btn) {
    PASS INPUT LISTENERS
    -------------------------------------------------------------------------- */
 function initPassListeners() {
-  // Modal backdrop click close
   const passModal = document.getElementById('passModal');
   if (passModal) {
     passModal.addEventListener('click', (e) => {
@@ -352,7 +400,7 @@ function showToast(message) {
   const toast = document.createElement('div');
   toast.className = 'toast-msg';
   toast.innerHTML = `
-    <span class="toast-icon">⚡</span>
+    <span class="toast-icon">🌿</span>
     <span>${message}</span>
   `;
 
@@ -362,5 +410,5 @@ function showToast(message) {
     toast.style.opacity = '0';
     toast.style.transform = 'translateY(10px)';
     setTimeout(() => toast.remove(), 300);
-  }, 4000);
+  }, 4500);
 }

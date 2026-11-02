@@ -1,1 +1,35 @@
-[]
+[
+  {
+    "passId": "#SAFAR-2026-75786",
+    "orderId": "SAFAR-2026-75786",
+    "event": "SAFARNAMA 2026",
+    "eventDate": "21 November 2026",
+    "destinations": "Chhatbir Zoo, Rock Garden & Rose Garden, Chandigarh",
+    "primaryName": "Lakshit Raina",
+    "registrationNo": "12301143",
+    "email": "lakshitraina20@gmail.com",
+    "phone": "7876848381",
+    "course": "B.Tech",
+    "year": "4th Year",
+    "seats": 1,
+    "pricePerPerson": 749,
+    "totalAmount": 749,
+    "utr": "55556568452",
+    "payeeUpi": "paytm.s19wrtz@pty",
+    "gateway": "THRYVE Pay (paytm.s19wrtz@pty)",
+    "paymentStatus": "APPROVED",
+    "registeredAt": "2026-11-02T09:48:13.799Z",
+    "members": [
+      {
+        "seat": 1,
+        "role": "Primary",
+        "name": "Lakshit Raina",
+        "registrationNo": "12301143",
+        "email": "lakshitraina20@gmail.com",
+        "phone": "7876848381",
+        "course": "B.Tech",
+        "year": "4th Year"
+      }
+    ]
+  }
+]

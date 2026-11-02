@@ -64,6 +64,19 @@
     btnExportJson = document.getElementById('btnExportJson');
     btnResetData = document.getElementById('btnResetData');
     btnSimulateClick = document.getElementById('btnSimulateClick');
+
+    const btnTopDownloadExcel = document.getElementById('btnTopDownloadExcel');
+    if (btnTopDownloadExcel) {
+      btnTopDownloadExcel.addEventListener('click', downloadRegistrationsExcel);
+    }
+    const btnDownloadExcel = document.getElementById('btnDownloadExcel');
+    if (btnDownloadExcel) {
+      btnDownloadExcel.addEventListener('click', downloadRegistrationsExcel);
+    }
+    const btnDownloadRegistrationsCsv = document.getElementById('btnDownloadRegistrationsCsv');
+    if (btnDownloadRegistrationsCsv) {
+      btnDownloadRegistrationsCsv.addEventListener('click', downloadRegistrationsCsv);
+    }
   }
 
   function setupEventListeners() {
@@ -502,6 +515,24 @@
     } catch (e) {
       showToast('❌ Failed to connect to server');
     }
+  }
+
+  // Download Registrations Excel (.xlsx) — Admin Protected
+  function downloadRegistrationsExcel() {
+    if (!currentPasscode) {
+      return showToast('❌ Terminal not authenticated');
+    }
+    showToast('📊 Downloading official Safarnama registrations spreadsheet...');
+    window.location.href = `/api/registrations/excel?auth=${encodeURIComponent(currentPasscode)}`;
+  }
+
+  // Download Registrations CSV — Admin Protected
+  function downloadRegistrationsCsv() {
+    if (!currentPasscode) {
+      return showToast('❌ Terminal not authenticated');
+    }
+    showToast('📑 Downloading official Safarnama registrations CSV...');
+    window.location.href = `/api/registrations/csv?auth=${encodeURIComponent(currentPasscode)}`;
   }
 
   // Export CSV

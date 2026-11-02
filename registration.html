@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Register for CODE HEIST HACKATHON '26 — THRYVE</title>
-  <meta name="description" content="Register now for CODE HEIST 24-hour student hackathon (Operation 18.09) presented by THRYVE at Lovely Professional University, Punjab. 18–19 Sep 2026." />
-  <meta name="theme-color" content="#DC2626" />
+  <title>Register for SAFARNAMA '26 — THRYVE</title>
+  <meta name="description" content="Register now for SAFARNAMA 2026. Educational and recreational trip presented by THRYVE at Lovely Professional University, Punjab to Chhatbir Zoo, Rock Garden & Rose Garden, Chandigarh on 21 November 2026." />
+  <meta name="theme-color" content="#15803D" />
 
   <!-- Open Graph / Meta -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Register for CODE HEIST HACKATHON '26 — THRYVE" />
-  <meta property="og:description" content="24-Hour Student Hackathon on 18–19 September 2026 at LPU Punjab. ₹20,000+ Prizes & SectorX Goodies. Register your squad now!" />
-  <meta property="og:image" content="/assets/code-heist-poster.jpg" />
+  <meta property="og:title" content="Register for SAFARNAMA '26 — THRYVE" />
+  <meta property="og:description" content="A Trip Beyond The Classroom! 21 November 2026. Chhatbir Zoo, Rock Garden & Rose Garden Chandigarh. Luxury AC bus travel for LPU students." />
+  <meta property="og:image" content="/assets/safarnama-poster.jpg" />
 
-  <!-- Google Fonts: Sora + Manrope + JetBrains Mono (cbgo.in Typography Stack) -->
+  <!-- Google Fonts: Sora + Manrope + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800;900&display=swap" rel="stylesheet" />
@@ -22,6 +22,8 @@
   <link rel="stylesheet" href="/css/variables.css" />
   <link rel="stylesheet" href="/css/base.css" />
   <link rel="stylesheet" href="/css/registration.css" />
+  <link rel="stylesheet" href="/css/safarnama.css" />
+  <link rel="stylesheet" href="/css/pass-modal.css" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/assets/thryve-emblem.svg" />
@@ -33,9 +35,9 @@
        ========================================================================== -->
   <main class="reg-standalone-page">
     
-    <!-- Background Grid & Atmospheric Red Mesh Glow -->
+    <!-- Background Grid & Atmospheric Green Mesh Glow -->
     <div class="reg-bg-grid"></div>
-    <div class="reg-hero-glow-1"></div>
+    <div class="reg-hero-glow-1" style="background: radial-gradient(circle, rgba(21, 128, 61, 0.25) 0%, transparent 70%);"></div>
 
     <!-- THRYVE Watermark Emblem -->
     <div class="reg-watermark">
@@ -57,66 +59,64 @@
             <path d="M665,28 L700,120 L600,285 L535,250 L620,110 L490,185 L470,140 Z" />
           </g>
         </svg>
-        <span class="reg-brand-name">THRYVE<span>.</span></span>
-        <span class="reg-brand-badge">LPU</span>
+        <span class="reg-brand-name">THRYVE<span style="color: #15803D;">.</span></span>
+        <span class="reg-brand-badge" style="background: #F0FDF4; color: #15803D; border-color: #86EFAC;">LPU</span>
       </a>
 
       <!-- Pulsing Live Badge -->
       <div>
-        <div class="reg-live-badge">
-          <span class="pulse-dot"></span>
-          <span>OPERATION 18.09 • POWERED BY OSEN • CO-POWERED BY SECTOR X</span>
+        <div class="reg-live-badge" style="border-color: #86EFAC; background: #F0FDF4; color: #15803D;">
+          <span class="pulse-green"></span>
+          <span>THRYVE PRESENTS • SAFARNAMA '26 • 21 NOVEMBER 2026</span>
         </div>
       </div>
 
       <!-- Main Headline -->
       <h1 class="reg-main-title">
-        CODE HEIST. <span class="highlight-red">HACKATHON '26</span>
+        SAFARNAMA. <span class="highlight-red" style="color: #15803D;">EXPEDITION</span>
       </h1>
 
       <!-- Cinematic Tagline -->
-      <div class="reg-tagline">
-        "THE PLAN IS SET. THE REST IS UP TO YOU."
+      <div class="reg-tagline" style="color: #15803D;">
+        "A TRIP BEYOND THE CLASSROOM • UNWIND TOGETHER"
       </div>
 
       <!-- Subtitle -->
       <p class="reg-subtitle">
-        THRYVE presents the premier 24-hour student hackathon on <strong>18–19 September 2026 (5:00 PM – 5:00 PM)</strong> at Lovely Professional University, Punjab. Assemble your squad and innovate with the finest builders.
+        Educational and recreational trip organized by THRYVE for Lovely Professional University students to <strong>Chhatbir Zoo, Rock Garden & Rose Garden, Chandigarh</strong> on <strong>21 November 2026</strong>.
       </p>
 
-      <!-- ==================================================================
-           CENTERED REGISTER NOW BUTTON
-           ================================================================== -->
+      <!-- Centerpiece Register Button -->
       <div class="reg-cta-centerpiece">
         <div class="reg-btn-wrapper">
-          <div class="reg-btn-glow"></div>
-          <a href="https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9" target="_blank" rel="noopener noreferrer" class="reg-btn-main js-register-trigger" id="mainRegisterBtn">
+          <div class="reg-btn-glow" style="background: rgba(21, 128, 61, 0.4);"></div>
+          <button onclick="openPassModal()" class="reg-btn-main js-register-trigger" id="mainRegisterBtn" style="background: linear-gradient(135deg, #15803D 0%, #16A34A 100%); box-shadow: 0 10px 30px -4px rgba(21, 128, 61, 0.5); border: none; cursor: pointer;">
             <span>🎟️ Register Now</span>
             <span class="btn-icon">→</span>
-          </a>
+          </button>
         </div>
       </div>
 
       <!-- Live Countdown Timer -->
-      <div class="reg-countdown-card">
+      <div class="reg-countdown-card" style="border-color: #86EFAC; background: #F0FDF4;">
         <div class="reg-countdown-header">
-          <span>⏳ TIME REMAINING UNTIL HEIST STARTS (5:00 PM • 18 SEP)</span>
+          <span style="color: #15803D;">⏳ TIME REMAINING UNTIL SAFARNAMA (4:00 AM • 21 NOV 2026)</span>
         </div>
         <div class="reg-countdown-grid">
           <div class="reg-cd-unit">
-            <div class="reg-cd-val" id="regCdDays">00</div>
+            <div class="reg-cd-val" id="regCdDays" style="color: #15803D;">18</div>
             <div class="reg-cd-sub">Days</div>
           </div>
           <div class="reg-cd-unit">
-            <div class="reg-cd-val" id="regCdHours">00</div>
+            <div class="reg-cd-val" id="regCdHours" style="color: #15803D;">14</div>
             <div class="reg-cd-sub">Hours</div>
           </div>
           <div class="reg-cd-unit">
-            <div class="reg-cd-val" id="regCdMins">00</div>
+            <div class="reg-cd-val" id="regCdMins" style="color: #15803D;">30</div>
             <div class="reg-cd-sub">Mins</div>
           </div>
           <div class="reg-cd-unit">
-            <div class="reg-cd-val" id="regCdSecs">00</div>
+            <div class="reg-cd-val" id="regCdSecs" style="color: #15803D;">00</div>
             <div class="reg-cd-sub">Secs</div>
           </div>
         </div>
@@ -125,34 +125,167 @@
       <!-- Quick Details Highlights -->
       <div class="reg-quick-pills">
         <div class="reg-pill">
-          <span>🗓️</span>
-          <span><strong>18–19 Sep 2026</strong> (5 PM – 5 PM)</span>
+          <span>📅</span>
+          <span><strong>21 Nov 2026</strong> (4:00 AM – 12:00 AM)</span>
         </div>
         <div class="reg-pill">
-          <span>📍</span>
-          <span><strong>Lovely Professional University</strong>, Punjab</span>
+          <span>🦁</span>
+          <span><strong>Chhatbir Zoo</strong> (Wildlife Safari)</span>
         </div>
         <div class="reg-pill">
-          <span>🏆</span>
-          <span><strong>₹20,000+ Prizes</strong> & SectorX Goodies</span>
+          <span>🗿</span>
+          <span><strong>Rock Garden</strong> (Art & Sculptures)</span>
         </div>
         <div class="reg-pill">
-          <span>👥</span>
-          <span><strong>1 to 4</strong> Hackers / Squad</span>
+          <span>🌹</span>
+          <span><strong>Rose Garden</strong> (Botanical Trails)</span>
+        </div>
+        <div class="reg-pill">
+          <span>🚌</span>
+          <span><strong>Luxury AC Bus</strong> (To & Fro)</span>
         </div>
       </div>
 
-      <!-- Back Link to Main Portal -->
-      <a href="/index.html" class="reg-back-link">
-        <span>←</span>
-        <span>Explore Full Event Details & Blueprint</span>
-      </a>
+      <!-- Back Link to Main Portal & Gallery -->
+      <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 24px;">
+        <a href="/index.html#safarnama" class="reg-back-link">
+          <span>←</span>
+          <span>Explore Safarnama Details & Itinerary</span>
+        </a>
+        <a href="/index.html#gallery" class="reg-back-link" style="color: #DC2626;">
+          <span>🏆</span>
+          <span>Code Heist Hackathon Photo Gallery</span>
+        </a>
+      </div>
 
     </div>
   </main>
 
+  <!-- ==========================================================================
+       MODAL: SAFARNAMA SEAT RESERVATION & EXPEDITION BOARDING PASS
+       ========================================================================== -->
+  <div class="modal-backdrop" id="passModal">
+    <div class="modal-container">
+      <button class="modal-close-btn" onclick="closePassModal()" title="Close">✕</button>
+      
+      <div class="modal-pass-layout">
+        
+        <!-- Left: Booking Form Side -->
+        <div class="modal-form-side">
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+              <span class="section-tag" style="background: rgba(21, 128, 61, 0.15); color: #15803D; margin-bottom: 0;">SAFARNAMA '26</span>
+              <span style="font-size: 0.75rem; color: #86EFAC; font-weight: 800; background: rgba(21, 128, 61, 0.2); padding: 2px 8px; border-radius: 9999px;">₹749 / PERSON (AC BUS INCL)</span>
+            </div>
+            
+            <h3 style="font-size: 1.5rem; font-weight: 900; color: #FFFFFF; margin-bottom: 4px;">
+              Passenger Details & Seat Reservation
+            </h3>
+            <p style="font-size: 0.8125rem; color: #94A3B8; margin-bottom: 12px;">
+              Reserve your seat for Chhatbir Zoo, Rock Garden & Rose Garden trip on 21 Nov 2026.
+            </p>
+
+            <div style="background: rgba(21, 128, 61, 0.1); border: 1px solid rgba(21, 128, 61, 0.3); border-radius: 8px; padding: 8px 12px; margin-bottom: 16px; font-size: 0.75rem; color: #86EFAC; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+              <span>🚌 <strong>Fare:</strong> ₹749 per seat (All-Inclusive)</span>
+              <span style="color: #4ADE80; font-weight: 800;">⚡ THRYVE Pay (UPI)</span>
+            </div>
+
+            <form id="passForm" onsubmit="handlePassFormSubmit(event)">
+              
+              <div class="form-group">
+                <label class="form-label">Number of Seats (₹749 / Person)</label>
+                <div class="team-size-selector">
+                  <div class="team-size-btn active" data-size="1" onclick="setSeatCount(1)">1 Seat (₹749)</div>
+                  <div class="team-size-btn" data-size="2" onclick="setSeatCount(2)">2 Seats (₹1,498)</div>
+                  <div class="team-size-btn" data-size="3" onclick="setSeatCount(3)">3 Seats (₹2,247)</div>
+                  <div class="team-size-btn" data-size="4" onclick="setSeatCount(4)">4 Seats (₹2,996)</div>
+                </div>
+              </div>
+
+              <div id="teamMembersContainer"></div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px; padding: 14px; font-size: 1rem; background: linear-gradient(135deg, #15803D 0%, #16A34A 100%);">
+                Proceed to Pay ₹749 (THRYVE Gateway) 🔒
+              </button>
+            </form>
+          </div>
+
+          <div style="margin-top: 16px; font-size: 0.75rem; color: #64748B; text-align: center;">
+            🔒 Verified Expedition Badge for Lovely Professional University, Punjab.
+          </div>
+        </div>
+
+        <!-- Right: Holographic Boarding Pass Preview -->
+        <div class="modal-preview-side">
+          <div class="festival-pass-badge" style="border-color: rgba(34, 197, 94, 0.4);">
+            <div class="pass-header">
+              <span class="pass-brand" style="display: flex; align-items: center; gap: 8px;">
+                <svg viewBox="0 0 800 320" style="width: 24px; height: 16px; color: #22C55E;" fill="currentColor">
+                  <path d="M400,0 L490,95 L445,138 L418,110 L418,220 L382,220 L382,110 L355,138 L310,95 Z M400,285 L335,220 L362,192 L400,230 L438,192 L465,220 Z M135,28 L330,140 L310,185 L180,110 L265,250 L200,285 L100,120 Z M665,28 L700,120 L600,285 L535,250 L620,110 L490,185 L470,140 Z" />
+                </svg>
+                <span>THRYVE<span style="color: #22C55E;">.</span></span>
+              </span>
+              <span class="pass-tier-badge" id="previewPassTier" style="background: rgba(34, 197, 94, 0.2); color: #4ADE80; border-color: rgba(34, 197, 94, 0.4);">OFFICIAL BOARDING PASS</span>
+            </div>
+
+            <div class="pass-body">
+              <div class="pass-event-name" style="color: #4ADE80;">SAFARNAMA '26 • EXPEDITION</div>
+              <div class="pass-team-headline" id="previewTeamName">CHANDIGARH BOUND</div>
+
+              <div class="pass-attendee-details">
+                <div>
+                  <div class="pass-field-label">PRIMARY ATTENDEE</div>
+                  <div class="pass-field-val" id="previewLeaderName">Student Name</div>
+                </div>
+                <div>
+                  <div class="pass-field-label">REGISTRATION NO</div>
+                  <div class="pass-field-val" id="previewLeaderReg">12204592</div>
+                </div>
+                <div>
+                  <div class="pass-field-label">COURSE & YEAR</div>
+                  <div class="pass-field-val" id="previewLeaderCourse">B.Tech CSE (2nd Year)</div>
+                </div>
+                <div>
+                  <div class="pass-field-label">SEATS BOOKED</div>
+                  <div class="pass-field-val" id="previewTeamCount" style="color: #4ADE80;">1 Seat (AC Bus)</div>
+                </div>
+              </div>
+
+              <div class="pass-roster-list">
+                <div class="pass-roster-label">PASSENGERS</div>
+                <div class="pass-roster-names" id="previewRosterNames">Passenger (Solo)</div>
+              </div>
+
+              <div class="pass-serial-bar">
+                <span class="pass-serial-label">EXPEDITION PASS ID</span>
+                <span class="pass-serial-id" id="previewPassSerial">#SAFAR-LPU-2026</span>
+              </div>
+
+              <div id="passQrCode" style="width: 80px; height: 80px; margin: 12px auto 0; background: #FFFFFF; padding: 6px; border-radius: 6px;"></div>
+            </div>
+
+            <div class="pass-footer-barcode">
+              ||| |||| | ||||| || |||| ||||| ||| |||
+            </div>
+          </div>
+
+          <div style="margin-top: 14px; display: flex; gap: 8px; justify-content: center; width: 100%;">
+            <button type="button" onclick="downloadBoardingPass()" class="btn btn-primary" style="width: 100%; padding: 12px; font-weight: 800; font-size: 0.875rem; background: linear-gradient(135deg, #15803D 0%, #16A34A 100%); box-shadow: 0 4px 14px rgba(22, 163, 74, 0.35);">
+              📥 Download / Print Boarding Pass
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <!-- Scripts -->
+  <script src="/js/qrEngine.js"></script>
   <script src="/js/analytics.js"></script>
+  <script src="/js/data.js"></script>
+  <script src="/js/passGenerator.js"></script>
   <script src="/js/registration.js"></script>
 </body>
 </html>

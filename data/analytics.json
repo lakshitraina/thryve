@@ -1,17 +1,188 @@
 {
-  "totalViews": 0,
-  "uniqueVisitors": 0,
-  "registerClicks": 0,
+  "totalViews": 13,
+  "uniqueVisitors": 1,
+  "registerClicks": 11,
   "ctaBreakdown": {
     "navbar": 0,
-    "hero_cta": 0,
+    "hero_cta": 2,
     "spotlight_card": 0,
     "events_list": 0,
-    "registration_page": 0,
+    "registration_page": 8,
     "bottom_banner": 0,
-    "other": 0
+    "other": 1
   },
-  "visitorIds": [],
-  "recentEvents": [],
-  "lastUpdated": "2026-09-07T17:30:00.000Z"
+  "visitorIds": [
+    "v_tenii6yzq_1788802026293"
+  ],
+  "recentEvents": [
+    {
+      "id": "1793612866818-emmd",
+      "type": "register_click",
+      "page": "/registration",
+      "cta": "registration_page",
+      "timestamp": "2026-11-02T09:47:46.818Z"
+    },
+    {
+      "id": "1793612843470-7j9y",
+      "type": "page_view",
+      "page": "/registration",
+      "cta": null,
+      "timestamp": "2026-11-02T09:47:23.470Z"
+    },
+    {
+      "id": "1793612289824-hyae",
+      "type": "register_click",
+      "page": "/registration",
+      "cta": "registration_page",
+      "timestamp": "2026-11-02T09:38:09.824Z"
+    },
+    {
+      "id": "1793612288588-r2cz",
+      "type": "page_view",
+      "page": "/registration",
+      "cta": null,
+      "timestamp": "2026-11-02T09:38:08.588Z"
+    },
+    {
+      "id": "1793612286169-8jlj",
+      "type": "page_view",
+      "page": "/registration",
+      "cta": null,
+      "timestamp": "2026-11-02T09:38:06.169Z"
+    },
+    {
+      "id": "1793611493035-hrbg",
+      "type": "register_click",
+      "page": "/registration",
+      "cta": "registration_page",
+      "timestamp": "2026-11-02T09:24:53.035Z"
+    },
+    {
+      "id": "1793611491974-ar1g",
+      "type": "page_view",
+      "page": "/registration",
+      "cta": null,
+      "timestamp": "2026-11-02T09:24:51.974Z"
+    },
+    {
+      "id": "1793611055324-g1ny",
+      "type": "register_click",
+      "page": "/registration",
+      "cta": "registration_page",
+      "timestamp": "2026-11-02T09:17:35.324Z"
+    },
+    {
+      "id": "1793611052374-cic1",
+      "type": "page_view",
+      "page": "/registration",
+      "cta": null,
+      "timestamp": "2026-11-02T09:17:32.374Z"
+    },
+    {
+      "id": "1793610533691-farm",
+      "type": "register_click",
+      "page": "/registration",
+      "cta": "registration_page",
+      "timestamp": "2026-11-02T09:08:53.691Z"
+    },
+    {
+      "id": "1793610532368-5u81",
+      "type": "page_view",
+      "page": "/registration",
+      "cta": null,
+      "timestamp": "2026-11-02T09:08:52.368Z"
+    },
+    {
+      "id": "1793609985492-p0cq",
+      "type": "register_click",
+      "page": "/registration",
+      "cta": "registration_page",
+      "timestamp": "2026-11-02T08:59:45.492Z"
+    },
+    {
+      "id": "1793609981781-szmq",
+      "type": "page_view",
+      "page": "/registration",
+      "cta": null,
+      "timestamp": "2026-11-02T08:59:41.781Z"
+    },
+    {
+      "id": "1793609981718-dbhy",
+      "type": "register_click",
+      "page": "/",
+      "cta": "hero_cta",
+      "timestamp": "2026-11-02T08:59:41.718Z"
+    },
+    {
+      "id": "1793609975985-5agc",
+      "type": "page_view",
+      "page": "/",
+      "cta": null,
+      "timestamp": "2026-11-02T08:59:35.985Z"
+    },
+    {
+      "id": "1793609691021-vob0",
+      "type": "page_view",
+      "page": "/registration",
+      "cta": null,
+      "timestamp": "2026-11-02T08:54:51.021Z"
+    },
+    {
+      "id": "1793609576864-iyhv",
+      "type": "register_click",
+      "page": "/",
+      "cta": "hero_cta",
+      "timestamp": "2026-11-02T08:52:56.864Z"
+    },
+    {
+      "id": "1793609566003-dcnj",
+      "type": "page_view",
+      "page": "/",
+      "cta": null,
+      "timestamp": "2026-11-02T08:52:46.004Z"
+    },
+    {
+      "id": "1793609485669-92p2",
+      "type": "page_view",
+      "page": "/index.html",
+      "cta": null,
+      "timestamp": "2026-11-02T08:51:25.669Z"
+    },
+    {
+      "id": "1793609449860-7cxj",
+      "type": "register_click",
+      "page": "/registration",
+      "cta": "registration_page",
+      "timestamp": "2026-11-02T08:50:49.860Z"
+    },
+    {
+      "id": "1793609412998-1qhb",
+      "type": "register_click",
+      "page": "/",
+      "cta": "other",
+      "timestamp": "2026-11-02T08:50:12.998Z"
+    },
+    {
+      "id": "1793609287545-s0ms",
+      "type": "register_click",
+      "page": "/registration",
+      "cta": "registration_page",
+      "timestamp": "2026-11-02T08:48:07.545Z"
+    },
+    {
+      "id": "1793609279850-rgfk",
+      "type": "page_view",
+      "page": "/registration",
+      "cta": null,
+      "timestamp": "2026-11-02T08:47:59.850Z"
+    },
+    {
+      "id": "1793609189777-iikx",
+      "type": "page_view",
+      "page": "/",
+      "cta": null,
+      "timestamp": "2026-11-02T08:46:29.777Z"
+    }
+  ],
+  "lastUpdated": "2026-11-02T09:47:46.818Z"
 }

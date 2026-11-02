@@ -6,6 +6,9 @@ Thumbs.db
 # Dependencies
 node_modules/
 
+# Cloned reference repos
+youpi-pg/
+
 # IDE & system
 .vscode/
 .idea/

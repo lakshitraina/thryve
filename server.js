@@ -128,7 +128,9 @@ const MIME_TYPES = {
   '.woff2': 'font/woff2',
   '.woff': 'font/woff',
   '.ttf': 'font/ttf',
-  '.txt': 'text/plain; charset=utf-8'
+  '.txt': 'text/plain; charset=utf-8',
+  '.xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+  '.csv': 'text/csv; charset=utf-8'
 };
 
 function sendJson(res, statusCode, data) {
@@ -206,31 +208,170 @@ const server = http.createServer((req, res) => {
     }
   }
 
-  // 3. API: Register Team
+  // 3. API: Confirm Payment & Save to Excel (THRYVE Pay Gateway)
+  if (pathname === '/api/payment/confirm' && req.method === 'POST') {
+    return parseBody(req, (err, data) => {
+      if (err || !data) {
+        return sendJson(res, 400, { error: 'Invalid payment payload' });
+      }
+
+      const seats = parseInt(data.seats || 1, 10);
+      const pricePerPerson = 749;
+      const totalAmount = seats * pricePerPerson;
+      const hash = Math.abs(Math.floor(Math.random() * 90000) + 10000);
+      const passId = data.passId || `#SAFAR-2026-${hash}`;
+      const utr = data.utr || data.transactionRef || 'MANUAL-PENDING';
+
+      const members = Array.isArray(data.members) ? data.members : [];
+      const primary = members[0] || {};
+
+      const record = {
+        passId,
+        orderId: data.orderId || `ORD-${Date.now()}`,
+        event: 'SAFARNAMA 2026',
+        eventDate: '21 November 2026',
+        destinations: 'Chhatbir Zoo, Rock Garden & Rose Garden, Chandigarh',
+        primaryName: data.primaryName || primary.name || 'Student',
+        registrationNo: data.registrationNo || primary.registrationNo || 'N/A',
+        email: data.email || primary.email || 'N/A',
+        phone: data.phone || primary.phone || 'N/A',
+        course: data.course || primary.course || 'N/A',
+        year: data.year || primary.year || 'N/A',
+        seats,
+        pricePerPerson,
+        totalAmount,
+        utr,
+        payeeUpi: 'paytm.s19wrtz@pty',
+        gateway: 'THRYVE Pay (paytm.s19wrtz@pty)',
+        paymentStatus: 'APPROVED',
+        registeredAt: new Date().toISOString(),
+        members
+      };
+
+      let excelResult = { success: false };
+      try {
+        const { saveToExcel } = require('./js/excelWriter.js');
+        excelResult = saveToExcel(record);
+      } catch (exErr) {
+        console.error('Excel save error:', exErr);
+      }
+
+      try {
+        const raw = fs.readFileSync(REGISTRATIONS_FILE, 'utf8');
+        const registrations = JSON.parse(raw || '[]');
+        registrations.push(record);
+        fs.writeFileSync(REGISTRATIONS_FILE, JSON.stringify(registrations, null, 2));
+      } catch (jsonErr) {
+        console.error('JSON save error:', jsonErr);
+      }
+
+      return sendJson(res, 200, {
+        success: true,
+        message: 'Payment recorded and marked APPROVED! Details saved to Excel for manual verification.',
+        passId,
+        seats,
+        pricePerPerson,
+        totalAmount,
+        utr,
+        status: 'APPROVED',
+        excelSaved: excelResult.success,
+        ticket: record
+      });
+    });
+  }
+
+  // 3b. API: Download Registrations Excel / CSV (ADMIN ONLY)
+  if ((pathname === '/api/registrations/excel' || pathname === '/api/registrations/csv' || pathname === '/data/registrations.xlsx' || pathname === '/data/registrations.csv') && req.method === 'GET') {
+    const authHeader = (req.headers['authorization'] || '').replace(/^Bearer\s+/i, '');
+    const customHeader = req.headers['x-admin-password'] || '';
+    const queryPassword = parsedUrl.query.auth || parsedUrl.query.password || parsedUrl.query.passcode || '';
+
+    const isAuthed = (
+      validatePasscode(queryPassword) ||
+      validatePasscode(customHeader) ||
+      validatePasscode(authHeader)
+    );
+
+    if (!isAuthed) {
+      return sendJson(res, 401, {
+        error: 'Access Denied: Excel & CSV export is reserved for THRYVE administrators only.',
+        hint: 'Please authenticate with your admin passcode via /data or provide ?auth=yourPasscode.'
+      });
+    }
+
+    if (pathname === '/api/registrations/excel' || pathname === '/data/registrations.xlsx') {
+      const excelPath = path.join(DATA_DIR, 'registrations.xlsx');
+      if (fs.existsSync(excelPath)) {
+        res.writeHead(200, {
+          'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+          'Content-Disposition': 'attachment; filename="Safarnama_Registrations_Official.xlsx"',
+          'Access-Control-Allow-Origin': '*'
+        });
+        return fs.createReadStream(excelPath).pipe(res);
+      } else {
+        return sendJson(res, 404, { error: 'No registrations Excel file generated yet.' });
+      }
+    }
+
+    if (pathname === '/api/registrations/csv' || pathname === '/data/registrations.csv') {
+      const csvPath = path.join(DATA_DIR, 'registrations.csv');
+      if (fs.existsSync(csvPath)) {
+        res.writeHead(200, {
+          'Content-Type': 'text/csv; charset=utf-8',
+          'Content-Disposition': 'attachment; filename="Safarnama_Registrations_Official.csv"',
+          'Access-Control-Allow-Origin': '*'
+        });
+        return fs.createReadStream(csvPath).pipe(res);
+      } else {
+        return sendJson(res, 404, { error: 'No registrations CSV file generated yet.' });
+      }
+    }
+  }
+
+  // 3c. API: Register Team (Unified with Excel)
   if (pathname === '/api/register' && req.method === 'POST') {
     return parseBody(req, (err, data) => {
-      if (err || !data.teamName || !data.members) {
-        return sendJson(res, 400, { error: 'Missing required team registration fields' });
+      if (err || (!data.members && !data.teamName)) {
+        return sendJson(res, 400, { error: 'Missing required registration fields' });
       }
       try {
         const raw = fs.readFileSync(REGISTRATIONS_FILE, 'utf8');
         const registrations = JSON.parse(raw || '[]');
         const hash = Math.abs(Math.floor(Math.random() * 90000) + 10000);
-        const passId = `#HEIST-${hash}-26`;
+        const passId = `#SAFAR-2026-${hash}`;
+        const seats = parseInt(data.seats || data.teamSize || (data.members ? data.members.length : 1), 10);
+        const pricePerPerson = 749;
+        const totalAmount = seats * pricePerPerson;
+
         const newEntry = {
           passId,
-          teamName: data.teamName,
-          teamSize: data.teamSize || data.members.length,
-          members: data.members,
+          event: 'SAFARNAMA 2026',
+          eventDate: '21 November 2026',
+          seats,
+          pricePerPerson,
+          totalAmount,
+          members: data.members || [],
           registeredAt: new Date().toISOString(),
-          status: 'CONFIRMED',
+          status: 'APPROVED',
+          paymentStatus: 'APPROVED',
+          payeeUpi: 'paytm.s19wrtz@pty',
+          gateway: 'THRYVE Pay (paytm.s19wrtz@pty)',
           venue: 'Lovely Professional University, Punjab'
         };
+
         registrations.push(newEntry);
         fs.writeFileSync(REGISTRATIONS_FILE, JSON.stringify(registrations, null, 2));
+
+        try {
+          const { saveToExcel } = require('./js/excelWriter.js');
+          saveToExcel(newEntry);
+        } catch (exErr) {
+          console.error('Excel save error:', exErr);
+        }
+
         return sendJson(res, 201, {
           success: true,
-          message: 'Code Heist registration successful!',
+          message: 'Safarnama registration & payment confirmed!',
           passId,
           ticket: newEntry
         });
@@ -452,6 +593,14 @@ const server = http.createServer((req, res) => {
     pathname = '/data.html';
   } else if (pathname === '/statements' || pathname === '/statements/') {
     pathname = '/statements.html';
+  }
+
+  // Disallow direct public download of internal database files
+  if (pathname.startsWith('/data/') || pathname.startsWith('data/')) {
+    if (pathname.endsWith('.xlsx') || pathname.endsWith('.csv') || pathname.endsWith('.json')) {
+      res.writeHead(403, { 'Content-Type': 'application/json; charset=utf-8' });
+      return res.end(JSON.stringify({ error: 'Access Denied: Protected administrative database.' }));
+    }
   }
 
   const safePath = path.normalize(path.join(__dirname, pathname));
