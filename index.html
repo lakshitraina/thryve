@@ -684,7 +684,7 @@
               </div>
 
               <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px; padding: 14px; font-size: 1rem; background: linear-gradient(135deg, #15803D 0%, #16A34A 100%);">
-                Proceed to Pay ₹749 (THRYVE Gateway) 🔒
+                Proceed to Pay ₹749
               </button>
             </form>
           </div>
@@ -704,7 +704,7 @@
                 </svg>
                 <span>THRYVE<span style="color: #22C55E;">.</span></span>
               </span>
-              <span class="pass-tier-badge" id="previewPassTier" style="background: rgba(34, 197, 94, 0.2); color: #4ADE80; border-color: rgba(34, 197, 94, 0.4);">OFFICIAL BOARDING PASS</span>
+              <span class="pass-tier-badge" id="previewPassTier" style="background: rgba(239, 68, 68, 0.15); color: #EF4444; border: 1px solid rgba(239, 68, 68, 0.3);">PAYMENT PENDING (₹749)</span>
             </div>
 
             <div class="pass-body">
@@ -752,8 +752,8 @@
           </div>
 
           <div style="margin-top: 14px; display: flex; gap: 8px; justify-content: center; width: 100%;">
-            <button type="button" onclick="downloadBoardingPass()" class="btn btn-primary" style="width: 100%; padding: 12px; font-weight: 800; font-size: 0.875rem; background: linear-gradient(135deg, #15803D 0%, #16A34A 100%); box-shadow: 0 4px 14px rgba(22, 163, 74, 0.35);">
-              📥 Download / Print Boarding Pass
+            <button type="button" id="downloadPassBtn" onclick="downloadBoardingPass()" class="btn btn-secondary" style="width: 100%; padding: 12px; font-weight: 800; font-size: 0.875rem; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); color: #94A3B8; cursor: pointer;" title="Payment Required to Download">
+              🔒 Complete Payment to Download Pass
             </button>
           </div>
 

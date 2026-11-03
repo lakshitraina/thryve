@@ -1143,9 +1143,9 @@
 
 .thryve-pay-apps-row {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .thryve-pay-app-pill {
@@ -1153,28 +1153,31 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 8px 6px;
+  padding: 10px 6px;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-md);
   text-decoration: none;
-  color: #CBD5E1;
-  font-size: 0.6875rem;
-  font-weight: 700;
+  color: #E2E8F0;
+  font-size: 0.725rem;
+  font-weight: 800;
   gap: 6px;
   transition: all var(--transition-fast);
+  cursor: pointer;
 }
 
-.thryve-pay-app-pill:hover {
-  background: rgba(34, 197, 94, 0.15);
-  border-color: rgba(34, 197, 94, 0.4);
+.thryve-pay-app-pill:hover,
+.thryve-pay-app-pill:active {
+  background: rgba(34, 197, 94, 0.18);
+  border-color: #22C55E;
   color: #FFFFFF;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
 }
 
 .thryve-pay-app-pill img {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
 }
 

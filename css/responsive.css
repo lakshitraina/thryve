@@ -706,19 +706,19 @@ img, svg, video, canvas {
   }
 
   .thryve-pay-apps-row {
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: 6px !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
     margin-bottom: 16px !important;
   }
 
   .thryve-pay-app-pill {
-    padding: 8px 4px !important;
-    font-size: 0.625rem !important;
+    padding: 10px 6px !important;
+    font-size: 0.75rem !important;
   }
 
   .thryve-pay-app-pill img {
-    width: 20px !important;
-    height: 20px !important;
+    width: 26px !important;
+    height: 26px !important;
   }
 
   .thryve-pay-utr-box {
@@ -850,15 +850,20 @@ img, svg, video, canvas {
     padding: 8px 12px !important;
   }
 
-  /* THRYVE Pay App Pill grid 2x2 on narrow screens */
+  /* THRYVE Pay App Pill grid 3 columns on smartphones */
   .thryve-pay-apps-row {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 8px !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6px !important;
   }
 
   .thryve-pay-app-pill {
-    padding: 10px 8px !important;
-    font-size: 0.75rem !important;
+    padding: 8px 4px !important;
+    font-size: 0.6875rem !important;
+  }
+
+  .thryve-pay-app-pill img {
+    width: 24px !important;
+    height: 24px !important;
   }
 
   /* Modal Tweaks for <= 480px */

@@ -159,12 +159,24 @@ function updatePassPreview() {
   if (previewCourse) previewCourse.innerText = `${leaderCourse} (${leaderYear})`;
   if (previewCount) previewCount.innerText = `${tripSeatCount} Seat${tripSeatCount > 1 ? 's' : ''} • ₹${totalFee}`;
   if (previewRoster) previewRoster.innerText = memberNames.join(', ');
-  if (previewTier) previewTier.innerText = `ENTRY PASS (₹${totalFee})`;
+  if (previewTier) {
+    if (currentThryveSession && currentThryveSession.paid) {
+      previewTier.innerText = `STATUS: APPROVED (₹${totalFee})`;
+      previewTier.style.background = 'rgba(34, 197, 94, 0.2)';
+      previewTier.style.color = '#4ADE80';
+      previewTier.style.borderColor = '#22C55E';
+    } else {
+      previewTier.innerText = `PAYMENT PENDING (₹${totalFee})`;
+      previewTier.style.background = 'rgba(239, 68, 68, 0.15)';
+      previewTier.style.color = '#EF4444';
+      previewTier.style.borderColor = 'rgba(239, 68, 68, 0.3)';
+    }
+  }
 
   // Update submit button text with exact amount
   const submitBtn = document.querySelector('#passForm button[type="submit"]');
   if (submitBtn) {
-    submitBtn.innerHTML = `Proceed to Pay ₹${totalFee} (THRYVE Gateway) 🔒`;
+    submitBtn.innerHTML = `Proceed to Pay ₹${totalFee}`;
   }
 
   const hash = Math.abs(hashString(leaderName + leaderReg + tripSeatCount)).toString(36).toUpperCase().padEnd(5, '7').slice(0, 5);
@@ -276,10 +288,16 @@ function launchThryvePaymentGateway(order) {
   const qrImageSrc = qrMap[order.totalFee] || '/assets/qr/qr-749.jpg';
 
   const upiNote = encodeURIComponent(`Safarnama Pass ${order.orderId}`);
-  const baseUpi = `upi://pay?pa=${THRYVE_UPI_ID}&pn=THRYVE&am=${order.totalFee}.00&cu=INR&tn=${upiNote}`;
-  const paytmUpi = `paytmmp://pay?pa=${THRYVE_UPI_ID}&pn=THRYVE&am=${order.totalFee}.00&cu=INR&tn=${upiNote}`;
-  const gpayUpi = `tez://upi/pay?pa=${THRYVE_UPI_ID}&pn=THRYVE&am=${order.totalFee}.00&cu=INR&tn=${upiNote}`;
-  const phonepeUpi = `phonepe://pay?pa=${THRYVE_UPI_ID}&pn=THRYVE&am=${order.totalFee}.00&cu=INR&tn=${upiNote}`;
+  const upiQuery = `pa=${encodeURIComponent(THRYVE_UPI_ID)}&pn=THRYVE&am=${order.totalFee}.00&cu=INR&tn=${upiNote}`;
+  const baseUpi = `upi://pay?${upiQuery}`;
+
+  // Package-targeted intents for Android (bypasses any single default app like WhatsApp)
+  const phonepeIntent = `intent://pay?${upiQuery}#Intent;scheme=upi;package=com.phonepe.app;end`;
+  const gpayIntent = `intent://pay?${upiQuery}#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end`;
+  const paytmIntent = `intent://pay?${upiQuery}#Intent;scheme=upi;package=net.one97.paytm;end`;
+  const bhimIntent = `intent://pay?${upiQuery}#Intent;scheme=upi;package=in.org.npci.upiapp;end`;
+  const credIntent = `intent://pay?${upiQuery}#Intent;scheme=upi;package=com.dreamplug.androidapp;end`;
+  const amazonpayIntent = `intent://pay?${upiQuery}#Intent;scheme=upi;package=in.amazon.mShop.android.shopping;end`;
 
   modal.innerHTML = `
     <div class="thryve-pay-backdrop" onclick="closeThryveModal()"></div>
@@ -333,30 +351,43 @@ function launchThryvePaymentGateway(order) {
         </div>
 
         <!-- Direct UPI Mobile Intent (Auto-sets amount) -->
-        <a href="${baseUpi}" class="thryve-pay-intent-btn">
+        <a href="${baseUpi}" onclick="launchUpiApp('any', event)" class="thryve-pay-intent-btn">
           <span>📲 Open in Any UPI App (Auto-Sets ₹${order.totalFee})</span>
           <span>→</span>
         </a>
 
-        <!-- Fast App Launchers -->
-        <div class="thryve-pay-apps-label">Or choose your installed payment app:</div>
+        <!-- Fast App Launchers (Direct package intent ensures PhonePe/GPay/Paytm/BHIM open directly) -->
+        <div class="thryve-pay-apps-label" id="upiAppChooserHint">
+          ⚡ Choose your installed UPI app to pay directly:
+        </div>
         <div class="thryve-pay-apps-row">
-          <a href="${paytmUpi}" class="thryve-pay-app-pill" title="Pay with Paytm">
-            <img src="/assets/youpi/paytm.png" alt="Paytm" />
-            <span>Paytm</span>
-          </a>
-          <a href="${gpayUpi}" class="thryve-pay-app-pill" title="Pay with Google Pay">
-            <img src="/assets/youpi/gpay.png" alt="GPay" />
-            <span>Google Pay</span>
-          </a>
-          <a href="${phonepeUpi}" class="thryve-pay-app-pill" title="Pay with PhonePe">
+          <a href="${phonepeIntent}" onclick="launchUpiApp('phonepe', event)" class="thryve-pay-app-pill" title="Pay with PhonePe">
             <img src="/assets/youpi/phonepe.png" alt="PhonePe" />
             <span>PhonePe</span>
           </a>
-          <a href="${baseUpi}" class="thryve-pay-app-pill" title="Pay with Any UPI">
-            <img src="/assets/youpi/bhim.png" alt="UPI" />
-            <span>BHIM / Any</span>
+          <a href="${gpayIntent}" onclick="launchUpiApp('gpay', event)" class="thryve-pay-app-pill" title="Pay with Google Pay">
+            <img src="/assets/youpi/gpay.png" alt="GPay" />
+            <span>Google Pay</span>
           </a>
+          <a href="${paytmIntent}" onclick="launchUpiApp('paytm', event)" class="thryve-pay-app-pill" title="Pay with Paytm">
+            <img src="/assets/youpi/paytm.png" alt="Paytm" />
+            <span>Paytm</span>
+          </a>
+          <a href="${bhimIntent}" onclick="launchUpiApp('bhim', event)" class="thryve-pay-app-pill" title="Pay with BHIM UPI">
+            <img src="/assets/youpi/bhim.png" alt="BHIM" />
+            <span>BHIM UPI</span>
+          </a>
+          <a href="${credIntent}" onclick="launchUpiApp('cred', event)" class="thryve-pay-app-pill" title="Pay with CRED">
+            <img src="/assets/youpi/cred.png" alt="CRED" />
+            <span>CRED</span>
+          </a>
+          <a href="${amazonpayIntent}" onclick="launchUpiApp('amazonpay', event)" class="thryve-pay-app-pill" title="Pay with Amazon Pay">
+            <img src="/assets/youpi/amazonpay.png" alt="Amazon Pay" />
+            <span>Amazon Pay</span>
+          </a>
+        </div>
+        <div style="font-size: 0.725rem; color: #94A3B8; text-align: center; margin-top: -12px; margin-bottom: 16px; line-height: 1.4;">
+          💡 Tapping your app (PhonePe, GPay, Paytm, BHIM) auto-opens it with ₹${order.totalFee} filled.
         </div>
 
         <!-- Step 2: UTR Reference Submission -->
@@ -424,6 +455,80 @@ function copyThryveUpi() {
   });
 }
 
+/**
+ * Robust cross-platform launcher for Indian UPI Applications.
+ * Uses explicit Android package names to prevent OS routing conflicts
+ * (e.g. WhatsApp hijacking generic upi:// intent filters).
+ */
+function launchUpiApp(appName, event) {
+  if (event && event.preventDefault) event.preventDefault();
+  if (!currentThryveSession) return;
+
+  const fee = currentThryveSession.totalFee;
+  const orderId = currentThryveSession.orderId;
+  const query = `pa=${encodeURIComponent(THRYVE_UPI_ID)}&pn=THRYVE&am=${fee}.00&cu=INR&tn=${encodeURIComponent(`Safarnama Pass ${orderId}`)}`;
+  const isAndroid = /Android/i.test(navigator.userAgent);
+  const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  const androidPackages = {
+    phonepe: 'com.phonepe.app',
+    gpay: 'com.google.android.apps.nbu.paisa.user',
+    paytm: 'net.one97.paytm',
+    bhim: 'in.org.npci.upiapp',
+    cred: 'com.dreamplug.androidapp',
+    amazonpay: 'in.amazon.mShop.android.shopping'
+  };
+
+  const iosSchemes = {
+    phonepe: `phonepe://pay?${query}`,
+    gpay: `tez://upi/pay?${query}`,
+    paytm: `paytmmp://pay?${query}`,
+    bhim: `upi://pay?${query}`,
+    cred: `cred://pay?${query}`,
+    amazonpay: `amazonpay://pay?${query}`
+  };
+
+  if (isAndroid) {
+    if (appName === 'any') {
+      // Trigger generic upi:// intent and update hint in case WhatsApp opens
+      window.location.href = `upi://pay?${query}`;
+      highlightAppGrid();
+      return;
+    }
+    const pkg = androidPackages[appName];
+    if (pkg) {
+      window.location.href = `intent://pay?${query}#Intent;scheme=upi;package=${pkg};end`;
+      return;
+    }
+  } else if (isIOS) {
+    if (appName === 'any') {
+      window.location.href = `upi://pay?${query}`;
+      return;
+    }
+    if (iosSchemes[appName]) {
+      window.location.href = iosSchemes[appName];
+      return;
+    }
+  }
+
+  if (appName === 'any') {
+    window.location.href = `upi://pay?${query}`;
+    return;
+  }
+
+  // Desktop or desktop browser: copy UPI ID and advise
+  copyThryveUpi();
+  showToast(`📋 Copied UPI ID (${THRYVE_UPI_ID})! Open ${appName.toUpperCase()} on your mobile or scan the QR code to pay ₹${fee}.`);
+}
+
+function highlightAppGrid() {
+  const hint = document.getElementById('upiAppChooserHint');
+  if (hint) {
+    hint.style.color = '#F59E0B';
+    hint.innerHTML = '👇 If WhatsApp opened automatically, tap your specific app below (PhonePe, GPay, Paytm, BHIM):';
+  }
+}
+
 /* --------------------------------------------------------------------------
    CONFIRM UTR & SAVE DETAILS TO EXCEL AS APPROVED
    -------------------------------------------------------------------------- */
@@ -481,6 +586,11 @@ async function processThryvePaymentConfirmation(utr) {
 function renderThryveSuccessView(utr, result) {
   triggerCelebrationConfetti();
 
+  if (currentThryveSession) {
+    currentThryveSession.paid = true;
+    currentThryveSession.utr = utr;
+  }
+
   const bodyEl = document.getElementById('thryvePayContent');
   if (!bodyEl) return;
 
@@ -513,13 +623,25 @@ function renderThryveSuccessView(utr, result) {
     </div>
   `;
 
-  // Update Boarding Pass Preview on the page
+  // Update Boarding Pass Preview on the page & unlock download button
   const previewTier = document.getElementById('previewPassTier');
-  if (previewTier) {
+  if (previewTier && currentThryveSession) {
     previewTier.innerText = `STATUS: APPROVED (₹${currentThryveSession.totalFee})`;
     previewTier.style.background = 'rgba(34, 197, 94, 0.2)';
     previewTier.style.color = '#4ADE80';
     previewTier.style.borderColor = '#22C55E';
+  }
+
+  const downloadBtn = document.getElementById('downloadPassBtn');
+  if (downloadBtn) {
+    downloadBtn.innerHTML = '📥 Download / Print Boarding Pass';
+    downloadBtn.className = 'btn btn-primary';
+    downloadBtn.style.background = 'linear-gradient(135deg, #15803D 0%, #16A34A 100%)';
+    downloadBtn.style.color = '#FFFFFF';
+    downloadBtn.style.border = 'none';
+    downloadBtn.style.cursor = 'pointer';
+    downloadBtn.style.boxShadow = '0 4px 14px rgba(22, 163, 74, 0.35)';
+    downloadBtn.title = 'Download Official Pass';
   }
 
   showToast(`🎉 Pass Approved for ${currentThryveSession.primaryName}! You can now download your official boarding pass.`);
@@ -530,6 +652,12 @@ function viewConfirmedPass() {
 }
 
 function downloadBoardingPass() {
+  // Security guard: Only allow pass download if payment has been confirmed
+  if (!currentThryveSession || !currentThryveSession.paid) {
+    const fee = (tripSeatCount || 1) * PRICE_PER_PERSON;
+    showToast(`⚠️ Payment Required: Please complete payment of ₹${fee} and submit your UTR to download the verified boarding pass.`);
+    return;
+  }
   const leaderName = document.getElementById('previewLeaderName')?.innerText || (currentThryveSession?.primaryName) || 'Student';
   const regNo = document.getElementById('previewLeaderReg')?.innerText || (currentThryveSession?.registrationNo) || 'N/A';
   const course = document.getElementById('previewLeaderCourse')?.innerText || (currentThryveSession?.course) || 'N/A';
