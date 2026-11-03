@@ -584,6 +584,28 @@ const server = http.createServer((req, res) => {
     });
   }
 
+  // 8b. API: Reset Excel Data & Registrations (Password Protected)
+  if (pathname === '/api/registrations/reset' && req.method === 'POST') {
+    return parseBody(req, (err, data) => {
+      const password = (data && (data.password || data.passcode)) || req.headers['x-admin-password'] || '';
+      if (!validatePasscode(password)) {
+        return sendJson(res, 401, { error: 'Unauthorized: Invalid admin passcode' });
+      }
+
+      try {
+        const { resetExcelData } = require('./js/excelWriter.js');
+        const result = resetExcelData();
+        return sendJson(res, 200, {
+          success: true,
+          message: 'Excel data reset successfully. Fresh clean workbook initialized.',
+          ...result
+        });
+      } catch (e) {
+        return sendJson(res, 500, { error: 'Failed to reset Excel data: ' + e.message });
+      }
+    });
+  }
+
   // 9. Static File Routing
   if (pathname === '/' || pathname === '') {
     pathname = '/index.html';

@@ -5,6 +5,85 @@ const XLSX = require('xlsx');
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const EXCEL_FILE = path.join(DATA_DIR, 'registrations.xlsx');
 const CSV_FILE = path.join(DATA_DIR, 'registrations.csv');
+const REGISTRATIONS_FILE = path.join(DATA_DIR, 'registrations.json');
+
+const EXCEL_COLUMNS = [
+  'Pass ID',
+  'Booking Date & Time',
+  'Primary Passenger',
+  'Registration No',
+  'Email',
+  'Phone / WhatsApp',
+  'Course & Branch',
+  'Year',
+  'Seats Booked',
+  'Price Per Seat (₹)',
+  'Total Amount Paid (₹)',
+  'Payment Status',
+  'Bank UTR / Transaction Ref',
+  'Payee UPI ID',
+  'Payment Gateway',
+  'Event Name',
+  'Event Date',
+  'Destinations',
+  'Full Passenger Roster'
+];
+
+const EXCEL_COL_WIDTHS = [
+  { wch: 18 },
+  { wch: 22 },
+  { wch: 22 },
+  { wch: 16 },
+  { wch: 26 },
+  { wch: 16 },
+  { wch: 20 },
+  { wch: 14 },
+  { wch: 14 },
+  { wch: 18 },
+  { wch: 22 },
+  { wch: 18 },
+  { wch: 24 },
+  { wch: 22 },
+  { wch: 18 },
+  { wch: 18 },
+  { wch: 18 },
+  { wch: 38 },
+  { wch: 60 }
+];
+
+function resetExcelData() {
+  try {
+    if (!fs.existsSync(DATA_DIR)) {
+      fs.mkdirSync(DATA_DIR, { recursive: true });
+    }
+
+    // Create fresh Excel with standard headers
+    const ws = XLSX.utils.aoa_to_sheet([EXCEL_COLUMNS]);
+    ws['!cols'] = EXCEL_COL_WIDTHS;
+
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Safarnama Registrations');
+    XLSX.writeFile(wb, EXCEL_FILE);
+
+    // Create fresh CSV with standard headers
+    const csvContent = EXCEL_COLUMNS.join(',') + '\n';
+    fs.writeFileSync(CSV_FILE, csvContent, 'utf8');
+
+    // Reset JSON registration records to empty array
+    fs.writeFileSync(REGISTRATIONS_FILE, JSON.stringify([], null, 2), 'utf8');
+
+    return {
+      success: true,
+      message: 'Excel data reset successfully. Fresh clean workbook initialized.',
+      excelFile: EXCEL_FILE,
+      csvFile: CSV_FILE,
+      resetAt: new Date().toISOString()
+    };
+  } catch (err) {
+    console.error('Failed to reset Excel data:', err);
+    return { success: false, error: err.message };
+  }
+}
 
 function saveToExcel(record) {
   try {
@@ -108,4 +187,4 @@ function saveToExcel(record) {
   }
 }
 
-module.exports = { saveToExcel, EXCEL_FILE, CSV_FILE };
+module.exports = { saveToExcel, resetExcelData, EXCEL_FILE, CSV_FILE };

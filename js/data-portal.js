@@ -69,6 +69,10 @@
     if (btnTopDownloadExcel) {
       btnTopDownloadExcel.addEventListener('click', downloadRegistrationsExcel);
     }
+    const btnTopResetExcel = document.getElementById('btnTopResetExcel');
+    if (btnTopResetExcel) {
+      btnTopResetExcel.addEventListener('click', resetExcelRegistrations);
+    }
     const btnDownloadExcel = document.getElementById('btnDownloadExcel');
     if (btnDownloadExcel) {
       btnDownloadExcel.addEventListener('click', downloadRegistrationsExcel);
@@ -76,6 +80,10 @@
     const btnDownloadRegistrationsCsv = document.getElementById('btnDownloadRegistrationsCsv');
     if (btnDownloadRegistrationsCsv) {
       btnDownloadRegistrationsCsv.addEventListener('click', downloadRegistrationsCsv);
+    }
+    const btnResetExcel = document.getElementById('btnResetExcel');
+    if (btnResetExcel) {
+      btnResetExcel.addEventListener('click', resetExcelRegistrations);
     }
   }
 
@@ -524,6 +532,39 @@
     }
     showToast('📊 Downloading official Safarnama registrations spreadsheet...');
     window.location.href = `/api/registrations/excel?auth=${encodeURIComponent(currentPasscode)}`;
+  }
+
+  // Reset Registrations Excel & Data — Admin Protected
+  async function resetExcelRegistrations() {
+    if (!currentPasscode) {
+      return showToast('❌ Terminal not authenticated');
+    }
+
+    const confirmed = confirm(
+      '⚠️ PERMANENT ACTION — RESET EXCEL DATA?\n\n' +
+      'This will erase all current registration entries and generate a completely FRESH, clean Excel sheet.\n\n' +
+      'Do you want to proceed and start with a fresh Excel sheet?'
+    );
+
+    if (!confirmed) return;
+
+    try {
+      showToast('⏳ Initializing fresh Excel workbook...');
+      const res = await fetch('/api/registrations/reset', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: currentPasscode })
+      });
+      const data = await res.json();
+      if (data.success) {
+        showToast('✅ Fresh Excel initialized! All previous registrations cleared.');
+        fetchAnalytics(true);
+      } else {
+        showToast('❌ Reset failed: ' + (data.error || 'Unauthorized'));
+      }
+    } catch (e) {
+      showToast('❌ Failed to connect to server');
+    }
   }
 
   // Download Registrations CSV — Admin Protected
