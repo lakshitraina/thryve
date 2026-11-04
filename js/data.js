@@ -387,7 +387,7 @@ const THRYVE_DATA = {
       description: 'Educational and recreational trip organized by THRYVE for LPU students. Explore wildlife at Chhatbir Zoo, artistic marvels at Rock Garden, and scenic flora at Rose Garden, Chandigarh. Includes luxury AC bus travel to & fro.',
       lineup: 'Chhatbir Zoo • Rock Garden • Rose Garden • AC Bus Transit',
       capacity: 'Limited Bus Capacity for LPU Students',
-      spotsLeft: 'Register Now via YouPI Gateway'
+      spotsLeft: 'Register Now via Macbease'
     },
     {
       id: 'code-heist',

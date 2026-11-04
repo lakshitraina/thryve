@@ -3,8 +3,8 @@
  * Handles countdown timer, registration redirect, and UI interactions.
  */
 
-// Target Registration URL provided by user
-const REGISTRATION_REDIRECT_URL = 'https://app.macbease.com/events/6a9867eb7f1083507fb8dcf9';
+// Target Registration URL provided by user (Macbease Safarnama Event)
+const REGISTRATION_REDIRECT_URL = 'https://app.macbease.com/events/safarnama';
 
 // Event ISO target date (Safarnama: 21 Nov 2026, 4:00 AM)
 const EVENT_TARGET_ISO = '2026-11-21T04:00:00+05:30';
@@ -46,7 +46,7 @@ function setupRegistrationButtons() {
     btn.setAttribute('rel', 'noopener noreferrer');
     btn.addEventListener('click', (e) => {
       // Let standard link navigation happen or trigger programmatic open
-      console.log('Redirecting to Macbease Code Heist Registration portal:', REGISTRATION_REDIRECT_URL);
+      console.log('Redirecting to Macbease Safarnama Registration portal:', REGISTRATION_REDIRECT_URL);
     });
   });
 }
